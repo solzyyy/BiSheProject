@@ -1,0 +1,11 @@
+{
+  "graphs": {
+    "path_generation": {
+      "path": "branch.generation.langgraph.workflow:create_path_generation_graph",
+      "description": "Path generation workflow"
+    }
+  },
+  "dependencies": [
+    "src"
+  ]
+}

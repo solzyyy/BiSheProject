@@ -1,0 +1,67 @@
+{
+  "event_id": "E17",
+  "event_info": {
+    "id": "E17",
+    "人物": [
+      "C014",
+      "C001"
+    ],
+    "行动": "皇帝宣布判决并命人准备画奴用具",
+    "目标": "将王佛正式确立为宫廷画奴，开始精神施虐的仪式",
+    "结果": "王佛被剥夺自由画师身份，成为必须按皇帝口述作画的工具；画具与焚画炉被安置于大殿角落",
+    "前提条件": "皇帝已改变主意，决定免除肉刑转为奴役",
+    "结果影响": "王佛的处境从待死的囚犯变为永续的奴隶；皇帝的控制欲得到仪式性确立",
+    "场景": "皇宫大殿，绿石地面血迹未干处；大殿西侧新设一矮案、素绢、笔墨与一只青铜小炉",
+    "时间": "判决宣布后的即刻"
+  },
+  "selected_state_changes": [
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "动机",
+      "value": "通过系统性的精神施虐与仪式化焚画，持续玷污美并巩固对美的绝对支配",
+      "source_event": "E17"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "价值观",
+      "value": "美是必须被其定义、掌控并最终毁灭的谎言，艺术创造者应沦为证明此点的工具",
+      "source_event": "E17"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "处境认知",
+      "value": "自己已成为美的终极审判者与行刑者，通过每日焚画仪式行使神圣化的破坏权",
+      "source_event": "E17"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C014",
+        "C001"
+      ],
+      "dimension": "权力动态",
+      "value": "皇帝对王佛拥有绝对且制度化的支配权，将其从‘待处置的罪人’固化为‘永久的生产性奴隶’",
+      "source_event": "E17"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C014",
+        "C001"
+      ],
+      "dimension": "连接强度",
+      "value": "通过每日作画与焚画的强制仪式，形成单向、持续且无法挣脱的扭曲共生",
+      "source_event": "E17"
+    },
+    {
+      "target_type": "world",
+      "target_id": "painting_tools",
+      "dimension": "物品状态",
+      "value": "画具与焚画炉被永久设置在宫廷特定场所，专供皇帝监督下的每日作画与焚毁仪式使用",
+      "source_event": "E17"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "event_id": "E1",
+  "tool_calls": [
+    {
+      "name": "update_world_state",
+      "arguments": "{\"target_id\": \"han_kingdom_road_condition\", \"dimension\": \"场景状态\", \"value\": \"通衢大道\", \"reason\": \"师徒二人在汉王国的通衢大道上浪游，道路宽阔畅通，为漫游提供了物理条件\"}"
+    }
+  ]
+}

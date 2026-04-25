@@ -1,0 +1,98 @@
+<mxfile host="65bd71144e">
+    <diagram name="图4-6 LangGraph工作流状态流转图" id="fig4-6">
+        <mxGraphModel dx="1447" dy="484" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1019" pageHeight="1180" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="nd_start" value="&lt;b&gt;START&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#333333;fontColor=#ffffff;strokeColor=#333333;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="30" width="100" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_s0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="nd_start" target="nd_init" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="nd_init" value="&lt;b&gt;initialize&lt;/b&gt;&lt;br&gt;加载分支点，设置初始状态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="335" y="120" width="230" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_01" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="nd_init" target="nd_sumhist" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="nd_sumhist" value="&lt;b&gt;summarize_history&lt;/b&gt;&lt;br&gt;消息历史 &gt; 10 条时摘要压缩，保留最近 3 条" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="335" y="225" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="nd_sumhist" target="nd_llm" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="nd_llm" value="&lt;b&gt;llm_decision&lt;/b&gt;&lt;br&gt;双 LLM 客户端隔离，流控型客户端决策" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="335" y="335" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_23" value="route_after_llm_decision&#10;（检查 tool_calls）" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;" parent="1" source="nd_llm" target="nd_tools" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="nd_tools" value="&lt;b&gt;tools（ToolNode）&lt;/b&gt;&lt;br&gt;执行工具调用，返回 ToolMessage（含 status）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="335" y="445" width="230" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="lbl_route" value="route_after_tools（解析 ToolMessage.status）" style="text;html=1;align=center;fontSize=11;fontStyle=2;fontColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="518" width="500" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_tg" value="status=&quot;generated&quot;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=0.15;exitY=1;entryX=0.5;entryY=0;" parent="1" source="nd_tools" target="nd_gen" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="nd_gen" value="&lt;b&gt;generate_branch_event&lt;/b&gt;&lt;br&gt;生成新分支事件，更新状态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="560" width="210" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="eloop" value="循环生成下一个事件" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;strokeColor=#6c8ebf;fontColor=#6c8ebf;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="nd_gen" target="nd_sumhist" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="25" y="592"/>
+                            <mxPoint x="25" y="255"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_tm" value="status=&quot;merged&quot;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="nd_tools" target="nd_pm" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="nd_pm" value="&lt;b&gt;process_mainline&lt;/b&gt;&lt;br&gt;处理合流后的主线事件（支持 interrupt）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="560" width="220" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_pm1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="nd_pm" target="nd_ise" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="nd_ise" value="&lt;b&gt;identify_similar_endings&lt;/b&gt;&lt;br&gt;识别相似结局分组" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="680" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ise1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="nd_ise" target="nd_mse" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="nd_mse" value="&lt;b&gt;merge_similar_endings&lt;/b&gt;&lt;br&gt;合并相似结局" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="790" width="220" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_mse1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="nd_mse" target="nd_sde" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="nd_sde" value="&lt;b&gt;select_dramatic_ending&lt;/b&gt;&lt;br&gt;选择文学性结局（支持 interrupt 人工确认）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="900" width="220" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_sde1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="nd_sde" target="nd_end" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="nd_end" value="&lt;b&gt;END&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#333333;fontColor=#ffffff;strokeColor=#333333;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="1020" width="100" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_te" value="status=&quot;early_ending_created&quot;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=0.85;exitY=1;entryX=0.5;entryY=0;" parent="1" source="nd_tools" target="nd_ee" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="nd_ee" value="&lt;b&gt;create_early_ending&lt;/b&gt;&lt;br&gt;创建提前结局事件" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="730" y="560" width="210" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_ee2ise" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=0.5;exitY=1;entryX=1;entryY=0.5;" parent="1" source="nd_ee" target="nd_ise" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="835" y="720"/>
+                            <mxPoint x="560" y="710"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

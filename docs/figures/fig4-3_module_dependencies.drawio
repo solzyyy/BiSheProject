@@ -1,0 +1,102 @@
+<mxfile host="app.diagrams.net" version="24.0.0">
+  <diagram name="图4-3 模块依赖关系图" id="fig4-3">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="480" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- 事件图谱构建 -->
+        <mxCell id="m1" value="&lt;b&gt;事件图谱构建&lt;/b&gt;&lt;br&gt;event_graph/"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="30" y="195" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 角色建模 -->
+        <mxCell id="m2" value="&lt;b&gt;角色建模&lt;/b&gt;&lt;br&gt;character/"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="270" y="195" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 状态管理 -->
+        <mxCell id="m3" value="&lt;b&gt;状态管理&lt;/b&gt;&lt;br&gt;state_manager/"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="530" y="195" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 分支生成 -->
+        <mxCell id="m4" value="&lt;b&gt;分支生成&lt;/b&gt;&lt;br&gt;branch/"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="790" y="195" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 叙事扩写 -->
+        <mxCell id="m5" value="&lt;b&gt;叙事扩写&lt;/b&gt;&lt;br&gt;scripts/content_generator"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="1040" y="195" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Ren'Py脚本生成 -->
+        <mxCell id="m6" value="&lt;b&gt;Ren'Py 脚本生成&lt;/b&gt;&lt;br&gt;renpy/"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="1040" y="350" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- 箭头：m1 → m2（events.json） -->
+        <mxCell id="e12" value="events.json" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;" edge="1" source="m1" target="m2" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 箭头：m2 → m3（entities/profiles） -->
+        <mxCell id="e23" value="entities.json · state_baseline.json" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;" edge="1" source="m2" target="m3" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 箭头：m3 → m4（状态快照供分支使用） -->
+        <mxCell id="e34" value="StateSnapshot" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;" edge="1" source="m3" target="m4" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 循环箭头：m4 → m3（每个分支事件触发状态更新） -->
+        <mxCell id="eloop" value="循环调用（每个分支事件触发状态更新）"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;strokeColor=#9673a6;fontColor=#9673a6;exitX=0.5;exitY=1;entryX=0.5;entryY=1;"
+          edge="1" source="m4" target="m3" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="390" />
+              <mxPoint x="620" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 箭头：m4 → m5（all_paths） -->
+        <mxCell id="e45" value="all_paths_completed.json" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;" edge="1" source="m4" target="m5" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 箭头：m5 → m6（enhanced_paths） -->
+        <mxCell id="e56" value="enhanced_paths/*.json" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;" edge="1" source="m5" target="m6" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 说明：entities.json 也被 renpy 使用 -->
+        <mxCell id="e2r" value="entities.json（实体解析）"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;strokeColor=#aaaaaa;fontColor=#888888;dashed=1;exitX=0.5;exitY=1;entryX=0;entryY=1;"
+          edge="1" source="m2" target="m6" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="430" />
+              <mxPoint x="1040" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

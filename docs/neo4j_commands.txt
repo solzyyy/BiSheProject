@@ -1,0 +1,5 @@
+C:\Codefield\neo4j-community-5.26.0\bin>neo4j console
+http://localhost:7474/browser/
+MATCH (n) DETACH DELETE n
+MATCH (a:Event)-[r:REL]->(b:Event) RETURN a, r, b 
+LIMIT 50

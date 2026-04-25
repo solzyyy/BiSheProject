@@ -1,0 +1,26 @@
+{
+  "run_id": "longtext_validation",
+  "input_text": "docs/validation_samples/马尔戈的微笑.txt",
+  "output_root": "runs/longtext_validation",
+  "validate_after_each_step": true,
+  "steps": {
+    "extract-events": {
+      "enabled": true
+    },
+    "generate-mentions": {
+      "enabled": true
+    },
+    "generate-entities": {
+      "enabled": true
+    },
+    "extract-states-and-baseline": {
+      "enabled": true
+    },
+    "generate-renpy-scripts": {
+      "enabled": false
+    },
+    "import-assets": {
+      "enabled": false
+    }
+  }
+}

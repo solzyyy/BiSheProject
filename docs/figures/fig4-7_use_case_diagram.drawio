@@ -1,0 +1,135 @@
+<mxfile host="app.diagrams.net" agent="Cursor">
+  <diagram id="usecase" name="Page-1">
+    <mxGraphModel dx="1094" dy="697" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sys" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;align=center;" value="" vertex="1">
+          <mxGeometry height="530" width="760" x="260" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="actor_dev" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" value="名著数字化开发者" vertex="1">
+          <mxGeometry height="80" width="40" x="90" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="actor_ops" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" value="系统流水线运维者" vertex="1">
+          <mxGeometry height="80" width="40" x="90" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="actor_player" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" value="互动叙事体验者" vertex="1">
+          <mxGeometry height="80" width="40" x="90" y="395" as="geometry" />
+        </mxCell>
+        <mxCell id="uc1" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="端到端数字化转化（配置运行）" vertex="1">
+          <mxGeometry height="40" width="260" x="420" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="uc2" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="事件与关系抽取" vertex="1">
+          <mxGeometry height="50" width="220" x="755" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="uc3" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="实体别名归并与人设聚合" vertex="1">
+          <mxGeometry height="50" width="230" x="755" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="uc4" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="状态抽取与快照追踪" vertex="1">
+          <mxGeometry height="50" width="230" x="750" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="uc5" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="决策点分析与分支生成" vertex="1">
+          <mxGeometry height="40" width="230" x="750" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="uc6" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="叙事扩写" vertex="1">
+          <mxGeometry height="40" width="235" x="755" y="342.5" as="geometry" />
+        </mxCell>
+        <mxCell id="uc7" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="脚本生成与资源引用绑定" vertex="1">
+          <mxGeometry height="50" width="240" x="750" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="uc8" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="运行生成的Ren&#39;Py游戏" vertex="1">
+          <mxGeometry height="50" width="240" x="320" y="465" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_edit" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="关键节点人工筛选与语义干预（可选）" vertex="1">
+          <mxGeometry height="40" width="260" x="420" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_resume" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="监控执行与断点续传/回溯（可选）" vertex="1">
+          <mxGeometry height="45" width="250" x="320" y="337.5" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_validate" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="输出完整性校验" vertex="1">
+          <mxGeometry height="40" width="245" x="325" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="inc_uc1_uc2" edge="1" parent="1" source="uc1" style="dashed=1;endArrow=open;endFill=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="uc2" value="&amp;lt;include&amp;gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="inc_uc1_uc3" edge="1" parent="1" source="uc1" style="dashed=1;endArrow=open;endFill=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="uc3" value="&amp;lt;include&amp;gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="inc_uc1_uc4" edge="1" parent="1" source="uc1" style="dashed=1;endArrow=open;endFill=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="uc4" value="&amp;lt;include&amp;gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="inc_uc1_uc5" edge="1" parent="1" source="uc1" style="dashed=1;endArrow=open;endFill=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="uc5" value="&amp;lt;include&amp;gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="inc_uc1_uc6" edge="1" parent="1" source="uc1" style="dashed=1;endArrow=open;endFill=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="uc6" value="&amp;lt;include&amp;gt;">
+          <mxGeometry relative="1" x="-0.0029" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="680" y="170" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="inc_uc1_uc7" edge="1" parent="1" source="uc1" style="dashed=1;endArrow=open;endFill=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="uc7" value="&amp;lt;include&amp;gt;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="680" y="170" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ext_edit_uc6" edge="1" parent="1" source="uc_edit" style="dashed=1;endArrow=open;endFill=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="uc6" value="&amp;lt;extend&amp;gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_validate_uc1" edge="1" parent="1" source="uc_validate" style="dashed=1;endArrow=open;endFill=0;html=1;" target="uc1" value="&amp;lt;extend&amp;gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_resume_uc1" edge="1" parent="1" source="uc_resume" style="dashed=1;endArrow=open;endFill=0;html=1;" target="uc1" value="&amp;lt;extend&amp;gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PUjRiZ7NM309yud4YLAS-2" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uc1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="140" y="170" as="sourcePoint" />
+            <mxPoint x="160" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PUjRiZ7NM309yud4YLAS-3" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uc_edit" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="140" y="140" as="sourcePoint" />
+            <mxPoint x="170" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PUjRiZ7NM309yud4YLAS-4" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uc1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="140" y="270" as="sourcePoint" />
+            <mxPoint x="180" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PUjRiZ7NM309yud4YLAS-5" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uc_validate" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="140" y="290" as="sourcePoint" />
+            <mxPoint x="180" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_ops_resume" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="uc_resume" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="140" y="310" as="sourcePoint" />
+            <mxPoint x="180" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PUjRiZ7NM309yud4YLAS-6" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="130" y="440" as="sourcePoint" />
+            <mxPoint x="325" y="489.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PUjRiZ7NM309yud4YLAS-7" parent="1" style="text;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="1" width="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hPxyRVJnFEScaPFXdhwa-1" parent="1" style="text;whiteSpace=wrap;html=1;labelBackgroundColor=default;" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;文字冒险游戏内容生成系统&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="180" x="550" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hPxyRVJnFEScaPFXdhwa-4" edge="1" parent="1" source="uc_edit" style="dashed=1;endArrow=open;endFill=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="uc5" value="&amp;lt;extend&amp;gt;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="650" as="sourcePoint" />
+            <mxPoint x="715" y="893" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

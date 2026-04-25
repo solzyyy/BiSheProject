@@ -1,0 +1,15 @@
+[project]
+name = "bish-project"
+version = "0.1.0"
+description = "Text adventure game content generation system"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "."
+

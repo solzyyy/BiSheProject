@@ -1,0 +1,68 @@
+{
+  "event_id": "E16",
+  "state_changes": [
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "动机",
+      "value": "通过奴役与精神施虐玷污美本身，获得持续的支配满足"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "情绪状态",
+      "value": "偏执、冷酷、掌控欲高涨，暴虐冲动转化为持续的精神施虐快感"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C013",
+      "dimension": "处境认知",
+      "value": "成为宫廷画奴，被迫每日按皇帝口述的丑陋作画并目睹其焚毁，陷入永恒的精神凌迟"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C013",
+      "dimension": "健康状态",
+      "value": "免除肉刑但被永久奴役，身心承受持续的精神折磨"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C013",
+      "dimension": "行动能力",
+      "value": "保留绘画的物理能力，但创作自由被彻底剥夺，必须严格遵从皇帝指令"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C014",
+        "C013"
+      ],
+      "dimension": "关系类型",
+      "value": "奴役者与被奴役者"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C014",
+        "C013"
+      ],
+      "dimension": "权力动态",
+      "value": "绝对支配与工具化控制"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C014",
+        "C013"
+      ],
+      "dimension": "连接强度",
+      "value": "强制性的、扭曲的共生连接"
+    },
+    {
+      "target_type": "world",
+      "target_id": "wangfo_artistic_freedom",
+      "dimension": "资源状态",
+      "value": "被彻底剥夺，画作成为皇帝精神施虐的工具并规定焚毁"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "run_id": "demo_wangfo",
+  "input_text": "王佛脱险记.txt",
+  "output_root": "runs/demo_wangfo",
+  "validate_after_each_step": true,
+  "default_step_params": {
+    "project_root": "."
+  },
+  "steps": {
+    "extract-events": {
+      "enabled": true
+    },
+    "extract-relations": {
+      "enabled": true
+    },
+    "import-neo4j": {
+      "enabled": true,
+      "params": {
+        "clear": false
+      }
+    },
+    "generate-mentions-and-entities": {
+      "enabled": true
+    },
+    "generate-canonical-branch": {
+      "enabled": true
+    },
+    "generate-all-paths": {
+      "enabled": true,
+      "params": {
+        "canonical": "out/canonical_branch_chronological.json"
+      }
+    },
+    "complete-all-path-events": { "enabled": true, "params": {} },
+    "generate-content": {
+      "enabled": true,
+      "params": {
+        "input_dir": "out/all_paths_completed",
+        "output_dir": "out/enhanced_paths"
+      }
+    },
+    "generate-renpy-scripts": {
+      "enabled": true
+    },
+    "import-assets": {
+      "enabled": true
+    }
+  }
+}

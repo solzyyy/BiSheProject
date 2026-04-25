@@ -1,0 +1,144 @@
+{
+  "event_id": "E1",
+  "event_info": {
+    "id": "E1",
+    "人物": [
+      "王佛",
+      "林"
+    ],
+    "行动": "师徒二人在汉王国的通衢大道上浪游",
+    "目标": "漫游，观察世界",
+    "结果": "缓慢前行，王佛时常停下来观察自然",
+    "情绪": "从容、专注、贫困但满足",
+    "时间": "",
+    "场景": "汉王国的通衢大道",
+    "前提条件": "",
+    "结果影响": "为后续故事展开背景",
+    "source_text": "老画家王佛和他的弟子林在汉王国的通衢大道上浪游。他们慢慢地朝前走着，因为王佛时常要停下来，白天端详蜻蜓，晚上仰观星辰。他们的行囊轻便，因为王佛爱的是物体的形象而不是物体本身。对画家说来，世界上除了画笔、墨瓶、漆罐、绢卷和宣纸以外，似乎再没有别的什么东西是值得占有的了。他们十分贫困，因为王佛鄙视银钱，只用他的画来换取一顿小米粥充饥。",
+    "emotion_value": 10,
+    "conflict_value": 0,
+    "impact_value": 15
+  },
+  "selected_state_changes": [
+    {
+      "source_event": "E1",
+      "target_type": "world",
+      "target_id": "han_kingdom_road_condition",
+      "dimension": "场景状态",
+      "change_type": "set",
+      "value": "通衢大道",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "道路宽阔畅通，不限制人物移动，为漫游提供了物理条件。",
+      "plot_sensitive": 0.2
+    },
+    {
+      "source_event": "E1",
+      "target_type": "world",
+      "target_id": "painting_tools_availability",
+      "dimension": "物品存在",
+      "change_type": "set",
+      "value": "拥有画笔、墨瓶、漆罐、绢卷、宣纸",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "拥有核心绘画工具，确保了绘画行为的基本可行性。",
+      "plot_sensitive": 0.5
+    },
+    {
+      "source_event": "E1",
+      "target_type": "world",
+      "target_id": "general_luggage_weight",
+      "dimension": "物品属性",
+      "change_type": "set",
+      "value": "轻便",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "行囊轻便，不构成长途旅行的负担，便于漫游。",
+      "plot_sensitive": 0.3
+    },
+    {
+      "source_event": "E1",
+      "target_type": "world",
+      "target_id": "painting_trade_system",
+      "dimension": "社会状态",
+      "change_type": "set",
+      "value": "画作可交换食物",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "存在以画易物的社会规则或市场，为贫困的画家提供了获取基本生存资源的唯一途径。",
+      "plot_sensitive": 0.7
+    },
+    {
+      "source_event": "E1",
+      "target_type": "world",
+      "target_id": "economic_resource_status",
+      "dimension": "资源状态",
+      "change_type": "set",
+      "value": "贫困",
+      "condition": null,
+      "is_obstacle": true,
+      "logic_impact": "贫困状态限制了人物获取生活资源（如食物、住所）的能力和方式，迫使其依赖特定技能（作画）换取生存物资。",
+      "plot_sensitive": 0.8
+    },
+    {
+      "source_event": "E1",
+      "target_type": "character",
+      "target_id": "C013",
+      "dimension": "动机",
+      "change_type": "set",
+      "value": "观察自然、浪游创作",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "确立了以观察自然和浪游为主要生活方式与创作动机，这决定了其后续的行动模式（如停留观察、以画换食）。",
+      "plot_sensitive": 0.5
+    },
+    {
+      "source_event": "E1",
+      "target_type": "character",
+      "target_id": "C011",
+      "dimension": "处境认知",
+      "change_type": "set",
+      "value": "处于跟随师父学习、观察自然的漫游状态",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "林认知到自己当前的角色是学徒，主要任务是跟随和观察，这决定了他当前的行为模式是模仿和接受引导，而非独立行动或决策。",
+      "plot_sensitive": 0.4
+    },
+    {
+      "source_event": "E1",
+      "target_type": "character",
+      "target_id": "C013",
+      "dimension": "处境认知",
+      "change_type": "set",
+      "value": "贫困但可维持",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "认知到自身处于贫困但可通过艺术（以画换食）维持基本生存的状态，这使其能专注于艺术而非生计，不构成行动阻碍。",
+      "plot_sensitive": 0.2
+    },
+    {
+      "source_event": "E1",
+      "target_type": "character",
+      "target_id": "C011",
+      "dimension": "情绪状态",
+      "change_type": "set",
+      "value": "从容、专注、满足",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "这种平静、专注且满足的情绪状态，使林能够跟随师父王佛进行长时间的观察和学习，不会因贫困或旅途的缓慢而产生焦躁或放弃的念头。",
+      "plot_sensitive": 0.3
+    },
+    {
+      "source_event": "E1",
+      "target_type": "character",
+      "target_id": "C013",
+      "dimension": "情绪状态",
+      "change_type": "set",
+      "value": "从容、专注、满足",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "情绪处于专注观察和满足的平静状态，有利于持续进行艺术创作和教学，不会因贫困而产生焦虑或分心。",
+      "plot_sensitive": 0.3
+    }
+  ]
+}

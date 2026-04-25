@@ -1,0 +1,1395 @@
+<mxfile host="app.diagrams.net" pages="6">
+  <diagram id="seq451" name="4.5.1 事件图谱构建">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="920" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="seq451_title" value="&lt;b&gt;图4-5b 事件图谱构建模块业务时序图（UML）&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="120" y="8" width="860" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_p_u" value="用户" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="28" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_p_ifc" value="接口层&lt;br&gt;（Streamlit / CLI）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="165" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_p_app" value="业务逻辑层&lt;br&gt;（事件图谱构建）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="302" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_p_txt" value="核心基础设施层&lt;br&gt;（通用文本处理）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="439" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_p_llm" value="核心基础设施层&lt;br&gt;（Async LLM Client）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="575" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_p_neo" value="核心基础设施层&lt;br&gt;（Neo4j 客户端）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="712" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_p_db" value="外部服务与存储层&lt;br&gt;（Neo4j / JSON）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="849" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_p_api" value="外部服务层&lt;br&gt;（LLM API）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="986" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_l_u" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="71" y="98" as="sourcePoint" />
+            <mxPoint x="71" y="612" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_l_ifc" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="208" y="98" as="sourcePoint" />
+            <mxPoint x="208" y="612" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_l_app" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="345" y="98" as="sourcePoint" />
+            <mxPoint x="345" y="612" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_l_txt" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="482" y="98" as="sourcePoint" />
+            <mxPoint x="482" y="612" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_l_llm" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="618" y="98" as="sourcePoint" />
+            <mxPoint x="618" y="612" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_l_neo" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="755" y="98" as="sourcePoint" />
+            <mxPoint x="755" y="612" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_l_db" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="892" y="98" as="sourcePoint" />
+            <mxPoint x="892" y="612" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_l_api" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1029" y="98" as="sourcePoint" />
+            <mxPoint x="1029" y="612" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_a1" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="203" y="128" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_a2" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="340" y="154" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_a3" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="477" y="180" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_a4" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="477" y="206" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_a5" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="613" y="232" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_a6" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="1024" y="258" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_a7" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="1024" y="284" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_a8" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="613" y="310" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_a9" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="613" y="336" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_a10" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="1024" y="362" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_a11" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="1024" y="388" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_a12" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="613" y="414" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_a13" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="750" y="440" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_a14" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="887" y="466" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_a15" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="887" y="492" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_a16" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="750" y="518" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_a17" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="203" y="544" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq451_m1" value="1. 进入事件抽取并提交全文" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="71" y="130" as="sourcePoint" />
+            <mxPoint x="208" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_m2" value="2. 调用流水线（事件图谱阶段）" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="208" y="156" as="sourcePoint" />
+            <mxPoint x="345" y="156" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_m3" value="3. 请求段落切分与清洗" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="345" y="182" as="sourcePoint" />
+            <mxPoint x="482" y="182" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_m4" value="4. 返回段落列表" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="482" y="208" as="sourcePoint" />
+            <mxPoint x="345" y="208" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_m5" value="5. 请求结构化事件抽取" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="345" y="234" as="sourcePoint" />
+            <mxPoint x="618" y="234" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_m6" value="6. HTTP 调用推理接口" style="endArrow=block;html=1;fontSize=9;dashed=1;strokeColor=#333333;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="618" y="260" as="sourcePoint" />
+            <mxPoint x="1029" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_m7" value="7. 返回 JSON 事件片段" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1029" y="286" as="sourcePoint" />
+            <mxPoint x="618" y="286" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_m8" value="8. 汇总为 Event 列表" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="618" y="312" as="sourcePoint" />
+            <mxPoint x="345" y="312" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_m9" value="9. 请求关系识别" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="345" y="338" as="sourcePoint" />
+            <mxPoint x="618" y="338" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_m10" value="10. HTTP 调用推理接口" style="endArrow=block;html=1;fontSize=9;dashed=1;strokeColor=#333333;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="618" y="364" as="sourcePoint" />
+            <mxPoint x="1029" y="364" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_m11" value="11. 返回关系结果" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1029" y="390" as="sourcePoint" />
+            <mxPoint x="618" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_m12" value="12. REL 结构化结果" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="618" y="416" as="sourcePoint" />
+            <mxPoint x="345" y="416" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_m13" value="13. 提交图装载（Cypher）" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="345" y="442" as="sourcePoint" />
+            <mxPoint x="755" y="442" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_m14" value="14. 持久化写入" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="755" y="468" as="sourcePoint" />
+            <mxPoint x="892" y="468" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_m15" value="15. 写入完成" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="892" y="494" as="sourcePoint" />
+            <mxPoint x="755" y="494" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_m16" value="16. 返回完成状态" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="755" y="520" as="sourcePoint" />
+            <mxPoint x="208" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_m17" value="17. 提示用户阶段结果" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="208" y="546" as="sourcePoint" />
+            <mxPoint x="71" y="546" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq451_note" value="说明：段落级并发生在业务层内部；层次与正文图4-3 一致。" style="text;html=1;fillColor=#FFFFCC;align=left;fontSize=9;spacing=6;rounded=0;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="40" y="578" width="1000" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="seq452" name="4.5.2 角色建模">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="920" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="seq452_title" value="&lt;b&gt;图4-5c 角色建模模块业务时序图（UML）&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="120" y="8" width="860" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_p_u" value="用户" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="28" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_p_ifc" value="接口层&lt;br&gt;（Streamlit / CLI）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="188" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_p_app" value="业务逻辑层&lt;br&gt;（角色建模）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="347" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_p_llm" value="核心基础设施层&lt;br&gt;（Async LLM Client）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="507" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_p_neo" value="核心基础设施层&lt;br&gt;（Neo4j 客户端）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="667" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_p_db" value="外部服务与存储层&lt;br&gt;（Neo4j / JSON）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="826" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_p_api" value="外部服务层&lt;br&gt;（LLM API）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="986" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_l_u" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="71" y="98" as="sourcePoint" />
+            <mxPoint x="71" y="616" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_l_ifc" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="231" y="98" as="sourcePoint" />
+            <mxPoint x="231" y="616" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_l_app" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="98" as="sourcePoint" />
+            <mxPoint x="390" y="616" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_l_llm" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="550" y="98" as="sourcePoint" />
+            <mxPoint x="550" y="616" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_l_neo" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="710" y="98" as="sourcePoint" />
+            <mxPoint x="710" y="616" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_l_db" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="869" y="98" as="sourcePoint" />
+            <mxPoint x="869" y="616" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_l_api" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1029" y="98" as="sourcePoint" />
+            <mxPoint x="1029" y="616" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_a1" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="226" y="128" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_a2" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="385" y="154" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_a3" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="545" y="180" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_a4" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="1024" y="206" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_a5" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="1024" y="232" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_a6" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="545" y="258" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_a7" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="385" y="284" width="10" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_a8" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="545" y="314" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_a9" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="1024" y="340" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_a10" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="1024" y="366" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_a11" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="545" y="392" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_a12" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="705" y="418" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_a13" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="864" y="444" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_a14" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="864" y="470" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_a15" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="705" y="496" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_a16" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="385" y="522" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_a17" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="226" y="548" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq452_m1" value="1. 进入角色建模阶段" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="71" y="130" as="sourcePoint" />
+            <mxPoint x="231" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_m2" value="2. 传入事件与文本" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="231" y="156" as="sourcePoint" />
+            <mxPoint x="390" y="156" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_m3" value="3. 实体消歧与状态抽取请求" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="182" as="sourcePoint" />
+            <mxPoint x="550" y="182" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_m4" value="4. HTTP 调用推理接口" style="endArrow=block;html=1;fontSize=9;dashed=1;strokeColor=#333333;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="550" y="208" as="sourcePoint" />
+            <mxPoint x="1029" y="208" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_m5" value="5. 返回结构化实体与状态" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1029" y="234" as="sourcePoint" />
+            <mxPoint x="550" y="234" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_m6" value="6. 返回业务侧结果" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="550" y="260" as="sourcePoint" />
+            <mxPoint x="390" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_m7" value="7. 画像聚合（TF-IDF/PMI，模块内）" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="418" y="286" />
+              <mxPoint x="418" y="304" />
+              <mxPoint x="390" y="304" />
+            </Array>
+            <mxPoint x="390" y="286" as="sourcePoint" />
+            <mxPoint x="390" y="286" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_m8" value="8. 人设多维度抽取请求" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="316" as="sourcePoint" />
+            <mxPoint x="550" y="316" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_m9" value="9. HTTP 调用推理接口" style="endArrow=block;html=1;fontSize=9;dashed=1;strokeColor=#333333;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="550" y="342" as="sourcePoint" />
+            <mxPoint x="1029" y="342" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_m10" value="10. 返回人设文本" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1029" y="368" as="sourcePoint" />
+            <mxPoint x="550" y="368" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_m11" value="11. 返回人设结果" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="550" y="394" as="sourcePoint" />
+            <mxPoint x="390" y="394" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_m12" value="12. 写入实体与 StateChange" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="420" as="sourcePoint" />
+            <mxPoint x="710" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_m13" value="13. 持久化" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="710" y="446" as="sourcePoint" />
+            <mxPoint x="869" y="446" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_m14" value="14. 完成" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="869" y="472" as="sourcePoint" />
+            <mxPoint x="710" y="472" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_m15" value="15. 返回完成状态" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="710" y="498" as="sourcePoint" />
+            <mxPoint x="390" y="498" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_m16" value="16. 返回完成状态" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="524" as="sourcePoint" />
+            <mxPoint x="231" y="524" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_m17" value="17. 提示用户" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="231" y="550" as="sourcePoint" />
+            <mxPoint x="71" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq452_note" value="说明：画像统计不调用 LLM；持久化经业务层闭合返回链；层次与图4-3 一致。" style="text;html=1;fillColor=#FFFFCC;align=left;fontSize=9;spacing=6;rounded=0;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="40" y="582" width="1000" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="seq453" name="4.5.3 状态管理">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="920" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="seq453_title" value="&lt;b&gt;图4-5d 状态管理模块业务时序图（UML）&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="120" y="8" width="860" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="seq453_p_u" value="用户" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="28" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq453_p_ifc" value="接口层&lt;br&gt;（Streamlit / CLI）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="220" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq453_p_app" value="业务逻辑层&lt;br&gt;（叙事状态管理）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="411" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq453_p_mem" value="运行时状态&lt;br&gt;（内存模型）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="603" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq453_p_llm" value="核心基础设施层&lt;br&gt;（Async LLM Client）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="794" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq453_p_api" value="外部服务层&lt;br&gt;（LLM API）" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="986" y="44" width="86" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="seq453_l_u" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="71" y="98" as="sourcePoint" />
+            <mxPoint x="71" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq453_l_ifc" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="263" y="98" as="sourcePoint" />
+            <mxPoint x="263" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq453_l_app" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="454" y="98" as="sourcePoint" />
+            <mxPoint x="454" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq453_l_mem" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="646" y="98" as="sourcePoint" />
+            <mxPoint x="646" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq453_l_llm" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="837" y="98" as="sourcePoint" />
+            <mxPoint x="837" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq453_l_api" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1029" y="98" as="sourcePoint" />
+            <mxPoint x="1029" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq453_a1" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="258" y="128" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq453_a2" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="449" y="154" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq453_a3" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="832" y="180" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq453_a4" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="1024" y="206" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq453_a5" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="1024" y="232" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq453_a6" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="832" y="258" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq453_a7" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="641" y="284" width="10" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="seq453_a8" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="641" y="310" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq453_a9" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="449" y="336" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq453_a10" value="" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" parent="1" vertex="1">
+          <mxGeometry x="258" y="362" width="10" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="seq453_m1" value="1. 传入事件与候选变化" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="71" y="130" as="sourcePoint" />
+            <mxPoint x="263" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq453_m2" value="2. 触发状态应用（LLM 路径）" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="263" y="156" as="sourcePoint" />
+            <mxPoint x="454" y="156" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq453_m3" value="3. 打包 Prompt 与工具定义" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="454" y="182" as="sourcePoint" />
+            <mxPoint x="837" y="182" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq453_m4" value="4. HTTP + Function Calling" style="endArrow=block;html=1;fontSize=9;dashed=1;strokeColor=#333333;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="837" y="208" as="sourcePoint" />
+            <mxPoint x="1029" y="208" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq453_m5" value="5. tool_calls 返回" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1029" y="234" as="sourcePoint" />
+            <mxPoint x="837" y="234" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq453_m6" value="6. LLM 调用返回（含 tool_calls）" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="837" y="260" as="sourcePoint" />
+            <mxPoint x="454" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq453_m7" value="7. 执行 update_* 写内存" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="454" y="286" as="sourcePoint" />
+            <mxPoint x="646" y="286" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq453_m8" value="8. 写内存完成" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="646" y="312" as="sourcePoint" />
+            <mxPoint x="454" y="312" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq453_m9" value="9. StateSnapshot" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="454" y="338" as="sourcePoint" />
+            <mxPoint x="263" y="338" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq453_m10" value="10. 返回调用端" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="263" y="364" as="sourcePoint" />
+            <mxPoint x="71" y="364" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq453_note" value="说明：快速直接路径不调用 LLM，见正文图4-7。" style="text;html=1;fillColor=#FFFFCC;align=left;fontSize=9;spacing=6;rounded=0;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="40" y="396" width="1000" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="seq454" name="4.5.4 分支生成">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1100" pageHeight="1166" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="seq454_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=1" value="&lt;b&gt;图4-5e 分支生成模块业务时序图（UML）&lt;/b&gt;" vertex="1">
+          <mxGeometry height="28" width="860" x="120" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_p_u" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" value="用户" vertex="1">
+          <mxGeometry height="54" width="86" x="28" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_p_ifc" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" value="接口层&lt;br&gt;（Streamlit / CLI）" vertex="1">
+          <mxGeometry height="54" width="86" x="134" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_p_dec" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" value="业务逻辑层&lt;br&gt;（决策点分析）" vertex="1">
+          <mxGeometry height="54" width="86" x="241" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_p_end" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" value="业务逻辑层&lt;br&gt;（结局候选确定）" vertex="1">
+          <mxGeometry height="54" width="86" x="347" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_p_br" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" value="业务逻辑层&lt;br&gt;（分支路径生成）" vertex="1">
+          <mxGeometry height="54" width="86" x="454" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_p_st" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" value="业务逻辑层&lt;br&gt;（叙事状态管理）" vertex="1">
+          <mxGeometry height="54" width="86" x="560" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_p_llm" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" value="核心基础设施层&lt;br&gt;（Async LLM Client）" vertex="1">
+          <mxGeometry height="54" width="86" x="667" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_p_neo" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" value="核心基础设施层&lt;br&gt;（Neo4j 客户端）" vertex="1">
+          <mxGeometry height="54" width="86" x="773" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_p_json" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" value="外部服务与存储层&lt;br&gt;（主线/决策/结局/路径 JSON）" vertex="1">
+          <mxGeometry height="54" width="86" x="880" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_p_api" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;fontStyle=0;" value="外部服务层&lt;br&gt;（LLM API）" vertex="1">
+          <mxGeometry height="54" width="86" x="986" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_l_u" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="71" y="98" as="sourcePoint" />
+            <mxPoint x="71" y="1106" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_l_ifc" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="177" y="98" as="sourcePoint" />
+            <mxPoint x="177" y="1106" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_l_dec" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="284" y="98" as="sourcePoint" />
+            <mxPoint x="284" y="1106" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_l_end" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="98" as="sourcePoint" />
+            <mxPoint x="390" y="1106" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_l_br" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="497" y="98" as="sourcePoint" />
+            <mxPoint x="497" y="1106" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_l_st" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="603" y="98" as="sourcePoint" />
+            <mxPoint x="603" y="1106" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_l_llm" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="710" y="98" as="sourcePoint" />
+            <mxPoint x="710" y="1106" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_l_neo" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="816" y="98" as="sourcePoint" />
+            <mxPoint x="816" y="1106" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_l_json" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="923" y="98" as="sourcePoint" />
+            <mxPoint x="923" y="1106" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_l_api" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1029" y="98" as="sourcePoint" />
+            <mxPoint x="1029" y="1106" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_a1" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="172" y="128" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a2" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="279" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a3" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="705" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a4" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="1024" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a5" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="1024" y="232" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a6" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="705" y="258" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a7" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="918" y="284" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a8" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="918" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a9" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="279" y="336" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a10" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="172" y="362" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a11" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="172" y="388" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a12" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="385" y="414" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a13" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="705" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a14" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="1024" y="466" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a15" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="1024" y="492" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a16" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="705" y="518" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a17" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="918" y="544" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a18" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="918" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a19" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="385" y="596" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a20" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="172" y="622" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a21" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="172" y="648" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a22" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="492" y="674" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a23" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="918" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a24" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="918" y="726" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a25" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="811" y="752" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a26" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="811" y="778" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a27" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="598" y="804" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a28" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="598" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a29" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="705" y="856" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a30" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="1024" y="882" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a31" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="1024" y="908" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a32" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="705" y="934" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a33" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="22" width="10" x="918" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a34" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="918" y="986" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a35" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="492" y="1012" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_a36" parent="1" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;" value="" vertex="1">
+          <mxGeometry height="18" width="10" x="172" y="1038" as="geometry" />
+        </mxCell>
+        <mxCell id="seq454_m1" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" value="1. ① 执行决策点分析">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="71" y="130" as="sourcePoint" />
+            <mxPoint x="177" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m2" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" value="2. 调用分析器">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="177" y="156" as="sourcePoint" />
+            <mxPoint x="284" y="156" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m3" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" value="3. 关键事件/候选/整合（LLM）">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="284" y="182" as="sourcePoint" />
+            <mxPoint x="710" y="182" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m4" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;dashed=1;strokeColor=#333333;" value="4. HTTP 调用推理接口">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="710" y="208" as="sourcePoint" />
+            <mxPoint x="1029" y="208" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m5" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="5. 结构化分析结果">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1029" y="234" as="sourcePoint" />
+            <mxPoint x="710" y="234" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m6" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="6. 返回分析器">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="710" y="260" as="sourcePoint" />
+            <mxPoint x="284" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m7" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" value="7. 写出 decision_points_analysis">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="284" y="286" as="sourcePoint" />
+            <mxPoint x="923" y="286" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m8" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="8. 写入完成">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="923" y="312" as="sourcePoint" />
+            <mxPoint x="284" y="312" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m9" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="9. 阶段完成">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="284" y="338" as="sourcePoint" />
+            <mxPoint x="177" y="338" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m10" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="10. 提示用户">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="177" y="364" as="sourcePoint" />
+            <mxPoint x="71" y="364" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m11" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" value="11. ② 执行结局候选确定">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="71" y="390" as="sourcePoint" />
+            <mxPoint x="177" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m12" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" value="12. 调用结局确定器">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="177" y="416" as="sourcePoint" />
+            <mxPoint x="390" y="416" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m13" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" value="13. 推断结局范围（LLM）">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="442" as="sourcePoint" />
+            <mxPoint x="710" y="442" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m14" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;dashed=1;strokeColor=#333333;" value="14. HTTP 调用推理接口">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="710" y="468" as="sourcePoint" />
+            <mxPoint x="1029" y="468" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m15" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="15. 结局候选">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1029" y="494" as="sourcePoint" />
+            <mxPoint x="710" y="494" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m16" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="16. 返回确定器">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="710" y="520" as="sourcePoint" />
+            <mxPoint x="390" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m17" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" value="17. 写出 ending_candidates">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="546" as="sourcePoint" />
+            <mxPoint x="923" y="546" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m18" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="18. 写入完成">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="923" y="572" as="sourcePoint" />
+            <mxPoint x="390" y="572" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m19" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="19. 阶段完成">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="598" as="sourcePoint" />
+            <mxPoint x="177" y="598" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m20" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="20. 提示用户">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="177" y="624" as="sourcePoint" />
+            <mxPoint x="71" y="624" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m21" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" value="21. ③ 执行分支路径生成">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="71" y="650" as="sourcePoint" />
+            <mxPoint x="177" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m22" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" value="22. 进入 LangGraph 编排">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="177" y="676" as="sourcePoint" />
+            <mxPoint x="497" y="676" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m23" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" value="23. 加载前置 JSON">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="497" y="702" as="sourcePoint" />
+            <mxPoint x="923" y="702" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m24" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="24. 主线/决策/结局元数据">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="923" y="728" as="sourcePoint" />
+            <mxPoint x="497" y="728" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m25" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" value="25. 查询事件与状态变化">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="497" y="754" as="sourcePoint" />
+            <mxPoint x="816" y="754" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m26" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="26. 图查询结果">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="816" y="780" as="sourcePoint" />
+            <mxPoint x="497" y="780" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m27" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" value="27. 应用状态（StateApplier）">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="497" y="806" as="sourcePoint" />
+            <mxPoint x="603" y="806" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m28" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="28. StateSnapshot">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="603" y="832" as="sourcePoint" />
+            <mxPoint x="497" y="832" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m29" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" value="29. LangGraph：摘要与决策（FC）">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="497" y="858" as="sourcePoint" />
+            <mxPoint x="710" y="858" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m30" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;dashed=1;strokeColor=#333333;" value="30. HTTP 调用推理接口">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="710" y="884" as="sourcePoint" />
+            <mxPoint x="1029" y="884" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m31" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="31. tool_calls / 文本">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1029" y="910" as="sourcePoint" />
+            <mxPoint x="710" y="910" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m32" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="32. 返回分支模块">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="710" y="936" as="sourcePoint" />
+            <mxPoint x="497" y="936" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m33" edge="1" parent="1" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" value="33. 写入 branches / 路径产物">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="497" y="962" as="sourcePoint" />
+            <mxPoint x="923" y="962" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m34" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="34. 写入完成">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="923" y="988" as="sourcePoint" />
+            <mxPoint x="497" y="988" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m35" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="35. 完成">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="497" y="1014" as="sourcePoint" />
+            <mxPoint x="177" y="1014" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_m36" edge="1" parent="1" style="endArrow=open;html=1;fontSize=9;dashed=1;strokeColor=#000000;" value="36. 提示用户">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="177" y="1040" as="sourcePoint" />
+            <mxPoint x="71" y="1040" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq454_note" parent="1" style="text;html=1;fillColor=#FFFFCC;align=left;fontSize=9;spacing=6;rounded=0;strokeColor=#000000;" value="说明：①②③ 对应流水线独立步骤，均由用户在接口层分步触发；仅第③段为 LangGraph 路径编排；多轮扩展与图4-8 节点路由见正文。" vertex="1">
+          <mxGeometry height="40" width="1000" x="40" y="1072" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="seq455" name="4.5.5 叙事扩写">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1100" pageHeight="920" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ket8Y7E0RAi_iT80NSym-6" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="1066" width="1482" x="28" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="seq455_p_u" parent="ket8Y7E0RAi_iT80NSym-6" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=20;fontStyle=0;" value="用户" vertex="1">
+          <mxGeometry height="100.63636363636364" width="122.08045977011496" as="geometry" />
+        </mxCell>
+        <mxCell id="seq455_p_ifc" parent="ket8Y7E0RAi_iT80NSym-6" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=20;fontStyle=0;" value="接口层&lt;br&gt;（Streamlit / CLI）" vertex="1">
+          <mxGeometry height="100.63636363636364" width="122.08045977011496" x="227.12643678160924" as="geometry" />
+        </mxCell>
+        <mxCell id="seq455_p_app" parent="ket8Y7E0RAi_iT80NSym-6" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=20;fontStyle=0;" value="业务逻辑层&lt;br&gt;（叙事扩写）" vertex="1">
+          <mxGeometry height="100.63636363636364" width="122.08045977011496" x="452.8333333333334" as="geometry" />
+        </mxCell>
+        <mxCell id="seq455_p_lit" parent="ket8Y7E0RAi_iT80NSym-6" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=20;fontStyle=0;" value="核心基础设施层&lt;br&gt;（文学扩写 LLM）" vertex="1">
+          <mxGeometry height="100.63636363636364" width="122.08045977011496" x="679.9597701149427" as="geometry" />
+        </mxCell>
+        <mxCell id="seq455_p_flow" parent="ket8Y7E0RAi_iT80NSym-6" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=20;fontStyle=0;" value="核心基础设施层&lt;br&gt;（流程/结构 LLM）" vertex="1">
+          <mxGeometry height="100.63636363636364" width="122.08045977011496" x="907.0862068965521" as="geometry" />
+        </mxCell>
+        <mxCell id="seq455_p_json" parent="ket8Y7E0RAi_iT80NSym-6" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=20;fontStyle=0;" value="外部服务与存储层&lt;br&gt;（路径 JSON / 人设）" vertex="1">
+          <mxGeometry height="100.63636363636364" width="122.08045977011496" x="1132.7931034482765" as="geometry" />
+        </mxCell>
+        <mxCell id="seq455_p_api" parent="ket8Y7E0RAi_iT80NSym-6" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=20;fontStyle=0;" value="外部服务层&lt;br&gt;（LLM API）" vertex="1">
+          <mxGeometry height="100.63636363636364" width="122.08045977011496" x="1359.9195402298853" as="geometry" />
+        </mxCell>
+        <mxCell id="seq455_l_u" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" source="seq455_a17" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;fontSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="61.04022988505748" y="100.63636363636364" as="sourcePoint" />
+            <mxPoint x="61.04022988505748" y="1066.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_l_ifc" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;fontSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="288.16666666666674" y="100.63636363636364" as="sourcePoint" />
+            <mxPoint x="288.16666666666674" y="1066.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_l_app" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;fontSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="513.873563218391" y="100.63636363636364" as="sourcePoint" />
+            <mxPoint x="513.873563218391" y="1066.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_l_lit" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;fontSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="741.0000000000001" y="100.63636363636364" as="sourcePoint" />
+            <mxPoint x="741.0000000000001" y="1066.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_l_flow" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;fontSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="968.1264367816095" y="100.63636363636364" as="sourcePoint" />
+            <mxPoint x="968.1264367816095" y="1066.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_l_json" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;fontSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1193.8333333333335" y="100.63636363636364" as="sourcePoint" />
+            <mxPoint x="1193.8333333333335" y="1066.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_l_api" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;fontSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1420.959770114943" y="100.63636363636364" as="sourcePoint" />
+            <mxPoint x="1420.959770114943" y="1066.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_a1" parent="ket8Y7E0RAi_iT80NSym-6" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="786.4545454545456" width="14.195402298850578" x="281.0689655172415" y="156.5454545454546" as="geometry" />
+        </mxCell>
+        <mxCell id="seq455_a2" parent="ket8Y7E0RAi_iT80NSym-6" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="700.7272727272727" width="14.195402298850578" x="506.7758620689657" y="205.00000000000003" as="geometry" />
+        </mxCell>
+        <mxCell id="seq455_a3" parent="ket8Y7E0RAi_iT80NSym-6" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="55.909090909090914" width="14.195402298850578" x="1186.7356321839084" y="253.4545454545455" as="geometry" />
+        </mxCell>
+        <mxCell id="seq455_a6" parent="ket8Y7E0RAi_iT80NSym-6" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="145.36363636363637" width="14.195402298850578" x="733.9022988505749" y="406.27272727272737" as="geometry" />
+        </mxCell>
+        <mxCell id="seq455_a7" parent="ket8Y7E0RAi_iT80NSym-6" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="59.63636363636364" width="14.195402298850578" x="1413.8620689655174" y="454.72727272727275" as="geometry" />
+        </mxCell>
+        <mxCell id="seq455_a10" parent="ket8Y7E0RAi_iT80NSym-6" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="156.5454545454546" width="14.195402298850578" x="961.0287356321844" y="600.0909090909091" as="geometry" />
+        </mxCell>
+        <mxCell id="seq455_a11" parent="ket8Y7E0RAi_iT80NSym-6" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="70.81818181818183" width="14.195402298850578" x="1413.8620689655174" y="648.5454545454545" as="geometry" />
+        </mxCell>
+        <mxCell id="seq455_a14" parent="ket8Y7E0RAi_iT80NSym-6" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="55.909090909090914" width="14.195402298850578" x="1186.7356321839084" y="793.9090909090911" as="geometry" />
+        </mxCell>
+        <mxCell id="seq455_m1" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=block;html=1;fontSize=20;strokeColor=#000000;" value="1. 执行叙事扩写">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="61.04022988505748" y="160.2727272727273" as="sourcePoint" />
+            <mxPoint x="288.16666666666674" y="160.2727272727273" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_m2" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=block;html=1;fontSize=20;strokeColor=#000000;" value="2. 批量生成路径内容">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="288.16666666666674" y="208.72727272727278" as="sourcePoint" />
+            <mxPoint x="513.873563218391" y="208.72727272727278" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_m3" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=block;html=1;fontSize=20;strokeColor=#000000;" value="3. 读取路径 / personas / extract_chain">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="513.873563218391" y="257.18181818181824" as="sourcePoint" />
+            <mxPoint x="1193.8333333333335" y="257.18181818181824" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_m4" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=open;html=1;fontSize=20;dashed=1;strokeColor=#000000;" value="4. JSON 数据">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1193.8333333333335" y="305.6363636363637" as="sourcePoint" />
+            <mxPoint x="513.873563218391" y="305.6363636363637" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_m5" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=block;html=1;fontSize=20;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle;rounded=0;" value="5. segment_cache · 主线事件复用（模块内）">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="522.3908045977013" y="328.00000000000006" />
+              <mxPoint x="655.8275862068967" y="328.00000000000006" />
+              <mxPoint x="655.8275862068967" y="387.6363636363638" />
+            </Array>
+            <mxPoint x="528.0689655172415" y="328.00000000000006" as="sourcePoint" />
+            <mxPoint x="513.873563218391" y="387.6363636363638" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_m6" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=block;html=1;fontSize=20;strokeColor=#000000;" value="6. 场景·对话·结局扩写">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="513.873563218391" y="410.00000000000006" as="sourcePoint" />
+            <mxPoint x="741.0000000000001" y="410.00000000000006" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_m7" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=block;html=1;fontSize=20;strokeColor=#333333;" value="7. HTTP（含 story 系统预设）">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="741.0000000000001" y="458.45454545454555" as="sourcePoint" />
+            <mxPoint x="1420.959770114943" y="458.45454545454555" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_m8" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=open;html=1;fontSize=20;dashed=1;strokeColor=#000000;" value="8. 文学文本">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1420.959770114943" y="506.909090909091" as="sourcePoint" />
+            <mxPoint x="741.0000000000001" y="506.909090909091" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_m9" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=open;html=1;fontSize=20;dashed=1;strokeColor=#000000;" value="9. 返回业务层">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="741.0000000000001" y="555.3636363636365" as="sourcePoint" />
+            <mxPoint x="513.873563218391" y="555.3636363636365" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_m10" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=block;html=1;fontSize=20;strokeColor=#000000;" value="10. 决策点 · content_blocks · Flavor">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="513.873563218391" y="603.818181818182" as="sourcePoint" />
+            <mxPoint x="968.1264367816095" y="603.818181818182" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_m11" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=block;html=1;fontSize=20;strokeColor=#333333;" value="11. HTTP（JSON 结构化）">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="968.1264367816095" y="652.2727272727274" as="sourcePoint" />
+            <mxPoint x="1420.959770114943" y="652.2727272727274" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_m12" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=open;html=1;fontSize=20;dashed=1;strokeColor=#000000;" value="12. 结构化结果">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1420.959770114943" y="700.7272727272727" as="sourcePoint" />
+            <mxPoint x="968.1264367816095" y="700.7272727272727" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_m13" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=open;html=1;fontSize=20;dashed=1;strokeColor=#000000;" value="13. 返回业务层">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="968.1264367816095" y="749.1818181818182" as="sourcePoint" />
+            <mxPoint x="513.873563218391" y="749.1818181818182" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_m14" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=block;html=1;fontSize=20;strokeColor=#000000;" value="14. 写回增强路径">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="513.873563218391" y="797.636363636364" as="sourcePoint" />
+            <mxPoint x="1193.8333333333335" y="797.636363636364" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_m15" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=open;html=1;fontSize=20;dashed=1;strokeColor=#000000;" value="15. 写入完成">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1193.8333333333335" y="846.0909090909091" as="sourcePoint" />
+            <mxPoint x="513.873563218391" y="846.0909090909091" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_m16" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=open;html=1;fontSize=20;dashed=1;strokeColor=#000000;" value="16. 完成">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="513.873563218391" y="894.5454545454546" as="sourcePoint" />
+            <mxPoint x="288.16666666666674" y="894.5454545454546" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_m17" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=open;html=1;fontSize=20;dashed=1;strokeColor=#000000;" value="17. 提示用户">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="288.16666666666674" y="943.0000000000002" as="sourcePoint" />
+            <mxPoint x="61.04022988505748" y="943.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ket8Y7E0RAi_iT80NSym-1" edge="1" parent="ket8Y7E0RAi_iT80NSym-6" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;fontSize=20;" target="seq455_a17" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="61.04022988505748" y="100.63636363636364" as="sourcePoint" />
+            <mxPoint x="61.04022988505748" y="1066.0000000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq455_a17" parent="ket8Y7E0RAi_iT80NSym-6" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="801.3636363636365" width="14.195402298850578" x="53.942528735632195" y="141.63636363636365" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="seq456" name="4.5.6 RenPy脚本">
+    <mxGraphModel dx="1693" dy="1547" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1040" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ggbqBqlMYTRW2uBhyMW_-3" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="546" width="1412" x="28" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="seq456_p_u" parent="ggbqBqlMYTRW2uBhyMW_-3" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=20;fontStyle=0;" value="用户" vertex="1">
+          <mxGeometry height="95.72727272727273" width="116.31417624521075" as="geometry" />
+        </mxCell>
+        <mxCell id="seq456_p_ifc" parent="ggbqBqlMYTRW2uBhyMW_-3" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=20;fontStyle=0;" value="接口层&lt;br&gt;（Streamlit / CLI）" vertex="1">
+          <mxGeometry height="95.72727272727273" width="116.31417624521075" x="324.59770114942523" as="geometry" />
+        </mxCell>
+        <mxCell id="seq456_p_app" parent="ggbqBqlMYTRW2uBhyMW_-3" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=20;fontStyle=0;" value="业务逻辑层&lt;br&gt;（Ren&#39;Py 脚本生成）" vertex="1">
+          <mxGeometry height="95.72727272727273" width="116.31417624521075" x="647.8429118773947" as="geometry" />
+        </mxCell>
+        <mxCell id="seq456_p_map" parent="ggbqBqlMYTRW2uBhyMW_-3" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=20;fontStyle=0;" value="核心基础设施层&lt;br&gt;（映射与配置读取）" vertex="1">
+          <mxGeometry height="95.72727272727273" width="116.31417624521075" x="971.088122605364" as="geometry" />
+        </mxCell>
+        <mxCell id="seq456_p_fs" parent="ggbqBqlMYTRW2uBhyMW_-3" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=20;fontStyle=0;" value="外部服务与存储层&lt;br&gt;（工程目录/JSON）" vertex="1">
+          <mxGeometry height="95.72727272727273" width="116.31417624521075" x="1295.6858237547895" as="geometry" />
+        </mxCell>
+        <mxCell id="seq456_l_u" edge="1" parent="ggbqBqlMYTRW2uBhyMW_-3" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;fontSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="58.15708812260537" y="95.72727272727273" as="sourcePoint" />
+            <mxPoint x="58.15708812260537" y="546" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq456_l_ifc" edge="1" parent="ggbqBqlMYTRW2uBhyMW_-3" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;fontSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="382.75478927203073" y="95.72727272727273" as="sourcePoint" />
+            <mxPoint x="382.75478927203073" y="546" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq456_l_app" edge="1" parent="ggbqBqlMYTRW2uBhyMW_-3" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;fontSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="706" y="95.72727272727273" as="sourcePoint" />
+            <mxPoint x="706" y="546" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq456_l_map" edge="1" parent="ggbqBqlMYTRW2uBhyMW_-3" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;fontSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1029.2452107279694" y="95.72727272727273" as="sourcePoint" />
+            <mxPoint x="1029.2452107279694" y="546" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq456_l_fs" edge="1" parent="ggbqBqlMYTRW2uBhyMW_-3" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;dashPattern=4 4;fontSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1353.8429118773945" y="95.72727272727273" as="sourcePoint" />
+            <mxPoint x="1353.8429118773945" y="546" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq456_a1" parent="ggbqBqlMYTRW2uBhyMW_-3" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="287.18181818181824" width="13.524904214559388" x="375.99233716475095" y="148.90909090909093" as="geometry" />
+        </mxCell>
+        <mxCell id="seq456_a2" parent="ggbqBqlMYTRW2uBhyMW_-3" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="205.63636363636368" width="13.524904214559388" x="699.2375478927204" y="195.00000000000003" as="geometry" />
+        </mxCell>
+        <mxCell id="seq456_a3" parent="ggbqBqlMYTRW2uBhyMW_-3" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="48.91" width="13.52" x="1022.48" y="241.09" as="geometry" />
+        </mxCell>
+        <mxCell id="seq456_a5" parent="ggbqBqlMYTRW2uBhyMW_-3" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="50.800836501901145" width="13.528079268292682" x="1347.0824390243902" y="333.2676045627377" as="geometry" />
+        </mxCell>
+        <mxCell id="seq456_a7" parent="ggbqBqlMYTRW2uBhyMW_-3" style="rounded=0;fillColor=#E8E8E8;strokeColor=#666666;opacity=90;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="283.6363636363637" width="13.524904214559388" x="51.39463601532567" y="152.4545454545455" as="geometry" />
+        </mxCell>
+        <mxCell id="seq456_m1" edge="1" parent="ggbqBqlMYTRW2uBhyMW_-3" style="endArrow=block;html=1;fontSize=20;strokeColor=#000000;" value="1. 进入脚本生成">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="58.15708812260537" y="152.4545454545455" as="sourcePoint" />
+            <mxPoint x="382.75478927203073" y="152.4545454545455" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq456_m2" edge="1" parent="ggbqBqlMYTRW2uBhyMW_-3" style="endArrow=block;html=1;fontSize=20;strokeColor=#000000;" value="2. 传入 enhanced_paths">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="382.75478927203073" y="198.54545454545456" as="sourcePoint" />
+            <mxPoint x="706" y="198.54545454545456" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq456_m3" edge="1" parent="ggbqBqlMYTRW2uBhyMW_-3" style="endArrow=block;html=1;fontSize=20;strokeColor=#000000;" value="3. 读取映射配置">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="706" y="244.63636363636368" as="sourcePoint" />
+            <mxPoint x="1029.2452107279694" y="244.63636363636368" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq456_m4" edge="1" parent="ggbqBqlMYTRW2uBhyMW_-3" style="endArrow=open;html=1;fontSize=20;dashed=1;strokeColor=#000000;" value="4. entities / scene_map 等">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1029.2452107279694" y="290.72727272727275" as="sourcePoint" />
+            <mxPoint x="706" y="290.72727272727275" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq456_m5" edge="1" parent="ggbqBqlMYTRW2uBhyMW_-3" style="endArrow=block;html=1;fontSize=20;strokeColor=#000000;" value="5. 生成 .rpy 并写入">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="706" y="336.81818181818187" as="sourcePoint" />
+            <mxPoint x="1353.8429118773945" y="336.81818181818187" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq456_m6" edge="1" parent="ggbqBqlMYTRW2uBhyMW_-3" style="endArrow=open;html=1;fontSize=20;dashed=1;strokeColor=#000000;entryX=1.052;entryY=0.915;entryDx=0;entryDy=0;entryPerimeter=0;" target="seq456_a2" value="6. 可运行工程交付">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1353.8429118773945" y="382.90909090909093" as="sourcePoint" />
+            <mxPoint x="382.75478927203073" y="382.90909090909093" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="seq456_m7" edge="1" parent="ggbqBqlMYTRW2uBhyMW_-3" style="endArrow=open;html=1;fontSize=20;dashed=1;strokeColor=#000000;" value="8. 提示用户">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="382.75478927203073" y="429.0000000000001" as="sourcePoint" />
+            <mxPoint x="58.15708812260537" y="429.0000000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ggbqBqlMYTRW2uBhyMW_-2" edge="1" parent="ggbqBqlMYTRW2uBhyMW_-3" style="endArrow=open;html=1;fontSize=20;dashed=1;strokeColor=#000000;" value="7. 可运行工程交付">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="699.2375478927204" y="394.27227272727276" as="sourcePoint" />
+            <mxPoint x="394.9272030651341" y="393.5454545454546" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

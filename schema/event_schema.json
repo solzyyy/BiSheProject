@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Narrative Event Graph Schema",
+  "type": "object",
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string"},
+          "type": {"type": "string", "enum": ["Event"]},
+          "core": {
+            "type": "object",
+            "properties": {
+              "人物": {"type": "array", "items": {"type": "string"}},
+              "行动": {"type": "string"},
+              "目标": {"type": "string"},
+              "结果": {"type": "string"},
+              "情绪": {"type": "string"},
+              "时间": {"type": "string"},
+              "场景": {"type": "string"},
+              "前提条件": {"type": "string"},
+              "结果影响": {"type": "string"},
+              "source_text": {"type": "string"},
+              "风格": {"type": "array", "items": {"type": "string"}},
+              "文化元素": {"type": "array", "items": {"type": "string"}}
+            },
+            "required": ["人物", "行动", "目标", "结果", "情绪", "时间", "场景", "前提条件", "结果影响", "source_text", "风格", "文化元素"]
+          },
+          "metrics": {
+            "type": "object",
+            "properties": {
+              "emotion_value": {"type": "number", "minimum": -100, "maximum": 100},
+              "conflict_value": {"type": "number", "minimum": -100, "maximum": 100},
+              "impact_value": {"type": "number", "minimum": -100, "maximum": 100},
+              "说明": {"type": "string"}
+            },
+            "required": ["emotion_value", "conflict_value", "impact_value"]
+          },
+          "flags": {
+            "type": "object",
+            "properties": {
+              "is_start": {"type": "boolean"},
+              "is_ending": {"type": "boolean"},
+              "ending_id": {"type": ["string", "null"]}
+            },
+            "required": ["is_start", "is_ending"]
+          }
+        },
+        "required": ["id", "type", "core", "metrics", "flags"]
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "from": {"type": "string"},
+          "to": {"type": "string"},
+          "type": {"type": "string"},
+          "描述": {"type": "string"},
+          "constraints": {"type": "object"}
+        },
+        "required": ["from", "to", "type"]
+      }
+    }
+  },
+  "required": ["events", "relations"]
+}
+
+
+
+
+

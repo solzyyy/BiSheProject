@@ -1,0 +1,142 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="图1-1 论文研究整体框架图" id="fig1-1">
+    <mxGraphModel dx="2188" dy="1394" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1280" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-106" connectable="0" parent="1" style="group;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="990" width="1790" x="140" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-20" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#dce6f2;strokeColor=#6b7a8f;strokeWidth=2;shadow=1;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="990.0000000000002" width="1790.0000000000002" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-21" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#c9d7e8;strokeColor=#6b7a8f;strokeWidth=1.5;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="359.33333333333337" width="825.7275541795667" x="55.41795665634676" y="36.66666666666667" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-22" parent="0ErNqIVkQO7eDGJpdXbe-106" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1" value="&lt;b&gt;研究背景与问题界定&lt;/b&gt;" vertex="1">
+          <mxGeometry height="29.333333333333332" width="454.4272445820434" x="218.90092879256972" y="51.333333333333336" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-23" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DADADA;strokeColor=#666666;fontSize=20;align=center;verticalAlign=middle;fontColor=#333333;shadow=1;fillStyle=auto;fontFamily=Helvetica;" value="输入：经典文学原著" vertex="1">
+          <mxGeometry height="66.00000000000001" width="160.71207430340561" x="69.27244582043345" y="97.7777777777778" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-24" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DADADA;strokeColor=#666666;fontSize=20;align=center;verticalAlign=middle;fillStyle=auto;fontColor=#333333;shadow=1;" value="目标：&lt;div&gt;转化为可交互、&lt;br&gt;多分支、可运行游戏&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90.44444444444447" width="160.71207430340561" x="69.27244582043345" y="178.44444444444449" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-25" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DADADA;strokeColor=#666666;fontSize=20;align=center;verticalAlign=middle;shadow=1;fillStyle=auto;fontFamily=Helvetica;fontColor=#333333;" value="核心矛盾识别：LLM 生成创造性&lt;br&gt;vs 叙事一致性与流程可控性" vertex="1">
+          <mxGeometry height="75.77777777777779" width="368.5294117647059" x="274.3188854489165" y="92.8888888888889" as="geometry" />
+        </mxCell>
+        <mxCell id="m1-sub-title" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DADADA;strokeColor=#666666;fontSize=20;align=center;verticalAlign=middle;fontStyle=1;shadow=1;fillStyle=auto;fontFamily=Helvetica;fontColor=#333333;" value="子问题分解" vertex="1">
+          <mxGeometry height="29.333333333333332" width="368.5294117647059" x="274.3188854489165" y="180.88888888888894" as="geometry" />
+        </mxCell>
+        <mxCell id="m1-sub-1" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DADADA;strokeColor=#666666;fontSize=20;align=center;verticalAlign=middle;shadow=1;fillStyle=auto;fontFamily=Helvetica;fontColor=#333333;" value="结构化表示" vertex="1">
+          <mxGeometry height="26.888888888888893" width="171.79566563467498" x="282.6315789473685" y="215.11111111111114" as="geometry" />
+        </mxCell>
+        <mxCell id="m1-sub-2" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DADADA;strokeColor=#666666;fontSize=20;align=center;verticalAlign=middle;shadow=1;fillStyle=auto;fontFamily=Helvetica;fontColor=#333333;" value="跨路径状态一致性" vertex="1">
+          <mxGeometry height="26.888888888888893" width="171.79566563467498" x="468.28173374613016" y="215.11111111111114" as="geometry" />
+        </mxCell>
+        <mxCell id="m1-sub-3" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DADADA;strokeColor=#666666;fontSize=20;align=center;verticalAlign=middle;shadow=1;fillStyle=auto;fontFamily=Helvetica;fontColor=#333333;" value="分支决策控制" vertex="1">
+          <mxGeometry height="26.888888888888893" width="171.79566563467498" x="282.6315789473685" y="246.8888888888889" as="geometry" />
+        </mxCell>
+        <mxCell id="m1-sub-4" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DADADA;strokeColor=#666666;fontSize=20;align=center;verticalAlign=middle;shadow=1;fillStyle=auto;fontFamily=Helvetica;fontColor=#333333;" value="脚本化交付" vertex="1">
+          <mxGeometry height="26.888888888888893" width="171.79566563467498" x="468.28173374613016" y="246.8888888888889" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-26" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DADADA;strokeColor=#666666;fontSize=20;align=center;verticalAlign=middle;fontStyle=1;shadow=1;fillStyle=auto;fontFamily=Helvetica;fontColor=#333333;" value="研究问题界定" vertex="1">
+          <mxGeometry height="117.33333333333333" width="185.65015479876166" x="673.328173374613" y="136.88888888888889" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-30" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#c9d7e8;strokeColor=#6b7a8f;strokeWidth=1.5;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="359.33333333333337" width="811.87306501548" x="936.5634674922603" y="36.66666666666667" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-31" parent="0ErNqIVkQO7eDGJpdXbe-106" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1" value="&lt;b&gt;互动叙事生成研究&lt;/b&gt;" vertex="1">
+          <mxGeometry height="29.333333333333332" width="393.46749226006204" x="1088.962848297214" y="51.333333333333336" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-32" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DADADA;strokeColor=#666666;fontSize=20;align=center;verticalAlign=middle;shadow=1;fillStyle=auto;fontFamily=Helvetica;fontColor=#333333;" value="互动叙事&lt;br&gt;生成领域" vertex="1">
+          <mxGeometry height="112.44444444444446" width="163.48297213622294" x="947.6470588235296" y="127.11111111111113" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-33" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DADADA;strokeColor=#666666;fontSize=20;align=center;verticalAlign=middle;shadow=1;fillStyle=auto;fontFamily=Helvetica;fontColor=#333333;fontStyle=1;" value="三类主流技术路线" vertex="1">
+          <mxGeometry height="36.66666666666667" width="396.2383900928793" x="1144.3808049535605" y="97.7777777777778" as="geometry" />
+        </mxCell>
+        <mxCell id="m2-route-1" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DADADA;strokeColor=#666666;fontSize=20;align=center;verticalAlign=middle;shadow=1;fillStyle=auto;fontFamily=Helvetica;fontColor=#333333;" value="集中式剧情管理（Façade 等）" vertex="1">
+          <mxGeometry height="34.22222222222222" width="374.0712074303406" x="1155.46439628483" y="141.7777777777778" as="geometry" />
+        </mxCell>
+        <mxCell id="m2-route-2" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DADADA;strokeColor=#666666;fontSize=20;align=center;verticalAlign=middle;shadow=1;fillStyle=auto;fontFamily=Helvetica;fontColor=#333333;" value="分布式智能体模拟（Versu 等）" vertex="1">
+          <mxGeometry height="34.22222222222222" width="374.0712074303406" x="1155.46439628483" y="180.88888888888894" as="geometry" />
+        </mxCell>
+        <mxCell id="m2-route-3" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DADADA;strokeColor=#666666;fontSize=20;align=center;verticalAlign=middle;shadow=1;fillStyle=auto;fontFamily=Helvetica;fontColor=#333333;" value="大语言模型直接生成（AI Dungeon 等）" vertex="1">
+          <mxGeometry height="34.22222222222222" width="374.0712074303406" x="1155.46439628483" y="220.00000000000003" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-34" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DADADA;strokeColor=#666666;fontSize=20;align=center;verticalAlign=middle;fontStyle=1;shadow=1;fillStyle=auto;fontFamily=Helvetica;fontColor=#333333;" value="局限对比分析&lt;br&gt;与本文路线定位" vertex="1">
+          <mxGeometry height="117.33333333333333" width="152.3993808049536" x="1582.1826625387002" y="124.6666666666667" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-35" edge="1" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=0;endArrow=block;endFill=1;strokeColor=none;strokeWidth=1;shape=flexArrow;fontSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1122.213622291022" y="183.33333333333334" as="sourcePoint" />
+            <mxPoint x="1149.9226006191952" y="183.33333333333334" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-40" parent="0ErNqIVkQO7eDGJpdXbe-106" style="shape=mxgraph.arrows2.arrow;fillColor=#8fa6bf;strokeColor=#5d7085;strokeWidth=1.4;direction=south;dy=0.55;dx=36;notch=0;fontSize=20;fontStyle=1;whiteSpace=wrap;html=1;gradientColor=#A680B8;shadow=1;" value="问题牵引" vertex="1">
+          <mxGeometry height="75.77777777777779" width="166.25386996904027" x="321.42414860681123" y="366.6666666666667" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-41" parent="0ErNqIVkQO7eDGJpdXbe-106" style="shape=mxgraph.arrows2.arrow;fillColor=#b8a3bb;strokeColor=#7f6b85;strokeWidth=1.4;direction=south;dy=0.55;dx=36;notch=0;fontSize=20;fontStyle=1;whiteSpace=wrap;html=1;gradientColor=#7EA6E0;shadow=1;" value="路线牵引" vertex="1">
+          <mxGeometry height="75.77777777777779" width="166.25386996904027" x="1277.3839009287929" y="369.1111111111112" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-42" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;fillColor=#c9d7e8;strokeColor=#6b7a8f;strokeWidth=1.5;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="361.7777777777779" width="1729.0402476780189" x="33.25077399380805" y="444.88888888888897" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-43" parent="0ErNqIVkQO7eDGJpdXbe-106" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1" value="&lt;b&gt;内容生成系统设计与实现&lt;/b&gt;" vertex="1">
+          <mxGeometry height="29.333333333333332" width="565.263157894737" x="584.6594427244584" y="462.0000000000001" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-45" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;arcSize=5;whiteSpace=wrap;html=1;fillColor=#dce6f2;strokeColor=#9aa9bf;dashed=1;fontSize=20;align=center;verticalAlign=top;spacingTop=6;fontFamily=Helvetica;fontColor=default;glass=0;sketch=1;curveFitting=1;jiggle=2;" value="Neo4j" vertex="1">
+          <mxGeometry height="46.44444444444445" width="224.44272445820437" x="96.98142414860683" y="554.8888888888889" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-46" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;arcSize=5;whiteSpace=wrap;html=1;fillColor=#dce6f2;strokeColor=#9aa9bf;dashed=1;fontSize=20;align=center;verticalAlign=top;spacingTop=6;fontFamily=Helvetica;fontColor=default;sketch=1;curveFitting=1;jiggle=2;" value="LangGraph" vertex="1">
+          <mxGeometry height="44.00000000000001" width="224.44272445820437" x="96.98142414860683" y="628.2222222222224" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-47" edge="1" parent="0ErNqIVkQO7eDGJpdXbe-106" style="edgeStyle=orthogonalEdgeStyle;rounded=0;dashed=1;endArrow=classic;endFill=1;strokeColor=#65778c;fontSize=20;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="332.50773993808053" y="603.7777777777778" as="sourcePoint" />
+            <mxPoint x="351.9040247678019" y="603.7777777777775" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-48" parent="0ErNqIVkQO7eDGJpdXbe-106" style="shape=line;strokeWidth=1;dashed=1;strokeColor=#6f7f93;fontSize=20;" value="" vertex="1">
+          <mxGeometry height="305.55555555555566" width="1.385448916408669" x="1482.4303405572755" y="488.88888888888897" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-55" parent="0ErNqIVkQO7eDGJpdXbe-106" style="shape=mxgraph.arrows2.arrow;fillColor=#b8a3bb;strokeColor=#7f6b85;strokeWidth=1.4;direction=south;dy=0.55;dx=36;notch=0;fontSize=20;fontStyle=1;whiteSpace=wrap;html=1;gradientColor=#7EA6E0;shadow=1;" value="系统落地" vertex="1">
+          <mxGeometry height="80.66666666666667" width="180.10835913312695" x="831.2693498452014" y="782.2222222222224" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-56" parent="0ErNqIVkQO7eDGJpdXbe-106" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontSize=20;align=center;verticalAlign=middle;fontStyle=1;shadow=1;" value="&lt;b&gt;基于大语言模型与知识图谱的文字冒险游戏内容生成系统&lt;/b&gt;" vertex="1">
+          <mxGeometry height="85.55555555555557" width="1654.2260061919508" x="36.02167182662539" y="862.8888888888889" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-57" parent="0ErNqIVkQO7eDGJpdXbe-106" style="html=1;shadow=1;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0;dx=30;notch=30;strokeColor=#4f6b84;fontFamily=Helvetica;fontSize=20;fontColor=default;fontStyle=1;fillColor=#bfd6ea;" value="" vertex="1">
+          <mxGeometry height="202.8888888888889" width="249.3808049535604" x="404.5510835913313" y="524.3333333333334" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-58" parent="0ErNqIVkQO7eDGJpdXbe-106" style="text;whiteSpace=wrap;html=1;labelBackgroundColor=#BFD6EA;fontSize=20;" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 700; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;① 事件 Graph 构建&lt;/span&gt;" vertex="1">
+          <mxGeometry height="48.8888888888889" width="221.67182662538704" x="454.42263157894746" y="601.3333333333334" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-59" parent="0ErNqIVkQO7eDGJpdXbe-106" style="html=1;shadow=1;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0;dx=30;notch=30;strokeColor=#5a6775;fontFamily=Helvetica;fontSize=20;fontColor=default;fontStyle=1;fillColor=#c6cfd9;" value="" vertex="1">
+          <mxGeometry height="202.8888888888889" width="249.3808049535604" x="634.5356037151704" y="524.3333333333334" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-60" parent="0ErNqIVkQO7eDGJpdXbe-106" style="text;whiteSpace=wrap;html=1;fontSize=20;" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 700; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; background-color: rgb(198, 207, 217); display: inline !important;&quot;&gt;② 角色建模&lt;/span&gt;" vertex="1">
+          <mxGeometry height="48.8888888888889" width="152.3993808049536" x="709.3461300309599" y="601.3333333333334" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-61" parent="0ErNqIVkQO7eDGJpdXbe-106" style="html=1;shadow=1;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0;dx=30;notch=30;strokeColor=#3f6b93;fontFamily=Helvetica;fontSize=20;fontColor=default;fontStyle=1;fillColor=#95bee2;" value="" vertex="1">
+          <mxGeometry height="202.8888888888889" width="249.3808049535604" x="869.9992260061922" y="524.3333333333334" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-62" parent="0ErNqIVkQO7eDGJpdXbe-106" style="text;whiteSpace=wrap;html=1;fontSize=20;" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 700; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; background-color: rgb(149, 190, 226); display: inline !important;&quot;&gt;③ 分支路径生成&lt;/span&gt;" vertex="1">
+          <mxGeometry height="48.8888888888889" width="193.96284829721367" x="919.9971207430341" y="601.3333333333334" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-63" parent="0ErNqIVkQO7eDGJpdXbe-106" style="html=1;shadow=1;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0;dx=30;notch=30;strokeColor=#224f72;fontFamily=Helvetica;fontSize=20;fontColor=#ffffff;fontStyle=1;fillColor=#2f74a8;" value="" vertex="1">
+          <mxGeometry height="202.8888888888889" width="249.3808049535604" x="1099.995541795666" y="524.3333333333334" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-64" parent="0ErNqIVkQO7eDGJpdXbe-106" style="text;whiteSpace=wrap;html=1;fontSize=20;" value="&lt;span style=&quot;font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 700; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; background-color: rgb(47, 116, 168); display: inline !important;&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;④ 叙事扩展&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="48.8888888888889" width="152.3993808049536" x="1170.0024767801858" y="601.3333333333334" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-65" parent="0ErNqIVkQO7eDGJpdXbe-106" style="html=1;shadow=1;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.arrow;dy=0;dx=30;notch=30;strokeColor=#303d4d;fontFamily=Helvetica;fontSize=20;fontColor=#ffffff;fontStyle=1;fillColor=#4b6177;" value="" vertex="1">
+          <mxGeometry height="202.8888888888889" width="246.60990712074306" x="1332.8018575851395" y="524.3333333333334" as="geometry" />
+        </mxCell>
+        <mxCell id="0ErNqIVkQO7eDGJpdXbe-66" parent="0ErNqIVkQO7eDGJpdXbe-106" style="text;whiteSpace=wrap;html=1;labelBackgroundColor=#4B6177;fontSize=20;" value="&lt;span style=&quot;font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 700; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;⑤ Ren&#39;Py 脚本&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 700; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&amp;nbsp;&lt;/span&gt;&amp;nbsp; &amp;nbsp;&amp;amp;&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 700; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;资源整合&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="48.8888888888889" width="277.0897832817338" x="1390.0034055727556" y="586.6666666666667" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

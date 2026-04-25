@@ -1,0 +1,28 @@
+{
+  "event_id": "E5_branch_life_rejects_art_ending",
+  "updated_states": {
+    "character_states": {
+      "C008": {
+        "情绪状态": "极度的震惊、悲痛与无力"
+      }
+    },
+    "relationship_states": {},
+    "world_states": {}
+  },
+  "snapshot": {
+    "人物状态": {
+      "C008": {
+        "状态维度": {
+          "情绪状态": "极度的震惊、悲痛与无力"
+        },
+        "说明": "人物 C008 的当前内在状态"
+      }
+    },
+    "关系状态": {},
+    "世界状态": {
+      "客观事实层": [],
+      "逻辑阻碍层": [],
+      "叙事氛围层": []
+    }
+  }
+}

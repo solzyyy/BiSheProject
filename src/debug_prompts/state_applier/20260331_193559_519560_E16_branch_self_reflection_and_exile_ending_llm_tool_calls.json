@@ -1,0 +1,9 @@
+{
+  "event_id": "E16_branch_self_reflection_and_exile_ending",
+  "tool_calls": [
+    {
+      "name": "update_character_state",
+      "arguments": "{\"character_id\": \"C014\", \"dimension\": \"情绪状态\", \"value\": \"彻底滑向精神崩溃与存在性虚无，最终导向自我毁灭\", \"reason\": \"皇帝经历了极度的自我厌恶和空虚后，最终彻底精神崩溃，陷入存在性虚无，走向自我毁灭的结局\"}"
+    }
+  ]
+}

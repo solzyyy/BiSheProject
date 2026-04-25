@@ -1,0 +1,9 @@
+{
+  "event_id": "E5",
+  "tool_calls": [
+    {
+      "name": "update_character_state",
+      "arguments": "{\"character_id\": \"C011\", \"dimension\": \"情绪状态\", \"value\": \"愤怒、悲痛、失控\", \"reason\": \"认定王佛的艺术行为是导致妻子死亡的直接原因，情绪极度激动\"}"
+    }
+  ]
+}

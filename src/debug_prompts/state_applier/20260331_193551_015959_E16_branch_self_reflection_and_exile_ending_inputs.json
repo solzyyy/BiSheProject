@@ -1,0 +1,30 @@
+{
+  "event_id": "E16_branch_self_reflection_and_exile_ending",
+  "event_info": {},
+  "selected_state_changes": [
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "情绪状态",
+      "value": "从极度的自我厌恶、空虚、逃避，彻底滑向精神崩溃与存在性虚无，最终导向自我毁灭"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "行动能力",
+      "value": "完全丧失。自我封闭与隔绝导致其无法履行任何统治职能，最终生命终结"
+    },
+    {
+      "target_type": "world",
+      "target_id": "world",
+      "dimension": "社会状态",
+      "value": "帝国因最高权力中枢的崩溃与长期停滞，陷入混乱与无序，统治结构开始瓦解，走向衰亡"
+    },
+    {
+      "target_type": "world",
+      "target_id": "world",
+      "dimension": "场景状态",
+      "value": "核心宫殿被永久封闭并成为皇帝自我囚禁与最终毁灭的场所，象征着帝国精神与权力的核心已化为灰烬与虚无"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "event_id": "E2",
+  "tool_calls": [
+    {
+      "name": "update_world_state",
+      "arguments": "{\"target_id\": \"residence_courtyard\", \"dimension\": \"场景状态\", \"value\": \"朱红色庭院\", \"reason\": \"林与妻子生活的具体场景，象征着富贵与封闭的生活环境\"}"
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "event_id": "E3",
+  "event_info": {
+    "id": "E3",
+    "人物": [
+      "王佛",
+      "林"
+    ],
+    "行动": "在小酒店同席饮酒，王佛因酒意打开话匣，指点林观察周围事物的美，包括醉汉面孔、肉块光泽、酒渍、闪电等。",
+    "目标": "王佛为作画观察醉汉，并教导林发现日常之美；林则学习观察。",
+    "结果": "林在王佛的指点下，发现了以往忽略的细节之美，不再害怕暴风雨，并替王佛付账，邀其回家住宿。",
+    "情绪": "沉醉、惊奇、敬畏、谦恭",
+    "时间": "某天晚上",
+    "场景": "小酒店内，后转为回家路上及林的家中院子、走廊",
+    "前提条件": "王佛为描绘醉汉来酒店喝酒；林与王佛同席。",
+    "结果影响": "林获得了全新的观察力和感受力（“全新的灵魂和全新的感觉”），并决定收留王佛。",
+    "source_text": "米酒打开了这个沉默寡言的艺术家的话匣子。那天晚上，王佛话可多了，好象沉默是一堵墙，而他的话就是用来覆盖这道墙的各种颜色。由于老画家的指点，林发现了喝酒的人被热酒的腾腾烟雾晕化的面孔上所具有的那种美，发现了被火舌轻重不匀地舔摸过的酱色肉块的光泽，还有那桌布上的酒渍，状如凋谢的花瓣，现出一种雅致的攻瑰红色。一阵狂风吹破窗纸，暴雨飘进了室内。王佛俯身指点林观赏那一道道青灰色的闪电。林惊叹不已，从此他不再害怕暴风雨了。",
+    "emotion_value": 65,
+    "conflict_value": 5,
+    "impact_value": 50
+  },
+  "selected_state_changes": [
+    {
+      "source_event": "E3",
+      "target_type": "world",
+      "target_id": "location_scene",
+      "dimension": "场景状态",
+      "change_type": "set",
+      "value": "小酒店室内",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "室内场景提供了遮蔽和聚集的场所，允许对话和观察行为不受外界干扰地持续进行。",
+      "plot_sensitive": 0.3
+    },
+    {
+      "source_event": "E3",
+      "target_type": "world",
+      "target_id": "window_integrity",
+      "dimension": "场景状态",
+      "change_type": "set",
+      "value": "破损",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "窗纸被狂风吹破，使得暴雨得以飘入，闪电得以被更直接地观察，这改变了室内环境并创造了新的教学契机。",
+      "plot_sensitive": 0.6
+    },
+    {
+      "source_event": "E3",
+      "target_type": "world",
+      "target_id": "time_of_day",
+      "dimension": "时间状态",
+      "change_type": "set",
+      "value": "夜晚",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "夜晚的黑暗环境可能限制视觉观察，但在此场景中，室内灯光和闪电提供了特殊的光影效果，是观察学习的前提。",
+      "plot_sensitive": 0.2
+    },
+    {
+      "source_event": "E3",
+      "target_type": "world",
+      "target_id": "item_wine_available",
+      "dimension": "物品存在",
+      "change_type": "set",
+      "value": "存在",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "米酒的存在是开启对话、改变氛围（“打开了话匣子”）以及创造特定观察对象（酒渍、烟雾晕化的面孔）的关键物品。",
+      "plot_sensitive": 0.7
+    },
+    {
+      "source_event": "E3",
+      "target_type": "world",
+      "target_id": "item_food_available",
+      "dimension": "物品存在",
+      "change_type": "set",
+      "value": "存在",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "酱色肉块的存在为林提供了新的美学观察对象（被火舌舔摸过的光泽）。",
+      "plot_sensitive": 0.5
+    },
+    {
+      "source_event": "E3",
+      "target_type": "world",
+      "target_id": "weather_condition",
+      "dimension": "环境状态",
+      "change_type": "set",
+      "value": "暴风雨",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "暴风雨提供了特定的观察对象（闪电），并创造了独特的室内氛围，可能限制户外活动，但在此场景中主要作为观察和学习的背景。",
+      "plot_sensitive": 0.4
+    },
+    {
+      "source_event": "E3",
+      "target_type": "character",
+      "target_id": "C011",
+      "dimension": "世界观",
+      "change_type": "set",
+      "value": "不再害怕暴风雨",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "消除了对暴风雨的恐惧，允许其在恶劣天气中行动和观察，这是感知世界方式转变的标志性体现。",
+      "plot_sensitive": 0.6
+    },
+    {
+      "source_event": "E3",
+      "target_type": "character",
+      "target_id": "C011",
+      "dimension": "动机",
+      "change_type": "set",
+      "value": "收留王佛",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "因获得艺术启迪和全新感知力，产生了明确的后续行动动机，直接驱动了邀请王佛回家住宿的行为。",
+      "plot_sensitive": 0.7
+    },
+    {
+      "source_event": "E3",
+      "target_type": "character",
+      "target_id": "C013",
+      "dimension": "动机",
+      "change_type": "set",
+      "value": "分享艺术感知",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "从独自观察转向主动向他人（林）揭示和传授观察世界之美的方法，动机从内省转向外化与引导。",
+      "plot_sensitive": 0.6
+    },
+    {
+      "source_event": "E3",
+      "target_type": "character",
+      "target_id": "C011",
+      "dimension": "情绪状态",
+      "change_type": "set",
+      "value": "惊奇、敬畏、沉醉",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "强烈的正面情绪体验（情绪值+65）使其处于高度开放和接纳的状态，为后续收留王佛的决定提供了情感基础。",
+      "plot_sensitive": 0.5
+    },
+    {
+      "source_event": "E3",
+      "target_type": "character",
+      "target_id": "C013",
+      "dimension": "情绪状态",
+      "change_type": "set",
+      "value": "沉醉、健谈",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "酒意和艺术热情打破了平日的沉默，使其进入一种开放、愿意分享和教导的状态，促进了与林的深度交流。",
+      "plot_sensitive": 0.4
+    },
+    {
+      "source_event": "E3",
+      "target_type": "relationship",
+      "target_id": [
+        "C013",
+        "C011"
+      ],
+      "dimension": "情感状态",
+      "change_type": "set",
+      "value": "欣赏、信任",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "王佛对林展现出欣赏和信任，愿意在酒后敞开心扉，分享自己的艺术观察方法，这为后续更深入的教导和共同生活奠定了基础。",
+      "plot_sensitive": 0.6
+    },
+    {
+      "source_event": "E3",
+      "target_type": "relationship",
+      "target_id": [
+        "C011",
+        "C013"
+      ],
+      "dimension": "情感状态",
+      "change_type": "set",
+      "value": "敬畏、感激、依赖",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "林对王佛的情感从徒弟的恭敬，深化为对导师能力的敬畏、对启迪的感激，以及因获得新感知能力而产生的精神依赖。这促使他主动承担照顾责任（付账、邀宿）。",
+      "plot_sensitive": 0.7
+    },
+    {
+      "source_event": "E3",
+      "target_type": "relationship",
+      "target_id": [
+        "C013",
+        "C011"
+      ],
+      "dimension": "权力动态",
+      "change_type": "set",
+      "value": "superior（导师）",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "王佛对林明确处于教导者的上位，通过主动指点，强化了师徒间的知识传递和引导关系。",
+      "plot_sensitive": 0.5
+    },
+    {
+      "source_event": "E3",
+      "target_type": "relationship",
+      "target_id": [
+        "C011",
+        "C013"
+      ],
+      "dimension": "连接强度",
+      "change_type": "add",
+      "value": "bond值+30",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "林因获得‘全新的灵魂和感觉’这一深刻的精神启迪，与王佛的情感连接（bond）大幅增强。这强化了林追随和照顾王佛的意愿，是关系从普通师徒向紧密共生转变的关键节点。",
+      "plot_sensitive": 0.8
+    }
+  ]
+}

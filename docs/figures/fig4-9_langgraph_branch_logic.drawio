@@ -1,0 +1,99 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="fig49" name="图4-9 LangGraph分支编排逻辑">
+    <mxGraphModel dx="1823" dy="1162" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="820" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=1" value="&lt;b&gt;图4-9 LangGraph 分支编排决策逻辑（简化）&lt;/b&gt;" vertex="1">
+          <mxGeometry height="24" width="660" x="120" y="4" as="geometry" />
+        </mxCell>
+        <mxCell id="n_start" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="START" vertex="1">
+          <mxGeometry height="36" width="80" x="380" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="n_init" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="initialize" vertex="1">
+          <mxGeometry height="44" width="160" x="340" y="88" as="geometry" />
+        </mxCell>
+        <mxCell id="n_sum" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="summarize_history&#xa;（摘要，防上下文膨胀）" vertex="1">
+          <mxGeometry height="52" width="240" x="300" y="156" as="geometry" />
+        </mxCell>
+        <mxCell id="n_llm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="llm_decision&#xa;（Function Calling）" vertex="1">
+          <mxGeometry height="52" width="220" x="310" y="232" as="geometry" />
+        </mxCell>
+        <mxCell id="d_tools" parent="1" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="含 tool_calls？" vertex="1">
+          <mxGeometry height="72" width="140" x="350" y="308" as="geometry" />
+        </mxCell>
+        <mxCell id="n_end_fc" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="END&#xa;（无工具调用）" vertex="1">
+          <mxGeometry height="52" width="120" x="560" y="318" as="geometry" />
+        </mxCell>
+        <mxCell id="n_tools" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="tools（ToolNode）" vertex="1">
+          <mxGeometry height="44" width="180" x="330" y="412" as="geometry" />
+        </mxCell>
+        <mxCell id="d_stat" parent="1" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=10;" value="status？" vertex="1">
+          <mxGeometry height="72" width="120" x="360" y="488" as="geometry" />
+        </mxCell>
+        <mxCell id="n_gen" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="generate_branch_event&#xa;（生成）" vertex="1">
+          <mxGeometry height="52" width="200" x="80" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="n_mrg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="process_mainline&#xa;（合流）" vertex="1">
+          <mxGeometry height="52" width="200" x="340" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="n_early" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="create_early_ending&#xa;（提前结局）" vertex="1">
+          <mxGeometry height="52" width="200" x="600" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="n_pipe" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="identify_similar_endings → merge_similiar_ending&lt;br&gt;→ select_dramatic_ending" vertex="1">
+          <mxGeometry height="52" width="360" x="260" y="668" as="geometry" />
+        </mxCell>
+        <mxCell id="n_end" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#000000;fontSize=11;" value="END" vertex="1">
+          <mxGeometry height="44" width="120" x="380" y="748" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" edge="1" parent="1" source="n_start" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" target="n_init">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="n_init" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" target="n_sum">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="n_sum" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" target="n_llm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="n_llm" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" target="d_tools">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="d_tools" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" target="n_tools" value="是">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="d_tools" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" target="n_end_fc" value="否">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="n_tools" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" target="d_stat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="d_stat" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" target="n_gen" value="generated">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="d_stat" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" target="n_mrg" value="merged">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="d_stat" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" target="n_early" value="early_ending_created">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="n_mrg" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" target="n_pipe">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="n_early" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" target="n_pipe">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="n_pipe" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;" target="n_end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_loop" edge="1" parent="1" source="n_gen" style="endArrow=block;html=1;fontSize=9;strokeColor=#000000;edgeStyle=orthogonalEdgeStyle;" target="n_sum">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="40" y="604" />
+              <mxPoint x="40" y="182" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

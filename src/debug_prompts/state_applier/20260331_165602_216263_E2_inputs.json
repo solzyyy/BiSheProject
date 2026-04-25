@@ -1,0 +1,131 @@
+{
+  "event_id": "E2",
+  "event_info": {
+    "id": "E2",
+    "人物": [
+      "林"
+    ],
+    "行动": "林的背景介绍：出身富商家庭，成亲，父母双亡",
+    "目标": "",
+    "结果": "林在娇生惯养中长大，胆小，后与美貌妻子生活在朱红色庭院中",
+    "情绪": "娇惯、胆怯、安逸、对妻子的喜爱",
+    "时间": "林十五岁时成亲，父母随后双亡",
+    "场景": "富商家庭、朱红色庭院",
+    "前提条件": "林出身富贵",
+    "结果影响": "解释了林为何会跟随贫困的画家王佛流浪，形成性格与命运的对比",
+    "source_text": "林可不是生来就跟着这位饱览黎明和黄昏景色的老头到处流浪的人。他的父亲是做黄金买卖的，母亲是位玉器商人的独生女……林就在这样一个富有舒适的家庭中长大。娇生惯养的生活使他成为一个胆小的人：他害怕昆虫、雷电，怕看死人的面孔。当林十五岁的时候，他父亲给他挑了房媳妇，这媳妇长得可美了……林的妻子娇弱似芦苇、稚嫩如乳汁、甜得象口水、咸得似眼泪。儿子成亲之后，做父母的似乎都很谨慎知趣，竟然双双弃世。于是，在那朱红色的庭院里，陪伴着林的便只有他那位总是带着微笑的年轻妻子和一棵每逢春天便红花盛开的梅树。林喜爱这位心地纯洁的女人，就象人们喜好一面从不褪色的镜子或一道永保吉祥的护身符一样。",
+    "emotion_value": 30,
+    "conflict_value": 5,
+    "impact_value": 25
+  },
+  "selected_state_changes": [
+    {
+      "source_event": "E2",
+      "target_type": "world",
+      "target_id": "residence_courtyard",
+      "dimension": "场景状态",
+      "change_type": "set",
+      "value": "朱红色庭院",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "朱红色庭院是人物生活的具体场景，象征着富贵与封闭，是人物活动的主要物理空间。",
+      "plot_sensitive": 0.4
+    },
+    {
+      "source_event": "E2",
+      "target_type": "world",
+      "target_id": "courtyard_plum_tree",
+      "dimension": "物品存在",
+      "change_type": "set",
+      "value": "存在一棵逢春开红花的梅树",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "庭院中存在特定植物（梅树），作为场景元素和可能的象征物，丰富了环境细节，但不构成行动阻碍。",
+      "plot_sensitive": 0.2
+    },
+    {
+      "source_event": "E2",
+      "target_type": "world",
+      "target_id": "wife_presence",
+      "dimension": "物品存在",
+      "change_type": "set",
+      "value": "存在（年轻、常带微笑）",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "妻子作为重要人物存在于庭院中，是林情感寄托和生活陪伴的对象，她的存在定义了林当前的家庭关系和情感状态背景。",
+      "plot_sensitive": 0.8
+    },
+    {
+      "source_event": "E2",
+      "target_type": "world",
+      "target_id": "family_wealth_status",
+      "dimension": "社会状态",
+      "change_type": "set",
+      "value": "富贵",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "家庭富贵，提供了优渥的物质条件和安逸的生活环境，可能限制人物对贫困或艰苦的认知与适应能力，但也为后续可能的变故（如失去财富）埋下伏笔。",
+      "plot_sensitive": 0.6
+    },
+    {
+      "source_event": "E2",
+      "target_type": "world",
+      "target_id": "family_occupation",
+      "dimension": "社会状态",
+      "change_type": "set",
+      "value": "父为黄金商，母为玉器商独女",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "家庭从事贵重商品贸易，这属于背景设定，定义了人物的出身阶层和经济来源，但不直接限制当前行动。",
+      "plot_sensitive": 0.3
+    },
+    {
+      "source_event": "E2",
+      "target_type": "world",
+      "target_id": "parents_status",
+      "dimension": "社会状态",
+      "change_type": "set",
+      "value": "已双亡",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "父母已故，改变了家庭结构，使林成为家庭的主要（或唯一）成年男性，这可能影响其责任、决策权及情感依赖对象。",
+      "plot_sensitive": 0.7
+    },
+    {
+      "source_event": "E2",
+      "target_type": "character",
+      "target_id": "C011",
+      "dimension": "世界观",
+      "change_type": "set",
+      "value": "娇生惯养、远离苦难",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "在富裕舒适环境中形成的认知，使其对世界的理解局限于安逸与美好，缺乏对贫困、危险和艺术追求的深刻体验，构成了后续转变的起点。",
+      "plot_sensitive": 0.6
+    },
+    {
+      "source_event": "E2",
+      "target_type": "character",
+      "target_id": "C011",
+      "dimension": "处境认知",
+      "change_type": "set",
+      "value": "生活在富裕舒适的家庭中",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "认知到自己处于安全、富足且与妻子恩爱的生活状态中，这构成了其当前行为（安逸、胆怯）的基础，也为其后续选择离开这种生活（跟随王佛）埋下对比伏笔。",
+      "plot_sensitive": 0.5
+    },
+    {
+      "source_event": "E2",
+      "target_type": "character",
+      "target_id": "C011",
+      "dimension": "情绪状态",
+      "change_type": "set",
+      "value": "安逸、胆怯",
+      "condition": null,
+      "is_obstacle": true,
+      "logic_impact": "安逸和胆怯的性格（害怕昆虫、雷电、死人面孔）会限制其冒险、面对危险或接触陌生事物的意愿与能力。",
+      "plot_sensitive": 0.7
+    }
+  ]
+}

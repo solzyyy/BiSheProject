@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "StateChange Schema",
+  "description": "统一的状态变化模型，将角色状态、关系状态、世界状态统一管理",
+  "type": "object",
+  "properties": {
+    "source_event": {
+      "type": "string",
+      "description": "触发该变化的事件ID，用于追溯状态变化的来源"
+    },
+    "target_type": {
+      "type": "string",
+      "enum": ["character", "relationship", "world"],
+      "description": "目标类型：character(角色内在状态), relationship(关系状态), world(世界/物品状态)"
+    },
+    "target_id": {
+      "oneOf": [
+        {"type": "string"},
+        {
+          "type": "array",
+          "items": {"type": "string"},
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "关系双方ID [from, to]"
+        }
+      ],
+      "description": "目标ID：角色ID(字符串)、关系双方ID(列表[from, to])或世界变量Key(字符串)"
+    },
+    "dimension": {
+      "type": "string",
+      "description": "变化的维度名称，例如：好感度、健康度、关系类型、物品状态等"
+    },
+    "change_type": {
+      "type": "string",
+      "enum": ["add", "set", "trigger"],
+      "description": "变化类型：add(累加), set(设置), trigger(触发)"
+    },
+    "value": {
+      "oneOf": [
+        {"type": "number"},
+        {"type": "string"},
+        {"type": "boolean"}
+      ],
+      "description": "变化的值，可以是数字、字符串或布尔值"
+    },
+    "condition": {
+      "$ref": "#/definitions/Condition",
+      "description": "前置条件，只有满足条件才执行此状态变化"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "时间戳，记录状态变化发生的时间，用于事件溯源"
+    },
+    "plot_sensitive": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "剧情敏感度，用于剧情检索 / RAG / 分支筛选（0~1）"
+    }
+  },
+  "required": ["source_event", "target_type", "target_id", "dimension", "change_type", "value"],
+  "definitions": {
+    "Condition": {
+      "type": "object",
+      "description": "条件模型，支持递归嵌套，实现复杂的逻辑判断",
+      "properties": {
+        "operator": {
+          "type": "string",
+          "enum": [">=", "<=", "==", "!=", "contains"],
+          "description": "比较操作符：>= 大于等于, <= 小于等于, == 等于, != 不等于, contains 包含"
+        },
+        "dimension": {
+          "type": "string",
+          "description": "要检查的维度名称，例如：好感度、健康度、状态等"
+        },
+        "threshold": {
+          "description": "阈值，可以是数字、字符串或布尔值",
+          "oneOf": [
+            {"type": "number"},
+            {"type": "string"},
+            {"type": "boolean"}
+          ]
+        },
+        "logic": {
+          "type": "string",
+          "enum": ["AND", "OR"],
+          "default": "AND",
+          "description": "逻辑连接符，用于组合多个子条件"
+        },
+        "sub_conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Condition"
+          },
+          "description": "子条件列表，支持递归嵌套，实现复杂的条件组合"
+        }
+      },
+      "required": ["operator", "dimension", "threshold"]
+    }
+  }
+}
+

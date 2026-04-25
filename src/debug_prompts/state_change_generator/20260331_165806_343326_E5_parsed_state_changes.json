@@ -1,0 +1,74 @@
+{
+  "event_id": "E5",
+  "state_changes": [
+    {
+      "target_type": "character",
+      "target_id": "C011",
+      "dimension": "情绪状态",
+      "value": "麻木、空洞、解离"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C011",
+      "dimension": "动机",
+      "value": "切断一切连接，从现实与艺术中抽离"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C011",
+      "dimension": "处境认知",
+      "value": "艺术与生命的冲突无法调和，现实已彻底崩坏"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C011",
+      "dimension": "内在冲突",
+      "value": "对艺术的爱与对生命之死的恐惧以麻木的形式并存"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C011",
+      "dimension": "行动能力",
+      "value": "仅能进行本能或机械的移动，无法参与有意义的互动"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C011",
+        "C013"
+      ],
+      "dimension": "信任度",
+      "value": "归零"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C011",
+        "C013"
+      ],
+      "dimension": "情感倾向",
+      "value": "彻底切断，无情感流动"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C011",
+        "C013"
+      ],
+      "dimension": "连接强度",
+      "value": "断裂（单方面切断）"
+    },
+    {
+      "target_type": "world",
+      "target_id": "painting_tools_availability",
+      "dimension": "物品状态",
+      "value": "被遗弃（对林而言）"
+    },
+    {
+      "target_type": "world",
+      "target_id": "lin_wife_corpse_state",
+      "dimension": "物品状态",
+      "value": "被遗弃（对林而言）"
+    }
+  ]
+}

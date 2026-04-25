@@ -1,0 +1,201 @@
+{
+  "run_id": "demo_wangfo",
+  "input_text": "王佛脱险记.txt",
+  "output_root": "runs/demo_wangfo",
+  "status": "running",
+  "current_step": "extract-events",
+  "started_at": "2026-03-17T20:45:27+08:00",
+  "finished_at": null,
+  "metadata": {},
+  "steps": {
+    "extract-events": {
+      "status": "running",
+      "started_at": "2026-03-17T20:45:27+08:00",
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "extract-relations": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "generate-mentions": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "generate-entities": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "extract-character-states": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "extract-world-states": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "extract-relationship-states": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "init-state-baseline": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "aggregate-characters": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "aggregate-personas": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "generate-canonical-branch": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "analyze-decision-points": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "determine-ending-candidates": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "generate-branch": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "generate-all-paths": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "complete-all-path-events": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "generate-content": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "generate-renpy-scripts": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "import-assets": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "validate-outputs": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    },
+    "collect-metrics": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "duration_sec": null,
+      "output_paths": [],
+      "validation_status": null,
+      "error": null
+    }
+  }
+}

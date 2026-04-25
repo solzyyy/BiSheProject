@@ -1,0 +1,152 @@
+你是一位专业的角色分析师，擅长基于事件数据提取人物属性信息。
+
+## 📋 任务
+
+请从以下事件数据中提取人物的属性信息，生成人物节点数据。
+
+## 📊 人物基础信息
+
+- **人物ID**: {character_id}
+- **规范名称**: {canonical_name}
+- **别名**: {aliases}
+- **人物类型**: {entity_type}
+
+## 📖 事件数据（"第一次出现的事件"）
+
+这是该人物首次出现的事件：
+
+**事件ID**: {first_event_id}
+
+**事件详情**:
+- 人物: {event_characters}
+- 行动: {event_action}
+- 前提条件: {event_precondition}
+- 场景: {event_scene}
+- 情绪: {event_emotion}
+- 结果影响: {event_impact}
+- 原文: {event_source_text}
+
+**该人物在此事件中的提及信息**:
+- 角色提示: {role_hint}
+- 行动提示: {action_hint}
+- 关系提示: {relation_hint}
+- 上下文片段: {context_snippet}
+
+## 🎯 提取要求
+
+请从以上信息中提取以下属性，**仅基于提供的数据，不要臆测**：
+
+### ⚠️ 数据源说明
+
+- **人物属性提取**（1-11, 13-15）：基于"第一次出现的事件"提取
+- **关系属性提取**（12. relations）：基于每个关系的"第一次共现事件"来判断（见下方详细说明）
+
+### 必须提取的属性
+
+1. **role_hint**: 角色提示（如：画家、弟子、老画家等）- 从 mention 的 role_hint 提取，如果没有则从"第一次出现的事件"的事件描述推断
+2. **social_position**: 社会地位（如：富商之子、皇帝等）- 从"第一次出现的事件"的前提条件、事件描述中提取
+3. **origin**: 人物出生背景（如：富商家庭、王朝等）- 从"第一次出现的事件"的前提条件、事件描述中提取
+4. **affiliation**: 所属团体或家族（如：王朝、王家等）- 从"第一次出现的事件"的事件描述、场景中提取
+5. **disposition**: 性格（如：谦和、激进等）- 从"第一次出现的事件"的行动、情绪、原文中推断
+6. **worldview**: 世界观（如：现实主义、理想主义等）- 从"第一次出现的事件"的行动、原文中推断
+7. **morality**: 道德倾向（如：正义感、圆滑等）- 从"第一次出现的事件"的行动、原文中推断
+8. **life_stage**: 生命阶段（如：少年、青年、成年等）- 从"第一次出现的事件"的时间、前提条件中提取
+9. **emotional_state**: 情感状态（如：稳定、焦虑、激动等）- 从"第一次出现的事件"的情绪、原文中提取
+10. **status**: 当前状态（如：健康、疲劳、伤痛等）- 从"第一次出现的事件"的行动、原文中提取
+11. **fears**: 恐惧（如：失去亲人、失败等）- 从"第一次出现的事件"的原文、行动中推断，如果没有则设为 null
+12. **relations**: 关系列表 - **只记录重要人物之间的关系**，基于"第一次共现事件"判断（见下方详细说明）
+13. **backstory**: 背景故事 - 从"第一次出现的事件"的前提条件、原文中提取
+14. **motivations**: 动机 - 从"第一次出现的事件"的行动、目标中提取
+15. **progression**: 成长轨迹 - 从"第一次出现的事件"的结果影响、行动中提取
+
+### 关系提取说明 
+
+**重要规则**：
+- **只记录重要人物之间的关系**：只有当两个都是重要人物（entity_type 为"主角"或"配角"），且他们在同一个事件里同框过，才分析关系
+- **避免噪音**：忽略路人角色、一次性互动等低价值关系
+- **关系判断数据源**：**使用第一次共现的事件**来判断两个人物的关系类型和属性
+- **记录关系建立的事件ID**：每个关系需要包含 `source_event_id`（首次共现的事件ID）
+
+**关系结构说明**：
+每个关系包含以下字段：
+- `target_id`: 关系对象的实体ID
+- `relation_type`: 关系类型（如：师徒、敌对、朋友等）
+- `my_perspective`: 该角色对目标角色的主观视角，包含：
+  - `emotion_toward`: 我对TA的情感（如：崇拜、恐惧、疑虑、尊敬、依赖等）
+  - `power_dynamic`: 我感知的权力关系，只能是 `superior`（我处于主导地位）、`equal`（平等关系）、`subordinate`（我处于从属地位）三选一
+  - `perceived_bond`: 我感受到的连接强度，范围 0-100，初始值建议 70-90
+  - `desires`: 我对这段关系的期待或行动意图（字符串数组，如：["学习艺术", "追随师父"]）
+- `source_event_id`: 关系首次建立的事件ID
+
+**重要关系及其首次共现事件**（已统计）：
+{relation_events}
+
+**注意**：
+- **人物属性提取**：除了 relations 之外的所有属性，都基于"第一次出现的事件"提取
+- **关系属性提取**：relations 中的每个关系，基于该关系对应的"第一次共现事件"来判断
+- 如果某个关系不在重要关系列表中，**不要**将其加入 relations
+- 如果无法确定关系对象的实体 ID，relation_type 可以保留，但 target_id 设为 null
+- 每个关系必须包含 `source_event_id`（关系首次建立的事件ID）
+- `my_perspective` 中的所有字段都是**该角色对目标角色的主观感受**，不是双向关系
+
+### 注意
+
+- **严格基于数据**：所有属性必须能从提供的事件数据中找到依据
+- **缺失信息处理**：如果某个属性无法从数据中提取，请使用 `null` 或空字符串
+
+## 📤 输出格式（JSON）
+
+只输出 JSON，不要有任何其他内容：
+
+```json
+{{
+  "id": "{character_id}",
+  "canonical_name": "{canonical_name}",
+  "aliases": {aliases_json},
+  "entity_type": "{entity_type}",
+  "role_hint": "角色提示或null",
+  "social_position": "社会地位或null",
+  "origin": "出生背景或null",
+  "affiliation": "所属团体或null",
+  "disposition": "性格或null",
+  "worldview": "世界观或null",
+  "morality": "道德倾向或null",
+  "life_stage": "生命阶段或null",
+  "emotional_state": "情感状态或null",
+  "status": "当前状态或null",
+  "fears": "恐惧或null",
+  "relations": [
+    {{
+      "target_id": "关系对象的实体ID或null",
+      "relation_type": "关系类型（如：师徒、敌对）",
+      "my_perspective": {{
+        "emotion_toward": "我对TA的情感（如：崇拜、恐惧、疑虑）",
+        "power_dynamic": "我感知的权力关系（superior/equal/subordinate）",
+        "perceived_bond": "我感受到的连接强度（0-100）",
+        "desires": ["我对这段关系的期待或行动意图"]
+      }},
+      "source_event_id": "关系首次建立的事件ID"
+    }}
+  ],
+  "backstory": "背景故事或null",
+  "motivations": "动机或null",
+  "progression": "成长轨迹或null",
+  "source_event_id": "{first_event_id}"
+}}
+```
+
+## ⚠️ 重要提醒
+
+1. 只输出 JSON，不要有任何其他文字
+2. 所有字段必须存在，如果没有值则使用 `null` 或空数组
+3. **关系过滤规则**：
+   - 只提取重要人物之间的关系（两个都是主角或配角），参考上方"重要关系及其首次共现事件"
+   - 如果某个关系不在重要关系列表中，**不要**将其加入 relations
+   - 每个关系必须包含 `source_event_id`（从重要关系参考信息中获取）
+4. **关系结构要求**：
+   - `my_perspective.perceived_bond` 范围 0-100，初始值建议 70-90
+   - `my_perspective.power_dynamic` 只能是 `superior`、`equal`、`subordinate` 三选一
+   - `my_perspective.emotion_toward` 建议值：崇拜、恐惧、疑虑、尊敬、依赖、爱慕、厌恶、中立、关心、保护欲等
+   - `my_perspective.desires` 是字符串数组，如果没有则设为空数组 `[]`
+5. relations 中如果无法确定 target_id，relation_type 保留，target_id 设为 null
+

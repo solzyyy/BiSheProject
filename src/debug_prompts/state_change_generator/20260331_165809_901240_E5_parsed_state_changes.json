@@ -1,0 +1,89 @@
+{
+  "event_id": "E5",
+  "state_changes": [
+    {
+      "target_type": "character",
+      "target_id": "C011",
+      "dimension": "情绪状态",
+      "value": "愤怒、悲痛、失控"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C011",
+      "dimension": "动机",
+      "value": "否定艺术、保护亡妻尊严、与王佛决裂"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C011",
+      "dimension": "处境认知",
+      "value": "认定王佛的艺术行为是导致妻子死亡的直接原因"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C011",
+      "dimension": "价值观",
+      "value": "艺术是危险的、亵渎生命的、应被否定的"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C013",
+      "dimension": "情绪状态",
+      "value": "震惊、困惑、可能受伤"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C013",
+      "dimension": "处境认知",
+      "value": "意识到自己的艺术创作被弟子视为谋杀工具，师徒关系面临彻底崩溃"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C011",
+        "C013"
+      ],
+      "dimension": "信任度",
+      "value": "彻底破裂"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C011",
+        "C013"
+      ],
+      "dimension": "情感倾向",
+      "value": "强烈敌意与怨恨"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C011",
+        "C013"
+      ],
+      "dimension": "连接强度",
+      "value": "断裂"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C013",
+        "C011"
+      ],
+      "dimension": "情感倾向",
+      "value": "可能包含愧疚，但被强烈的冲突与隔阂主导"
+    },
+    {
+      "target_type": "world",
+      "target_id": "painting_tools_availability",
+      "dimension": "物品状态",
+      "value": "被破坏（调色盘被打翻，颜料泼洒）"
+    },
+    {
+      "target_type": "world",
+      "target_id": "portrait_of_lin_wife",
+      "dimension": "物品状态",
+      "value": "被颜料污损（未完成画作被泼洒）"
+    }
+  ]
+}

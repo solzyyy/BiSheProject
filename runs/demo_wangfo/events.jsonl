@@ -1,0 +1,5 @@
+{"ts": "2026-03-17T20:43:47+08:00", "type": "run_started", "run_id": "demo_wangfo"}
+{"ts": "2026-03-17T20:43:47+08:00", "type": "step_started", "step": "extract-events"}
+{"ts": "2026-03-17T20:43:49+08:00", "type": "step_failed", "step": "extract-events", "error": "Command '['C:\\\\Codefield\\\\2026\\\\BiSheProject\\\\BiSheProject\\\\venv\\\\Scripts\\\\python.exe', '-m', 'src.cli', 'extract-events']' returned non-zero exit status 1."}
+{"ts": "2026-03-17T20:45:27+08:00", "type": "run_started", "run_id": "demo_wangfo"}
+{"ts": "2026-03-17T20:45:27+08:00", "type": "step_started", "step": "extract-events"}

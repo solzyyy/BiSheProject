@@ -1,0 +1,55 @@
+{
+  "run_id": "demo_wangfo",
+  "input_text": "王佛脱险记.txt",
+  "output_root": "runs/demo_wangfo",
+  "validate_after_each_step": true,
+  "default_step_params": {},
+  "steps": {
+    "extract-events-and-relations": {
+      "enabled": true,
+      "params": {
+        "input": null,
+        "output_dir": null,
+        "chunk_size": 800,
+        "chunk_overlap": 160,
+        "max_chunks": null
+      }
+    },
+    "generate-mentions-and-entities": { "enabled": true },
+    "extract-states-and-baseline": { "enabled": true },
+    "aggregate-characters-and-personas": { "enabled": true },
+    "analyze-decision-points": {
+      "enabled": true,
+      "params": {
+        "target_branch_count": null
+      }
+    },
+    "generate-branch": {
+      "enabled": true,
+      "params": {
+        "max_branches_per_point": 2,
+        "decision_density": "high",
+        "decision_density_ratio": null,
+        "fork_event_id": null
+      }
+    },
+    "determine-ending-candidates": { "enabled": true },
+    "generate-all-paths": {
+      "enabled": true,
+      "params": { "canonical": "out/canonical_branch.json" }
+    },
+    "complete-all-path-events": { "enabled": true, "params": {} },
+    "generate-content": {
+      "enabled": true,
+      "params": {
+        "input": "out/all_paths_completed",
+        "output": "out/enhanced_paths"
+      }
+    },
+    "generate-renpy-scripts": { "enabled": true },
+    "import-assets": { "enabled": true },
+    "validate-outputs": { "enabled": true },
+    "evaluate-solution": { "enabled": true },
+    "collect-metrics": { "enabled": true }
+  }
+}

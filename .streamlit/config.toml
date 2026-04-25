@@ -1,0 +1,12 @@
+# Streamlit 主题（从项目根运行 streamlit run ... 时自动生效）
+# 参考：https://docs.streamlit.io/develop/concepts/configuration/theming
+
+[server]
+# 供 Xiaolai 等通过 app/static/... 加载；static 目录须与 scripts/ui/pipeline_demo_app.py 同目录（见官方 static serving 文档）
+enableStaticServing = true
+
+[theme]
+base = "light"
+
+# 可选：与毕设 UI 协调的浅色强调色（不填则使用 Streamlit 默认浅色）
+# primaryColor = "#4f7cff"

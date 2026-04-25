@@ -1,0 +1,36 @@
+{
+  "event_id": "E5_branch_numb_withdrawal_ending",
+  "event_info": {},
+  "selected_state_changes": [
+    {
+      "target_type": "character",
+      "target_id": "C008",
+      "dimension": "情绪状态",
+      "value": "从‘惊奇、领悟、充满敬意’彻底转变为‘空洞、麻木、存在性虚无’。所有情感感知能力关闭，对外界刺激无反应，如同行走的空白。"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C008",
+      "dimension": "动机",
+      "value": "失去所有动机。对艺术、对老师、对生命本身均无任何追求或逃避的意愿，行动仅剩生物本能驱使的漫游。"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C008",
+      "dimension": "行动能力",
+      "value": "仅保留维持基本生存（如行走、进食）的机械性能力。丧失进行有目的、有意义的互动或创作的能力，无法再参与任何故事。"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": "C008-C001",
+      "dimension": "连接强度",
+      "value": "彻底断裂。林单方面切断了与王佛及与其相关的一切（艺术、记忆、情感）的精神与物理连接。王佛可能寻找过他，但林的‘存在’已从这段关系中湮灭。"
+    },
+    {
+      "target_type": "world",
+      "target_id": "world",
+      "dimension": "场景状态",
+      "value": "林从王佛的院落及后续所有可能的故事场景（如宫廷、旅途、其他画室）中永久消失。他的轨迹无法再与主线人物的命运产生交集。"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "text": {
+    "source_file": "王佛脱险记.txt",
+    "line_count": 109,
+    "char_count": 7242
+  },
+  "codebase": {
+    "python_file_count": 91,
+    "python_line_count": 26531
+  },
+  "game": {
+    "renpy_file_count": 23,
+    "renpy_line_count": 4182,
+    "path_script_count": 5,
+    "ending_script_count": 10,
+    "character_definition_count": 14,
+    "background_image_count": 14,
+    "canonical_path_line_count": 502,
+    "canonical_event_count": 24
+  },
+  "paths": {
+    "path_files": [
+      "canonical_path.rpy",
+      "e9_blame_and_separation_e14_emperor_breakdown_confession.rpy",
+      "e9_passive_arrest_e14_emperor_breakdown_confession.rpy",
+      "e9_passive_arrest_e14_emperor_cold_dismissal.rpy",
+      "e9_violent_resistance_e14_accuse_painter.rpy"
+    ],
+    "ending_files": [
+      "ending_ending_artistic_detente.rpy",
+      "ending_ending_canonical_true.rpy",
+      "ending_ending_final_rupture.rpy",
+      "ending_ending_fractured_paths.rpy",
+      "ending_ending_immediate_tragedy.rpy",
+      "ending_ending_premature_silencing.rpy",
+      "ending_ending_shattered_trust_solitary_survival.rpy",
+      "ending_ending_symbiotic_delusion.rpy",
+      "ending_ending_symbiotic_descent.rpy",
+      "ending_ending_violent_extinction.rpy"
+    ]
+  },
+  "pipeline_outputs": {
+    "extract_chain_exists": true,
+    "entities_exists": true,
+    "canonical_branch_exists": true,
+    "branches_exists": true,
+    "all_paths_completed_exists": true,
+    "enhanced_paths_exists": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "event_id": "E5_branch_numb_withdrawal_ending",
+  "tool_calls": [
+    {
+      "name": "update_character_state",
+      "arguments": "{\"character_id\": \"C011\", \"dimension\": \"情绪状态\", \"value\": \"彻底的情感与意识湮灭。对外界刺激完全无反应，精神已提前消亡\", \"reason\": \"林经历了极度的精神崩溃和彻底放弃生存意志，情绪状态从麻木空洞深化为完全的情感湮灭\"}"
+    }
+  ]
+}

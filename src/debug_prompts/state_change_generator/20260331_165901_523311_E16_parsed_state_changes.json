@@ -1,0 +1,80 @@
+{
+  "event_id": "E16",
+  "state_changes": [
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "情绪状态",
+      "value": "极度的自我厌恶、空虚、逃避"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "动机",
+      "value": "驱逐‘镜子’（王佛）以逃避自身丑陋，自我囚禁"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "处境认知",
+      "value": "自己才是丑陋的源头与化身，无法面对王佛这面镜子"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "行动能力",
+      "value": "自我封闭，无法有效行使统治"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C013",
+      "dimension": "处境认知",
+      "value": "被皇帝突然驱逐，免于酷刑但永不得返回帝国"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C013",
+      "dimension": "健康状态",
+      "value": "免于酷刑，身体完好"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C014",
+        "C013"
+      ],
+      "dimension": "情感倾向",
+      "value": "厌恶（指向自身，通过驱逐王佛来体现）"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C014",
+        "C013"
+      ],
+      "dimension": "权力动态",
+      "value": "单方面切断（皇帝主动驱逐并自我隔绝）"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C014",
+        "C013"
+      ],
+      "dimension": "连接强度",
+      "value": "物理切断（驱逐与禁令），但精神上王佛作为‘镜子’的影响已内化"
+    },
+    {
+      "target_type": "world",
+      "target_id": "imperial_palace_accessibility",
+      "dimension": "场景状态",
+      "value": "皇帝所在宫殿被封闭，与外界隔绝"
+    },
+    {
+      "target_type": "world",
+      "target_id": "wangfo_legal_status",
+      "dimension": "社会状态",
+      "value": "被永久驱逐出帝国疆域"
+    }
+  ]
+}

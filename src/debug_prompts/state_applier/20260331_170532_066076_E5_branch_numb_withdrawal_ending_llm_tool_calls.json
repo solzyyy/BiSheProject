@@ -1,0 +1,9 @@
+{
+  "event_id": "E5_branch_numb_withdrawal_ending",
+  "tool_calls": [
+    {
+      "name": "update_character_state",
+      "arguments": "{\"character_id\": \"C008\", \"dimension\": \"情绪状态\", \"value\": \"空洞、麻木、存在性虚无\", \"reason\": \"林经历了深刻的存在性转变，所有情感感知能力关闭，对外界刺激无反应，如同行走的空白\"}"
+    }
+  ]
+}

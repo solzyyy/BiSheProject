@@ -1,0 +1,42 @@
+{
+  "event_id": "E5_branch_life_rejects_art_ending",
+  "event_info": {},
+  "selected_state_changes": [
+    {
+      "target_type": "character",
+      "target_id": "C008",
+      "dimension": "情绪状态",
+      "value": "从‘惊奇、领悟、充满敬意’骤变为‘极度的虚无、绝望与自我毁灭倾向’。打翻调色盘的行为是压垮他的最后一根稻草，愤怒宣泄后只剩下彻底的空洞与无意义感。"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C008",
+      "dimension": "价值观",
+      "value": "彻底否定艺术的价值与意义，认为艺术是吞噬生命、制造痛苦的幻象。保护亡妻‘真实’尊严的执念，最终导向对一切（包括自身生命）的否定。"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C008",
+      "dimension": "行动能力",
+      "value": "完全丧失。在极度的情感崩溃与虚无感驱动下，选择了自我终结，物理意义上的旅程提前结束。"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": "C008-C009",
+      "dimension": "连接强度",
+      "value": "彻底断裂且不可修复。林的死亡为这段师徒关系画上了绝对且悲剧的休止符，留下的是王佛永恒的愧疚与艺术信仰的裂痕。"
+    },
+    {
+      "target_type": "world",
+      "target_id": "scene_studio",
+      "dimension": "场景状态",
+      "value": "画室永远定格在冲突发生的那一刻：泼洒的颜料已干涸成混乱的污迹，未完成的亡妻画像与打翻的调色盘一同被遗弃，成为一处被悲伤与死亡气息笼罩的禁忌空间。"
+    },
+    {
+      "target_type": "world",
+      "target_id": "item_painting_wife",
+      "dimension": "物品状态",
+      "value": "被颜料污损、未完成，且因其关联的悲剧而被王佛永久封存，不再被视为艺术品，而是作为一场灾难的证物。"
+    }
+  ]
+}

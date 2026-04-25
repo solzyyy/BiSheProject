@@ -1,0 +1,128 @@
+# Python 🐍
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# 虚拟环境 🌐
+venv/
+env/
+ENV/
+.venv
+env.bak/
+venv.bak/
+
+# IDE 和编辑器 💻
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# 环境变量 🔐
+.env
+.env.local
+.env.*.local
+*.env
+
+# 输出文件 📤
+out/
+*.log
+*.log.*
+
+# 向量数据库 🗄️
+vector_db/
+*.sqlite3
+*.db
+
+# 模型文件 🤖
+models/
+*.bin
+*.pt
+*.pth
+*.ckpt
+.cache/
+huggingface/
+transformers_cache/
+
+# 操作系统文件 🖥️
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# 临时文件 📝
+*.tmp
+*.temp
+*.bak
+*.backup
+*~
+.cache/
+
+# Jupyter Notebook 📓
+.ipynb_checkpoints
+*.ipynb
+
+# 测试覆盖率 📊
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.tox/
+.hypothesis/
+
+# Third-party assets (large binary files, users download separately)
+assets/
+
+# LangGraph API cache
+.langgraph_api/
+
+# Ren'Py compiled files
+*.rpyc
+
+# 文本文件（如果不想提交原始文本）
+# *.txt
+!prompts/**/*.txt
+!schema/**/*.txt
+
+experiments/
+
+# runs/ui: 默认忽略运行产物，仅保留可复现实验输入与可编辑结果
+runs/ui/**
+!runs/ui/.prompt_override_files/
+!runs/ui/.prompt_override_files/**
+!runs/ui/*/
+!runs/ui/*/out/
+!runs/ui/*/out/enhanced_paths/
+!runs/ui/*/out/enhanced_paths/**
+
+
+

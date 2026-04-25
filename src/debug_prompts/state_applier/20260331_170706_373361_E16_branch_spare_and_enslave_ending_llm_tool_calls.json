@@ -1,0 +1,9 @@
+{
+  "event_id": "E16_branch_spare_and_enslave_ending",
+  "tool_calls": [
+    {
+      "name": "update_character_state",
+      "arguments": "{\"character_id\": \"C014\", \"dimension\": \"动机\", \"value\": \"通过毁灭一切（包括自身统治的根基）来达成终极净化\", \"reason\": \"皇帝长期沉浸于扭曲的支配与毁灭仪式，精神彻底崩溃，动机从巩固支配权异化为毁灭一切的癫狂执念，人性完全泯灭\"}"
+    }
+  ]
+}

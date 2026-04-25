@@ -1,0 +1,30 @@
+{
+  "event_id": "E16_branch_self_reflection_and_exile_ending",
+  "event_info": {},
+  "selected_state_changes": [
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "情绪状态",
+      "value": "从极度的自我厌恶与空虚，彻底沉入虚无主义的癫狂与毁灭冲动"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "行动能力",
+      "value": "完全丧失统治意愿与行为能力，自我囚禁于封闭空间，仅剩纵火这一破坏性行动"
+    },
+    {
+      "target_type": "world",
+      "target_id": "world",
+      "dimension": "社会状态",
+      "value": "帝国中枢因皇帝自我隔绝而彻底瘫痪，朝政大乱，权力真空引发暗流与动荡"
+    },
+    {
+      "target_type": "world",
+      "target_id": "world",
+      "dimension": "场景状态",
+      "value": "皇宫核心殿堂被皇帝亲手焚毁，象征帝国命脉的文书、典籍、艺术珍品尽数化为灰烬"
+    }
+  ]
+}

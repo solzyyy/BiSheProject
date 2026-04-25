@@ -1,0 +1,96 @@
+{
+  "event_id": "E16",
+  "event_info": {
+    "id": "E16",
+    "人物": [
+      "皇帝",
+      "王佛"
+    ],
+    "行动": "皇帝向老画家王佛历数自己周游天下所见之丑陋与失望，并指控王佛的画作欺骗了他，使他厌恶自己的帝国与生活，渴望画中的理想世界。",
+    "目标": "皇帝试图让王佛明白其画作带来的“欺骗”与“魔法”效果，并宣告对其的审判与惩罚。",
+    "结果": "皇帝宣布了对王佛的刑罚：烧瞎双眼、砍掉双手，意图将其囚禁于“唯一的黑牢”。",
+    "情绪": "愤怒、失望、厌恶、偏执、审判者的冷酷",
+    "时间": "皇帝十六岁那年之后（回忆与当下审判的混合）",
+    "场景": "皇宫内（推断），皇帝向王佛发表长篇独白的审判现场",
+    "前提条件": "皇帝已周游帝国，亲眼目睹了现实的丑陋，并与王佛画中的理想世界进行了对比。",
+    "结果影响": "皇帝对王佛的最终判决下达，将导致王佛遭受残酷的肉刑。这是师徒关系与艺术理想面临毁灭的关键转折点。",
+    "source_text": "孤周游各省，都没找到你画中所画的到处都有象黄莺那样的美女的花园；也找不到你画中那样体态容貌就和一座花园似的女人。海边的石头使寡人厌烦了海洋；死囚受刑时流出来的血还不及你画布上的石榴红；农村里的虱子臭虫使孤看不到稻田的秀美；尘世间女人的肌肤就象挂在屠夫肉案钩上的猪肉一样使寡人恶心。……王佛，你对孤撒了谎，你这老骗子。世界只不过是一位疯狂的画家在空间信手涂抹出来的一大摊混乱的墨渍，它经常被我们的眼泪所冲刷。",
+    "emotion_value": -85,
+    "conflict_value": 90,
+    "impact_value": 85
+  },
+  "selected_state_changes": [
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "动机",
+      "value": "通过奴役与精神施虐玷污美本身，获得持续的支配满足",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "情绪状态",
+      "value": "偏执、冷酷、掌控欲高涨，暴虐冲动转化为持续的精神施虐快感",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C013",
+      "dimension": "处境认知",
+      "value": "成为宫廷画奴，被迫每日按皇帝口述的丑陋作画并目睹其焚毁，陷入永恒的精神凌迟",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C013",
+      "dimension": "健康状态",
+      "value": "免除肉刑但被永久奴役，身心承受持续的精神折磨",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C013",
+      "dimension": "行动能力",
+      "value": "保留绘画的物理能力，但创作自由被彻底剥夺，必须严格遵从皇帝指令",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C014",
+        "C013"
+      ],
+      "dimension": "关系类型",
+      "value": "奴役者与被奴役者",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C014",
+        "C013"
+      ],
+      "dimension": "权力动态",
+      "value": "绝对支配与工具化控制",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C014",
+        "C013"
+      ],
+      "dimension": "连接强度",
+      "value": "强制性的、扭曲的共生连接",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "world",
+      "target_id": "wangfo_artistic_freedom",
+      "dimension": "资源状态",
+      "value": "被彻底剥夺，画作成为皇帝精神施虐的工具并规定焚毁",
+      "source_event": "E16"
+    }
+  ]
+}

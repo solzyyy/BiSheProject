@@ -1,0 +1,58 @@
+{
+  "event_id": "E1",
+  "updated_states": {
+    "character_states": {},
+    "relationship_states": {},
+    "world_states": {
+      "han_kingdom_road_condition": {
+        "场景状态": "通衢大道"
+      }
+    }
+  },
+  "snapshot": {
+    "人物状态": {},
+    "关系状态": {},
+    "世界状态": {
+      "客观事实层": [
+        {
+          "target_id": "han_kingdom_road_condition",
+          "dimension": "场景状态",
+          "value": "通衢大道",
+          "logic_impact": "道路宽阔畅通，不限制人物移动，为漫游提供了物理条件。",
+          "说明": "世界客观事实，用于世界一致性约束"
+        },
+        {
+          "target_id": "general_luggage_weight",
+          "dimension": "物品属性",
+          "value": "轻便",
+          "logic_impact": "行囊轻便，不构成长途旅行的负担，便于漫游。",
+          "说明": "世界客观事实，用于世界一致性约束"
+        }
+      ],
+      "逻辑阻碍层": [],
+      "叙事氛围层": [
+        {
+          "target_id": "painting_tools_availability",
+          "dimension": "物品存在",
+          "value": "拥有画笔、墨瓶、漆罐、绢卷、宣纸",
+          "logic_impact": "拥有核心绘画工具，确保了绘画行为的基本可行性。",
+          "说明": "值得被写出来的世界变化，影响氛围与人物反应"
+        },
+        {
+          "target_id": "economic_resource_status",
+          "dimension": "资源状态",
+          "value": "贫困",
+          "logic_impact": "贫困状态限制了人物获取生活资源（如食物、住所）的能力和方式，迫使其依赖特定技能（作画）换取生存物资。",
+          "说明": "值得被写出来的世界变化，影响氛围与人物反应"
+        },
+        {
+          "target_id": "painting_trade_system",
+          "dimension": "社会状态",
+          "value": "画作可交换食物",
+          "logic_impact": "存在以画易物的社会规则或市场，为贫困的画家提供了获取基本生存资源的唯一途径。",
+          "说明": "值得被写出来的世界变化，影响氛围与人物反应"
+        }
+      ]
+    }
+  }
+}

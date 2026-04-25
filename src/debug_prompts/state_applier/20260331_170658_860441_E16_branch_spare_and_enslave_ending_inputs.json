@@ -1,0 +1,30 @@
+{
+  "event_id": "E16_branch_spare_and_enslave_ending",
+  "event_info": {},
+  "selected_state_changes": [
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "动机",
+      "value": "从‘通过日常施虐巩固支配权’彻底异化为‘通过毁灭一切（包括自身统治的根基）来达成终极净化’的癫狂执念，人性完全泯灭"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "健康状态",
+      "value": "因长期沉浸于扭曲的支配与毁灭仪式，精神彻底崩溃，陷入间歇性狂笑与偏执妄想的状态"
+    },
+    {
+      "target_type": "world",
+      "target_id": "world",
+      "dimension": "社会状态",
+      "value": "宫廷核心建筑与重要典籍被焚，象征帝国文脉与秩序根基遭到重创；皇帝癫狂的统治方式导致朝政混乱，人心离散，帝国加速走向衰亡"
+    },
+    {
+      "target_type": "world",
+      "target_id": "world",
+      "dimension": "环境状态",
+      "value": "皇宫部分区域化为焦土，灰烬弥漫，成为皇帝偏执仪式的永恒见证；整体氛围被绝望、虚无与即将来临的崩溃所笼罩"
+    }
+  ]
+}

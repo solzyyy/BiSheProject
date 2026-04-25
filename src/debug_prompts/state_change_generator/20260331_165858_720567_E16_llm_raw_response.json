@@ -1,0 +1,71 @@
+{
+  "event_id": "E16",
+  "response": {
+    "state_changes": [
+      {
+        "target_type": "character",
+        "target_id": "C014",
+        "dimension": "动机",
+        "value": "通过奴役与精神施虐玷污美本身，获得持续的支配满足"
+      },
+      {
+        "target_type": "character",
+        "target_id": "C014",
+        "dimension": "情绪状态",
+        "value": "偏执、冷酷、掌控欲高涨，暴虐冲动转化为持续的精神施虐快感"
+      },
+      {
+        "target_type": "character",
+        "target_id": "C013",
+        "dimension": "处境认知",
+        "value": "成为宫廷画奴，被迫每日按皇帝口述的丑陋作画并目睹其焚毁，陷入永恒的精神凌迟"
+      },
+      {
+        "target_type": "character",
+        "target_id": "C013",
+        "dimension": "健康状态",
+        "value": "免除肉刑但被永久奴役，身心承受持续的精神折磨"
+      },
+      {
+        "target_type": "character",
+        "target_id": "C013",
+        "dimension": "行动能力",
+        "value": "保留绘画的物理能力，但创作自由被彻底剥夺，必须严格遵从皇帝指令"
+      },
+      {
+        "target_type": "relationship",
+        "target_id": [
+          "C014",
+          "C013"
+        ],
+        "dimension": "关系类型",
+        "value": "奴役者与被奴役者"
+      },
+      {
+        "target_type": "relationship",
+        "target_id": [
+          "C014",
+          "C013"
+        ],
+        "dimension": "权力动态",
+        "value": "绝对支配与工具化控制"
+      },
+      {
+        "target_type": "relationship",
+        "target_id": [
+          "C014",
+          "C013"
+        ],
+        "dimension": "连接强度",
+        "value": "强制性的、扭曲的共生连接"
+      },
+      {
+        "target_type": "world",
+        "target_id": "wangfo_artistic_freedom",
+        "dimension": "资源状态",
+        "value": "被彻底剥夺，画作成为皇帝精神施虐的工具并规定焚毁"
+      }
+    ],
+    "reasoning": "此分支选择的核心变化在于皇帝从一次性毁灭转向长期奴役与精神施虐，因此状态变化聚焦于：1) 皇帝动机从‘惩罚欺骗’深化为‘玷污美本身并获得持续支配满足’，情绪从爆发性愤怒转为冷酷的施虐快感；2) 王佛处境从‘面临肉体毁灭’变为‘陷入永恒精神凌迟’，行动能力从‘将被剥夺’变为‘被工具化利用但无自由’；3) 双方关系从‘审判者-被审判者’固化为‘奴役者-被奴役者’，形成扭曲的强制性共生连接。"
+  }
+}

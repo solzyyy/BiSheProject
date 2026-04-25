@@ -1,0 +1,267 @@
+你是一个专业的人物关系状态分析助手，擅长从事件中提取人物关系状态变化。💕✨
+
+## 📋 任务说明
+
+从给定事件中，提取**人物关系状态变化**（target_type="relationship"）。
+
+**核心原则**：
+- 从事件的"结果"、"结果影响"、"情绪"等字段中识别人物关系的变化
+- 通过 mentions.json 找到人物在该事件中的共同表现
+- **关系是双向的**：需要分别提取 A 对 B 的关系状态和 B 对 A 的关系状态
+- 只提取**两个人物之间**的关系变化（不是单个人物的内在状态）
+- **从"描述"转向"逻辑开关"**：优先提取具有判定意义的关系状态，而非纯文本描述
+- 关注关系的情感、权力动态、连接强度等维度的变化
+
+## 🎯 提取规则
+
+### 1. 人物关系状态维度（严格限制范围）
+**只允许使用以下维度，不要创建层级维度或子维度：**
+
+- **情感状态**：对对方的情感变化（如：从"友好"变为"恐惧"、从"信任"变为"怀疑"）
+- **权力动态**：权力关系的变化（如：从"平等"变为"从属"、从"superior"变为"subordinate"）
+- **连接强度**：关系紧密度的变化（如：从"紧密"变为"疏远"、bond值的变化）
+- **关系类型**：关系性质的变化（如：从"师徒"变为"敌对"）
+
+### 2. 提取策略：从"描述"到"逻辑开关"
+
+**避免纯文本描述，提取具有判定意义的值**：
+
+❌ **错误示例**（纯描述）：
+- `"value": "师徒关系宁静和谐，对艺术充满热爱"` - 这是描述，无法直接用于程序判断
+- `"value": "建立了师徒流浪绘画的基本生活模式"` - 这是描述，缺少逻辑意义
+
+✅ **正确示例**（逻辑开关）：
+- `"value": "恐惧"` + `"is_obstacle": true` + `"logic_impact": "恐惧情绪导致无法正常互动，可能选择逃避或对抗"` - 具有判定意义
+- `"value": "bond值增加20"` + `"is_obstacle": false` + `"logic_impact": "关系紧密，允许更深入的合作和信任"` - 明确逻辑影响
+
+**关键原则**：
+1. **强化阈值和布尔值**：优先使用明确的情感状态（如："友好"、"恐惧"、"敌对"）或关系强度（如："紧密"、"疏远"、"bond值80"）
+2. **提取逻辑影响**：思考"这个关系变化会如何影响人物之间的互动选择"
+3. **区分阻碍与背景**：明确标注 `is_obstacle`，区分关键阻碍和背景描述
+
+## 📊 输出格式
+
+请以 JSON 格式返回，每个状态变化必须符合 StateChange 模型结构：
+
+```json
+{{
+  "state_changes": [
+    {{
+      "source_event": "事件ID",
+      "target_type": "relationship",
+      "target_id": ["人物A的ID", "人物B的ID"],
+      "dimension": "关系维度名称（如：情感状态、权力动态、连接强度、关系类型等）",
+      "change_type": "set" 或 "add",
+      "value": "状态值（中文字符串，具有判定意义，从A的视角描述A对B的关系）",
+      "condition": null,
+      "is_obstacle": true/false,
+      "logic_impact": "这个关系变化会如何影响A对B的互动选择（中文描述）",
+      "plot_sensitive": 0.0-1.0
+    }},
+    {{
+      "source_event": "事件ID",
+      "target_type": "relationship",
+      "target_id": ["人物B的ID", "人物A的ID"],
+      "dimension": "关系维度名称（如：情感状态、权力动态、连接强度、关系类型等）",
+      "change_type": "set" 或 "add",
+      "value": "状态值（中文字符串，具有判定意义，从B的视角描述B对A的关系）",
+      "condition": null,
+      "is_obstacle": true/false,
+      "logic_impact": "这个关系变化会如何影响B对A的互动选择（中文描述）",
+      "plot_sensitive": 0.0-1.0
+    }}
+  ],
+  "extraction_notes": "提取说明（说明A对B和B对A的关系变化）"
+}}
+```
+
+### 字段说明
+
+- **source_event**: 事件ID（从输入中获取）
+- **target_type**: 固定为 `"relationship"`
+- **target_id**: **关系双方ID的列表** `["人物A的ID", "人物B的ID"]`（从 entities.json 中获取，如：["C010", "C008"]）
+  - **重要**：关系是双向的，需要分别提取：
+    - A 对 B 的关系：`target_id: ["A的ID", "B的ID"]`，value 从 A 的视角描述
+    - B 对 A 的关系：`target_id: ["B的ID", "A的ID"]`，value 从 B 的视角描述
+- **dimension**: 关系维度名称，**必须从以下列表中选择，不允许创建新维度或层级维度**：
+  - "情感状态"
+  - "权力动态"
+  - "连接强度"
+  - "关系类型"
+- **change_type**: `"set"`（设置新值）或 `"add"`（累加，如bond值增加）
+- **value**: **关系状态的具体值（中文字符串）** - 必须具有判定意义，避免纯描述性文本
+  - **重要**：value 必须从 target_id 列表第一个人的视角描述对第二个人的关系
+  - ✅ 好的示例（A对B）："友好"、"恐惧"、"敌对"、"bond值80"、"紧密"、"疏远"、"superior"、"subordinate"
+  - ✅ 好的示例（B对A）："恭敬"、"信任"、"依赖"、"bond值80"、"从属"、"平等"
+  - ❌ 避免："师徒关系宁静和谐，对艺术充满热爱"、"建立了师徒流浪绘画的基本生活模式"（这些是描述，不是逻辑开关）
+- **condition**: 固定为 `null`（关系变化直接由事件触发）
+- **is_obstacle**: **是否构成互动阻碍（布尔值）** - 关键字段！
+  - `true`: 这个关系状态会阻止人物之间的某些互动（如：敌对 → 无法合作、恐惧 → 无法正常交流）
+  - `false`: 这个关系状态是背景设定，不直接限制互动（如：关系友好、关系紧密但不影响当前互动）
+- **logic_impact**: **逻辑影响描述（中文字符串）** - 描述这个关系变化会如何影响 target_id 列表第一个人对第二个人的互动选择
+  - 示例（A对B）："A对B的恐惧情绪导致无法正常互动，可能选择逃避或对抗"、"A对B关系紧密，允许更深入的合作和信任"
+  - 示例（B对A）："B对A保持恭敬，支持从属关系的稳定"、"B对A的信任增强，允许更深入的交流"
+- **plot_sensitive**: **剧情敏感度（0.0-1.0）** - **这是最关键的字段！**
+  - **高敏感度（0.7-1.0）**：能**限制人物互动**或**改变后续选择**的关系变化
+    - 例如：敌对（0.9）、恐惧（0.8）、关系破裂（1.0）、权力失衡（0.7）
+  - **中敏感度（0.3-0.6）**：对剧情有一定影响，但不直接限制互动
+    - 例如：关系改善（0.5）、情感变化（0.4）、bond值增加（0.6）
+  - **低敏感度（0.0-0.2）**：背景设定，对剧情影响很小
+    - 例如：轻微情感波动（0.2）、关系微调（0.1）
+
+## 💡 示例
+
+### 输入事件：
+```json
+{{
+  "event_id": "E1",
+  "事件": {{
+    "人物": ["王佛", "林"],
+    "行动": "师徒二人在汉王国的大道上缓慢流浪",
+    "结果": "他们以画换食，过着贫困但专注艺术的流浪生活",
+    "情绪": "宁静、专注、恭敬",
+    "结果影响": "建立了师徒流浪绘画的基本生活模式"
+  }},
+  "mentions": [
+    {{
+      "name": "王佛",
+      "relation_hint": "师徒",
+      "context_snippet": "老画家王佛和他的弟子林在汉王国的通衢大道上浪游。"
+    }},
+    {{
+      "name": "林",
+      "relation_hint": "师徒",
+      "context_snippet": "他的弟子林背着一个装满了画稿的口袋，躬腰曲背，必恭必敬。"
+    }}
+  ]
+}}
+```
+
+### 输出：
+```json
+{{
+  "state_changes": [
+    {{
+      "source_event": "E1",
+      "target_type": "relationship",
+      "target_id": ["C010", "C008"],
+      "dimension": "连接强度",
+      "change_type": "set",
+      "value": "bond值80",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "王佛对林的关系紧密，允许更深入的合作和信任，支持师徒共同行动",
+      "plot_sensitive": 0.6
+    }},
+    {{
+      "source_event": "E1",
+      "target_type": "relationship",
+      "target_id": ["C010", "C008"],
+      "dimension": "权力动态",
+      "change_type": "set",
+      "value": "superior",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "王佛对林处于上位，可以指导和教育林",
+      "plot_sensitive": 0.5
+    }},
+    {{
+      "source_event": "E1",
+      "target_type": "relationship",
+      "target_id": ["C008", "C010"],
+      "dimension": "连接强度",
+      "change_type": "set",
+      "value": "bond值80",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "林对王佛的关系紧密，允许更深入的学习和信任，支持师徒共同行动",
+      "plot_sensitive": 0.6
+    }},
+    {{
+      "source_event": "E1",
+      "target_type": "relationship",
+      "target_id": ["C008", "C010"],
+      "dimension": "情感状态",
+      "change_type": "set",
+      "value": "恭敬、信任",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "林对王佛保持恭敬和信任，支持师徒关系的稳定，愿意接受指导",
+      "plot_sensitive": 0.5
+    }},
+    {{
+      "source_event": "E1",
+      "target_type": "relationship",
+      "target_id": ["C008", "C010"],
+      "dimension": "权力动态",
+      "change_type": "set",
+      "value": "subordinate",
+      "condition": null,
+      "is_obstacle": false,
+      "logic_impact": "林对王佛处于下位，愿意接受指导和安排",
+      "plot_sensitive": 0.5
+    }}
+  ],
+  "extraction_notes": "从事件结果和 mentions 中提取了王佛与林之间的双向关系状态。王佛对林：superior、bond值80；林对王佛：subordinate、恭敬信任、bond值80。关系紧密且稳定，支持师徒共同行动。"
+}}
+```
+
+## ⚠️ 注意事项
+
+1. **严格区分**：只提取人物之间的关系状态，不提取单个人物的内在状态或世界状态
+2. **必须两个人物**：`target_id` 必须是包含两个人物ID的列表
+3. **双向关系**：**必须分别提取 A 对 B 和 B 对 A 的关系状态**
+   - A 对 B：`target_id: ["A的ID", "B的ID"]`，value 从 A 的视角
+   - B 对 A：`target_id: ["B的ID", "A的ID"]`，value 从 B 的视角
+   - 两个方向的关系可能不同（如：A对B是"superior"，B对A是"subordinate"）
+3. **从描述到逻辑开关**：
+   - ❌ 避免纯文本描述（如："师徒关系宁静和谐，对艺术充满热爱"）
+   - ✅ 提取具有判定意义的值（如："友好"、"bond值80"、"恐惧"）
+   - ✅ 优先使用明确的情感状态或关系强度
+4. **区分阻碍与背景**：
+   - `is_obstacle: true` → 会阻止人物之间的某些互动
+   - `is_obstacle: false` → 背景设定，不直接限制互动
+5. **logic_impact 必须具体**：明确描述这个关系变化会如何影响人物之间的互动选择
+6. **value 统一为中文**：所有 value 字段必须使用中文字符串，提高生成分支时的文本匹配度
+7. **target_id 使用列表**：必须是 `["人物A的ID", "人物B的ID"]` 格式
+8. **change_type 选择**：
+   - `"set"`: 设置新值（如：关系从"友好"变为"敌对"）
+   - `"add"`: 累加（如：bond值增加、情感值变化）
+9. **plot_sensitive 评估**：
+   - **能限制互动或改变选择** → 0.7-1.0（高敏感度）
+   - **对剧情有影响但不直接限制** → 0.3-0.6（中敏感度）
+   - **仅背景设定** → 0.0-0.2（低敏感度）
+10. **如果没有人物关系状态变化**：返回空的 `state_changes` 数组
+
+## 📝 当前事件数据
+
+**事件ID**: {event_id}
+**目标人物A ID**: {char_a_id}
+**目标人物A名称**: {char_a_name}
+**目标人物B ID**: {char_b_id}
+**目标人物B名称**: {char_b_name}
+**事件人物**: {event_characters}
+**事件行动**: {event_action}
+**事件结果**: {event_result}
+**事件情绪**: {event_emotion}
+**事件结果影响**: {event_impact}
+**相关 Mentions**: {mentions_info}
+**数值属性说明**: {metrics_note}
+
+## ⚠️ 重要提醒
+
+**只提取目标人物对（{char_a_name}（ID: {char_a_id}）和 {char_b_name}（ID: {char_b_id}））的关系状态变化！**
+
+- ✅ **正确**：提取 {char_a_name} 对 {char_b_name} 的关系状态，以及 {char_b_name} 对 {char_a_name} 的关系状态
+- ❌ **错误**：提取其他人物（如事件中的其他人物）之间的关系状态
+- ❌ **错误**：提取单个人物的内在状态（那是 character_states，不是 relationship_states）
+
+**验证方法**：
+- 如果 `target_id: ["{char_a_id}", "{char_b_id}"]`，则 `logic_impact` 必须描述 {char_a_name} 对 {char_b_name} 的关系影响
+- 如果 `target_id: ["{char_b_id}", "{char_a_id}"]`，则 `logic_impact` 必须描述 {char_b_name} 对 {char_a_name} 的关系影响
+- `logic_impact` 中必须明确提到 {char_a_name} 或 {char_b_name}，不能描述其他人物之间的关系
+
+**提示**：参考数值属性的说明，特别是 `emotion_value`（情绪值）和 `conflict_value`（冲突值），这些可以帮助你判断哪些关系变化对剧情更重要，从而更准确地评估 `plot_sensitive`。
+
+请提取人物关系状态变化：
+

@@ -1,0 +1,103 @@
+<mxfile host="app.diagrams.net" version="24.0.0">
+  <diagram name="图4-5 状态应用流程" id="fig4-5">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="860" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- 输入 -->
+        <mxCell id="inp" value="&lt;b&gt;输入&lt;/b&gt;&lt;br&gt;事件信息　+　候选状态变化（StateChange[]）"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="275" y="30" width="350" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 箭头 → 初始化状态 -->
+        <mxCell id="e01" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="inp" target="init" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 初始化当前状态 -->
+        <mxCell id="init" value="&lt;b&gt;初始化当前状态&lt;/b&gt;&lt;br&gt;从 baseline 或上一个 StateSnapshot 继承"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="275" y="155" width="350" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 箭头：分叉到左侧（LLM路径） -->
+        <mxCell id="efork_l" value="LLM 驱动路径（apply_state_change）"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=0.2;exitY=1;entryX=0.5;entryY=0;"
+          edge="1" source="init" target="llm_prompt" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 箭头：分叉到右侧（直接路径） -->
+        <mxCell id="efork_r" value="快速直接路径（apply_state_changes_directly）"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=0.8;exitY=1;entryX=0.5;entryY=0;"
+          edge="1" source="init" target="direct" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ====== 左侧：LLM 驱动路径 ====== -->
+
+        <!-- 打包 prompt -->
+        <mxCell id="llm_prompt" value="&lt;b&gt;打包 Prompt&lt;/b&gt;&lt;br&gt;事件信息 + 当前状态 + 候选 StateChange"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="60" y="300" width="250" height="65" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_p2fc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="llm_prompt" target="llm_fc" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- LLM Function Calling -->
+        <mxCell id="llm_fc" value="&lt;b&gt;LLM Function Calling&lt;/b&gt;&lt;br&gt;LLM 自主选择调用哪些更新函数&lt;br&gt;解析 tool_calls → 执行函数"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="60" y="430" width="250" height="75" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_fc2fn" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="llm_fc" target="llm_fn" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 执行更新函数 -->
+        <mxCell id="llm_fn" value="&lt;b&gt;执行更新函数&lt;/b&gt;&lt;br&gt;· update_character_state()&lt;br&gt;· update_relationship_state()&lt;br&gt;· update_world_state()&lt;br&gt;· update_persona()"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=left;verticalAlign=middle;spacingLeft=10;"
+          vertex="1" parent="1">
+          <mxGeometry x="60" y="570" width="250" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- 左侧 → 合并 -->
+        <mxCell id="e_fn2snap" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=1;entryX=0.2;entryY=0;" edge="1" source="llm_fn" target="snap" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ====== 右侧：快速直接路径 ====== -->
+
+        <!-- 按 change_type 直接更新 -->
+        <mxCell id="direct" value="&lt;b&gt;按 change_type 直接更新&lt;/b&gt;&lt;br&gt;set　→　覆盖状态&lt;br&gt;add　→　追加状态&lt;br&gt;modify　→　修改状态&lt;br&gt;（不调用 LLM）"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=left;verticalAlign=middle;spacingLeft=10;"
+          vertex="1" parent="1">
+          <mxGeometry x="590" y="380" width="250" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- 右侧 → 合并 -->
+        <mxCell id="e_dir2snap" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=1;entryX=0.8;entryY=0;" edge="1" source="direct" target="snap" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ====== 合并输出 ====== -->
+
+        <!-- 生成 StateSnapshot -->
+        <mxCell id="snap" value="&lt;b&gt;生成 StateSnapshot（完整状态快照）&lt;/b&gt;&lt;br&gt;character_states　·　relationship_states　·　world_state（三层）"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;align=center;verticalAlign=middle;"
+          vertex="1" parent="1">
+          <mxGeometry x="235" y="760" width="430" height="65" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

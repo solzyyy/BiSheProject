@@ -1,0 +1,110 @@
+{
+  "event_id": "E16",
+  "event_info": {
+    "id": "E16",
+    "人物": [
+      "皇帝",
+      "王佛"
+    ],
+    "行动": "皇帝向老画家王佛历数自己周游天下所见之丑陋与失望，并指控王佛的画作欺骗了他，使他厌恶自己的帝国与生活，渴望画中的理想世界。",
+    "目标": "皇帝试图让王佛明白其画作带来的“欺骗”与“魔法”效果，并宣告对其的审判与惩罚。",
+    "结果": "皇帝宣布了对王佛的刑罚：烧瞎双眼、砍掉双手，意图将其囚禁于“唯一的黑牢”。",
+    "情绪": "愤怒、失望、厌恶、偏执、审判者的冷酷",
+    "时间": "皇帝十六岁那年之后（回忆与当下审判的混合）",
+    "场景": "皇宫内（推断），皇帝向王佛发表长篇独白的审判现场",
+    "前提条件": "皇帝已周游帝国，亲眼目睹了现实的丑陋，并与王佛画中的理想世界进行了对比。",
+    "结果影响": "皇帝对王佛的最终判决下达，将导致王佛遭受残酷的肉刑。这是师徒关系与艺术理想面临毁灭的关键转折点。",
+    "source_text": "孤周游各省，都没找到你画中所画的到处都有象黄莺那样的美女的花园；也找不到你画中那样体态容貌就和一座花园似的女人。海边的石头使寡人厌烦了海洋；死囚受刑时流出来的血还不及你画布上的石榴红；农村里的虱子臭虫使孤看不到稻田的秀美；尘世间女人的肌肤就象挂在屠夫肉案钩上的猪肉一样使寡人恶心。……王佛，你对孤撒了谎，你这老骗子。世界只不过是一位疯狂的画家在空间信手涂抹出来的一大摊混乱的墨渍，它经常被我们的眼泪所冲刷。",
+    "emotion_value": -85,
+    "conflict_value": 90,
+    "impact_value": 85
+  },
+  "selected_state_changes": [
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "情绪状态",
+      "value": "极度的自我厌恶、空虚、逃避",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "动机",
+      "value": "驱逐‘镜子’（王佛）以逃避自身丑陋，自我囚禁",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "处境认知",
+      "value": "自己才是丑陋的源头与化身，无法面对王佛这面镜子",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C014",
+      "dimension": "行动能力",
+      "value": "自我封闭，无法有效行使统治",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C013",
+      "dimension": "处境认知",
+      "value": "被皇帝突然驱逐，免于酷刑但永不得返回帝国",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "character",
+      "target_id": "C013",
+      "dimension": "健康状态",
+      "value": "免于酷刑，身体完好",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C014",
+        "C013"
+      ],
+      "dimension": "情感倾向",
+      "value": "厌恶（指向自身，通过驱逐王佛来体现）",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C014",
+        "C013"
+      ],
+      "dimension": "权力动态",
+      "value": "单方面切断（皇帝主动驱逐并自我隔绝）",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "relationship",
+      "target_id": [
+        "C014",
+        "C013"
+      ],
+      "dimension": "连接强度",
+      "value": "物理切断（驱逐与禁令），但精神上王佛作为‘镜子’的影响已内化",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "world",
+      "target_id": "imperial_palace_accessibility",
+      "dimension": "场景状态",
+      "value": "皇帝所在宫殿被封闭，与外界隔绝",
+      "source_event": "E16"
+    },
+    {
+      "target_type": "world",
+      "target_id": "wangfo_legal_status",
+      "dimension": "社会状态",
+      "value": "被永久驱逐出帝国疆域",
+      "source_event": "E16"
+    }
+  ]
+}
