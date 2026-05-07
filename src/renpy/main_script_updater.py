@@ -67,6 +67,10 @@ class MainScriptUpdater:
                 canonical_path = path
                 break
         
+        # 背景音乐
+        lines.append('    play music "audio/voice_of_evening.mp3" fadein 1.0')
+        lines.append("")
+
         if canonical_path:
             lines.append("    # 跳转到主线路径")
             lines.append("    jump canonical_path")

@@ -31,11 +31,14 @@ FLAVOR_CHOICES: List[str] = [
 # 仅每隔 FLAVOR_EVERY_N 个事件、且非首事件时加 flavor，避免过多
 FLAVOR_EVERY_N: int = 4
 
-# 事件 ID → 豆包场景（仅从 import_assets.py 生成的 event_scene_map.json 读取；请先运行 python import_assets.py）
-def _load_event_scene_maps() -> Tuple[Dict[str, str], Dict[str, str]]:
+# 事件 ID → 豆包场景（从 import_assets.py 生成的 event_scene_map.json 读取）
+def _load_event_scene_maps(event_scene_map_file: Optional[str] = None) -> Tuple[Dict[str, str], Dict[str, str]]:
     try:
-        root = Path(__file__).resolve().parent.parent.parent
-        json_path = root / "wangfo" / "game" / "event_scene_map.json"
+        if event_scene_map_file:
+            json_path = Path(event_scene_map_file)
+        else:
+            root = Path(__file__).resolve().parent.parent.parent
+            json_path = root / "wangfo" / "game" / "event_scene_map.json"
         if json_path.is_file():
             with open(json_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
@@ -49,9 +52,6 @@ def _load_event_scene_maps() -> Tuple[Dict[str, str], Dict[str, str]]:
     return {}, {}
 
 
-EVENT_SCENE_MAP, ENDING_SCENE_MAP = _load_event_scene_maps()
-
-
 class PathScriptGenerator:
     """路径脚本生成器（对话说者可按 entities 合并同人异名，如 皇帝/天子 → 同一变量）"""
     
@@ -60,6 +60,7 @@ class PathScriptGenerator:
         character_generator: Any,
         all_paths_map: Dict[str, Dict[str, Any]] = None,
         entities_path: Optional[str] = None,
+        event_scene_map_file: Optional[str] = None,
     ):
         """
         初始化路径脚本生成器
@@ -71,6 +72,7 @@ class PathScriptGenerator:
         """
         self.character_generator = character_generator
         self.all_paths_map = all_paths_map or {}
+        self.event_scene_map, self.ending_scene_map = _load_event_scene_maps(event_scene_map_file)
         self._mention_to_entity: Dict[str, Dict[str, Any]] = {}
         if entities_path:
             try:
@@ -481,7 +483,7 @@ class PathScriptGenerator:
         lines.append(f"    # 事件 {event_id} ({event_type})")
 
         # 根据事件 ID 自动插入场景（豆包场景），无需在剧本里手写 scene
-        scene_bg = EVENT_SCENE_MAP.get(event_id)
+        scene_bg = self.event_scene_map.get(event_id)
         if scene_bg:
             lines.append(f"    scene {scene_bg}")
             lines.append("")
@@ -675,7 +677,7 @@ class PathScriptGenerator:
 
                 # 4) menu 之后的正文块：从 choice 后继续输出（jump 进来会从这里开始）
                 lines.append(f"    # 事件 {eid} (decision_point)")
-                scene_bg = EVENT_SCENE_MAP.get(eid)
+                scene_bg = self.event_scene_map.get(eid)
                 if scene_bg:
                     lines.append(f"    scene {scene_bg}")
                     lines.append("")
@@ -699,7 +701,7 @@ class PathScriptGenerator:
         if ending:
             ending_id = ending.get("id", "")
             if ending_id:
-                scene_bg = ENDING_SCENE_MAP.get(ending_id)
+                scene_bg = self.ending_scene_map.get(ending_id)
                 if scene_bg:
                     lines.append(f"    scene {scene_bg}")
                     lines.append("")

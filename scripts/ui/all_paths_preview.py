@@ -17,7 +17,7 @@ def render_in_streamlit(
     _ = project_root
 
     if not paths_dir.is_dir():
-        st.warning(f"找不到路径枚举输出目录：{paths_dir}")
+        st.warning(f"找不到分支路径生成输出目录：{paths_dir}")
         return
 
     index_path = paths_dir / "index.json"

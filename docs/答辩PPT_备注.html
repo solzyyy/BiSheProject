@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>毕业答辩PPT备注 - 文字冒险游戏内容生成系统的设计与实现</title>
+  <style>
+    :root {
+      --bg: #f4efe7;
+      --paper: #fffdf8;
+      --ink: #1f2430;
+      --muted: #5f6672;
+      --accent: #a43b2f;
+      --line: rgba(31, 36, 48, 0.12);
+      --shadow: 0 18px 40px rgba(51, 44, 32, 0.12);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 32px 20px 48px;
+      background: linear-gradient(180deg, #f6f1e7, #ece3d5);
+      color: var(--ink);
+      font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero,
+    .note-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 28px 30px;
+      display: grid;
+      gap: 10px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    ul {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 34px;
+      line-height: 1.2;
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .meta {
+      color: var(--accent);
+      font-size: 14px;
+      font-family: "Aptos", "Segoe UI", sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .note-card {
+      padding: 22px 24px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .title-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 10px;
+    }
+
+    .slide-no {
+      color: var(--accent);
+      font-size: 14px;
+      font-family: "Aptos", "Segoe UI", sans-serif;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    h2 {
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    h3 {
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    p,
+    li {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    .tip {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(164, 59, 47, 0.08);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+
+      .hero,
+      .note-card {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+
+      .note-card {
+        page-break-before: always;
+      }
+
+      .note-card:first-child {
+        page-break-before: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="meta">演讲备注分离版</div>
+      <h1>答辩 PPT 备注稿</h1>
+      <p class="sub">这个文件仅用于你自己答辩前练习或双屏查看。公开展示时请使用 [docs/答辩PPT.html](docs/答辩PPT.html) 对应的主幻灯片文件。</p>
+    </section>
+
+    <section class="grid">
+      <article class="note-card"><div class="title-row"><h2>封面</h2><span class="slide-no">第 01 页</span></div><p>老师好，我叫赵银荧，来自数据科学与信息技术学院数字媒体技术专业。我的毕业设计题目是《文字冒险游戏内容生成系统的设计与实现》，指导老师是张洋老师。下面我将用大约十二分钟向各位老师汇报我的研究工作，请多指教。</p></article>
+      <article class="note-card"><div class="title-row"><h2>目录</h2><span class="slide-no">第 02 页</span></div><p>本次汇报共分六个部分。首先介绍研究背景，说明为什么要做这个系统；接着分析现有方法的不足，引出本文要解决的四个核心问题；然后介绍系统整体方案和各关键模块的设计；最后展示测试结果，并对创新点和不足进行总结。</p></article>
+      <article class="note-card"><div class="title-row"><h2>研究背景</h2><span class="slide-no">第 03 页</span></div><p>文字冒险游戏是一种以文字叙事为核心、以玩家选择推动情节的游戏形式。经典文学拥有完整的人物和情节，是非常理想的改编素材。但在实际操作中，把一篇文学原著改编成多分支游戏，几乎全靠人工，不仅耗时费力，还很难保证多条分支路径之间角色行为和状态的逻辑一致性。近年来大语言模型的快速发展，给这个问题带来了新的解题思路，这也是本文研究的出发点。</p></article>
+      <article class="note-card"><div class="title-row"><h2>现有方法局限</h2><span class="slide-no">第 04 页</span></div><p>现有的互动叙事生成方法主要有三类。集中式方法像 Façade，全局可控，但内容全靠手工编写，无法规模化。分布式智能体方法角色更自主，但跨路径的逻辑一致性很难保证。直接用大语言模型的方案生成很灵活，但在长篇分支叙事中容易忘记前文的人物状态，出现逻辑错乱。本文的方案希望在 LLM 的灵活性和结构化约束之间找到平衡点。</p></article>
+      <article class="note-card"><div class="title-row"><h2>研究问题</h2><span class="slide-no">第 05 页</span></div><p>围绕“从文学到游戏”这一目标，我将整个问题拆解为四个子问题。第一个是结构化表示问题，原文是自然语言，机器无法直接理解，需要先把事件和关系提取出来。第二个是状态一致性问题，多条分支里同一个角色的状态必须逻辑自洽。第三个是分支决策问题，LLM 要能在循环流程中自主判断继续走分支、合流回主线，还是触发结局。第四个是工程化交付问题，最终要输出能直接运行的游戏。</p></article>
+      <article class="note-card"><div class="title-row"><h2>系统方案</h2><span class="slide-no">第 06 页</span></div><p>整个系统分为两个维度来理解。横向来看，是五个阶段的处理流水线，从原始文本一步步变成可运行的游戏。纵向来看，是四层模块化架构，最上层是用户界面，往下依次是业务逻辑、基础设施和外部服务。系统的设计原则是自动为主、人工为辅，在关键节点上允许开发者介入审查，确保生成质量。</p></article>
+      <article class="note-card"><div class="title-row"><h2>关键技术支撑</h2><span class="slide-no">第 07 页</span></div><p>系统依赖四项关键技术协同工作。大语言模型是内容理解和生成的核心引擎，通过函数调用机制让模型的输出从自然语言变成可执行的程序指令。Neo4j 知识图谱把原著的事件和关系结构化存储，给后续生成提供可靠的事实锚点。LangGraph 用来编排分支生成的决策流程，防止模型在复杂循环中失控。最后由 Ren'Py 引擎承接所有内容，输出可直接运行的游戏。</p></article>
+      <article class="note-card"><div class="title-row"><h2>事件图谱构建模块</h2><span class="slide-no">第 08 页</span></div><p>前两个模块的核心任务是把原始文字变成机器可用的结构化数据。事件图谱模块把全文拆成段落，用 LLM 逐段抽取事件，最终在 Neo4j 里形成一张事件关系图谱。角色建模模块在图谱基础上进一步完成两件事：一是把同一个角色的不同称谓统一起来，比如“皇帝”“天子”“陛下”都指同一个人；二是提取人物的内在状态、人际关系状态和世界状态，为后续分支生成提供稳定的状态基线。</p></article>
+      <article class="note-card"><div class="title-row"><h2>状态管理与分支生成</h2><span class="slide-no">第 09 页</span></div><p>这一页是系统最核心的技术部分。为了保证多条分支里角色行为不矛盾，我设计了三层状态模型，分别追踪人物内在、人物关系和世界物品三类状态，每个事件发生后都会触发状态更新。分支生成则用 LangGraph 来编排，LLM 在一个循环流程里不断做决策，是继续延伸这条分支、还是合流回主线、还是触发结局。同时为了防止长路径生成时上下文溢出，系统设计了滑动窗口和消息摘要两种压缩机制。</p></article>
+      <article class="note-card"><div class="title-row"><h2>叙事扩写与脚本生成</h2><span class="slide-no">第 10 页</span></div><p>前面几个模块产生的还是结构化的数据，这两个模块负责把数据变成真正可以读、可以玩的内容。叙事扩写模块调用 Gemini 模型，把每个事件的简短描述扩写成有文学感的场景叙述和人物对话，同时加入玩家交互选项。脚本生成模块则把扩写结果自动翻译成 Ren'Py 引擎的脚本语言，包括角色定义、背景图绑定、分支跳转等，整个过程不需要手动写一行 Ren'Py 代码。</p></article>
+      <article class="note-card"><div class="title-row"><h2>系统测试与实验结果</h2><span class="slide-no">第 11 页</span></div><p>系统以短篇小说《王佛脱险记》作为实验文本，对六个功能模块逐一进行了测试。测试重点验证了字段完整性、别名消歧、状态语义一致性、分支因果合理性、叙事风格以及游戏可玩性等关键指标，全部测试用例均通过。根据当前工程统计，主线路径脚本为 502 行，14 个角色已完成定义与绑定。</p></article>
+      <article class="note-card"><div class="title-row"><h2>游戏效果展示</h2><span class="slide-no">第 12 页</span></div><p>这是系统最终输出的游戏效果。在 Ren'Py 引擎里可以直接运行，玩家在关键决策点做出选择后，会进入不同的分支路径，并到达各自对应的结局。当前工程中有 5 个路径脚本和 10 个结局脚本，14 个角色都有定义和资源绑定，游戏的交互流程是完整闭环的。整体来看，从输入一篇文学原著，到输出一个可玩的游戏，系统实现了完整的端到端自动化。</p></article>
+      <article class="note-card"><div class="title-row"><h2>创新点总结</h2><span class="slide-no">第 13 页</span></div><p>本文的创新主要体现在三个方面。第一，提出了知识图谱驱动的五阶段流水线，把整个从文学到游戏的转化过程系统化、工程化。第二，设计了三层状态模型配合函数调用的状态管理方案，从根本上解决了多分支叙事中角色状态矛盾的问题。第三，用 LangGraph 工作流编排分支决策，让 LLM 在有约束的循环流程里自主做出结构性判断，而不是无约束地自由生成。</p></article>
+      <article class="note-card"><div class="title-row"><h2>不足与改进方向</h2><span class="slide-no">第 14 页</span></div><p>当然，系统也存在一些不足。主要有三点：一是目前只在中短篇文本上做了验证，对长篇小说的效果未知；二是对 LLM API 的依赖较强，生成成本偏高；三是测试主要停留在功能层面，缺乏量化的质量评估指标。未来可以从这几个方向继续改进，比如引入分层事件图谱处理长文本，或建立自动化的叙事质量评分体系。</p></article>
+      <article class="note-card"><div class="title-row"><h2>总结与致谢</h2><span class="slide-no">第 15 页</span></div><p>以上就是我的全部汇报内容。本文围绕“从文学原著自动生成文字冒险游戏”这一目标，设计并实现了一套端到端的内容生成系统，提出了知识图谱驱动的五阶段流水线、三层状态模型和 LangGraph 工作流编排三项核心创新，并以《王佛脱险记》完成了完整的实验验证。感谢张洋老师一路的指导，感谢各位评委老师的聆听，请老师们批评指正，谢谢。</p></article>
+      <article class="note-card"><div class="title-row"><h2>开场 30 秒自我介绍稿</h2><span class="slide-no">附录 01</span></div><p>各位评委老师好！我叫赵银荧，是数据科学与信息技术学院数字媒体技术专业 2022 级的学生，学号 220812055，指导教师是张洋老师。我的毕业设计题目是《文字冒险游戏内容生成系统的设计与实现》。本次答辩我将用大约十二分钟向各位老师汇报研究思路、系统设计与实验结果，恳请老师们批评指正，谢谢！</p><div class="tip">使用建议：如果现场紧张，可以先记住四个锚点：姓名、专业、题目、汇报时长。</div></article>
+      <article class="note-card"><div class="title-row"><h2>结尾 30 秒总结稿</h2><span class="slide-no">附录 02</span></div><p>综上所述，本文针对“经典文学到可运行文字冒险游戏”的端到端自动化转化问题，提出了基于知识图谱和有状态工作流的内容生成系统。系统通过五阶段流水线，将非结构化文学文本逐步转化为可在 Ren'Py 引擎中直接运行的游戏，完成了对四个核心子问题的系统性解答，并以《王佛脱险记》完成了全流程实验验证。感谢张洋老师在整个研究过程中的悉心指导，也感谢各位评委老师的宝贵时间，我的汇报到此结束，请老师们提问，谢谢！</p><div class="tip">使用建议：如果时间被压缩，这段可以只保留“技术路线、实验验证、致谢”三部分。</div></article>
+      <article class="note-card"><div class="title-row"><h2>答辩问答清单（一）</h2><span class="slide-no">附录 03</span></div><ul><li>回答不确定的问题时，可以先承认边界，再指出论文第六章中的局限和后续改进方向。</li><li>建议答问时先给结论，再补具体例子，比如“以《王佛脱险记》为例”。</li></ul></article>
+      <article class="note-card"><div class="title-row"><h2>答辩问答清单（二）</h2><span class="slide-no">附录 04</span></div><ul><li>如果老师问到没有实验数据支撑的内容，不要硬答；直接明确“目前还没有充分验证，这是下一步计划”。</li><li>每个回答尽量控制在 60 到 90 秒内，先结论后展开。</li></ul></article>
+    </section>
+  </main>
+</body>
+</html>

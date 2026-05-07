@@ -44,16 +44,166 @@ JAPANESE_MUSIC_PACK_DIR = os.path.join(ASSETS, "Japanese Music Pack")
 AUDIO_DIR = os.path.join(WANGFO_GAME, "audio")
 
 
+def _default_game_dir() -> str:
+    """选择默认 Ren'Py game 目录：优先已有工程，其次回退到 ``wangfo/game``。"""
+    wangfo_game = os.path.join(ROOT, "wangfo", "game")
+    demo_game = os.path.join(ROOT, "demo", "game")
+
+    # 保持历史兼容：若 wangfo/game 已存在，继续优先使用它。
+    if os.path.isfile(os.path.join(wangfo_game, "script.rpy")):
+        return wangfo_game
+    # 常见 Demo 工程位置：demo/game。
+    if os.path.isfile(os.path.join(demo_game, "script.rpy")):
+        return demo_game
+    return wangfo_game
+
+
 def _set_game_paths(game_dir: str | None) -> None:
     """将资源写入目标 Ren'Py 工程的 ``game`` 目录（与脚本导入所选目录一致）。"""
     global WANGFO_GAME, IMAGES, GUI_DST, AUDIO_DIR
     if game_dir and str(game_dir).strip():
         WANGFO_GAME = os.path.normpath(os.path.abspath(str(game_dir).strip()))
     else:
-        WANGFO_GAME = os.path.join(ROOT, "wangfo", "game")
+        WANGFO_GAME = os.path.normpath(os.path.abspath(_default_game_dir()))
     IMAGES = os.path.join(WANGFO_GAME, "images")
     GUI_DST = os.path.join(WANGFO_GAME, "gui")
     AUDIO_DIR = os.path.join(WANGFO_GAME, "audio")
+
+
+def _write_event_scene_map(path: str) -> None:
+    """写入事件/结局到背景映射 JSON。"""
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump({"event": EVENT_SCENE_MAP, "ending": ENDING_SCENE_MAP}, f, ensure_ascii=False, indent=2)
+
+
+def _ensure_canonical_entry_scene() -> bool:
+    """兜底确保 canonical_path 入口在第一条可执行语句前设置背景。"""
+    canonical_path = os.path.join(WANGFO_GAME, "paths", "canonical_path.rpy")
+    if not os.path.isfile(canonical_path):
+        return False
+
+    with open(canonical_path, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
+    label_idx = None
+    for i, line in enumerate(lines):
+        if line.strip() == "label canonical_path:":
+            label_idx = i
+            break
+    if label_idx is None:
+        return False
+
+    first_stmt_idx = None
+    for i in range(label_idx + 1, len(lines)):
+        s = lines[i].strip()
+        if not s or s.startswith("#"):
+            continue
+        first_stmt_idx = i
+        break
+
+    if first_stmt_idx is not None and lines[first_stmt_idx].lstrip().startswith("scene "):
+        return False
+
+    scene_name = EVENT_SCENE_MAP.get("E1", "bg_scene_06")
+    insertion = [f"    scene {scene_name}\n", "\n"]
+    insert_at = label_idx + 1
+    lines[insert_at:insert_at] = insertion
+
+    with open(canonical_path, "w", encoding="utf-8") as f:
+        f.writelines(lines)
+    return True
+
+
+def _ensure_sideimage_behind_textbox() -> bool:
+    """修补 say 屏幕绘制顺序：先绘制 SideImage，再绘制 window。"""
+    screens_path = os.path.join(WANGFO_GAME, "screens.rpy")
+    if not os.path.isfile(screens_path):
+        return False
+
+    with open(screens_path, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
+    marker = "# import_assets: sideimage layered under textbox"
+    if any(marker in ln for ln in lines):
+        return False
+
+    say_start = None
+    for i, ln in enumerate(lines):
+        if ln.lstrip().startswith("screen say("):
+            say_start = i
+            break
+    if say_start is None:
+        return False
+
+    say_end = len(lines)
+    for i in range(say_start + 1, len(lines)):
+        s = lines[i].strip()
+        if s.startswith("screen ") and not lines[i].startswith((" ", "\t")):
+            say_end = i
+            break
+
+    window_i = None
+    for i in range(say_start + 1, say_end):
+        if lines[i].strip() == "window:":
+            window_i = i
+            break
+    if window_i is None:
+        return False
+
+    side_i = None
+    for i in range(say_start + 1, say_end):
+        if "add SideImage()" in lines[i]:
+            side_i = i
+            break
+    if side_i is None:
+        return False
+
+    # 找到包含 SideImage 的 if 代码块起止（通常是 if not renpy.variant("small")）
+    block_start = side_i
+    for i in range(side_i - 1, say_start, -1):
+        if lines[i].strip().startswith("if "):
+            if_indent = lines[i][: len(lines[i]) - len(lines[i].lstrip())]
+            line_indent = lines[side_i][: len(lines[side_i]) - len(lines[side_i].lstrip())]
+            if len(line_indent) > len(if_indent):
+                block_start = i
+            break
+
+    base_indent = lines[block_start][: len(lines[block_start]) - len(lines[block_start].lstrip())]
+    block_end = say_end
+    for i in range(block_start + 1, say_end):
+        stripped = lines[i].strip()
+        if not stripped:
+            continue
+        indent = lines[i][: len(lines[i]) - len(lines[i].lstrip())]
+        if len(indent) <= len(base_indent):
+            block_end = i
+            break
+
+    block = lines[block_start:block_end]
+    del lines[block_start:block_end]
+
+    # 删除后索引会变化，重新定位 window
+    say_end2 = len(lines)
+    for i in range(say_start + 1, len(lines)):
+        s = lines[i].strip()
+        if s.startswith("screen ") and not lines[i].startswith((" ", "\t")):
+            say_end2 = i
+            break
+    window_i2 = None
+    for i in range(say_start + 1, say_end2):
+        if lines[i].strip() == "window:":
+            window_i2 = i
+            break
+    if window_i2 is None:
+        return False
+
+    patched_block = [base_indent + marker + "\n"] + block + ["\n"]
+    lines[window_i2:window_i2] = patched_block
+
+    with open(screens_path, "w", encoding="utf-8") as f:
+        f.writelines(lines)
+    return True
 GAME_MUSIC_DST_NAME = "voice_of_evening.mp3"
 
 # 立绘文件名后缀（自动发现）
@@ -178,10 +328,41 @@ def discover_sprite_pngs():
     return results
 
 
+def _inject_bgm_into_script(audio_rel_path: str) -> None:
+    """在 script.rpy 的 label start: 块首行注入 play music 语句（幂等）。"""
+    script_path = os.path.join(WANGFO_GAME, "script.rpy")
+    if not os.path.isfile(script_path):
+        print("script.rpy not found, skip BGM injection")
+        return
+    with open(script_path, "r", encoding="utf-8") as f:
+        content = f.read()
+    play_stmt = 'play music "%s" fadein 1.0' % audio_rel_path
+    # 已经注入过则跳过（幂等）
+    if play_stmt in content:
+        print("BGM already injected in script.rpy, skip")
+        return
+    # 在 "label start:" 之后的第一个空白缩进行前插入
+    import re
+    pattern = r'(label start:\s*\n)'
+    replacement = r'\1    %s\n' % play_stmt
+    new_content, count = re.subn(pattern, replacement, content, count=1)
+    if count == 0:
+        print("Could not find 'label start:' in script.rpy, skip BGM injection")
+        return
+    with open(script_path, "w", encoding="utf-8") as f:
+        f.write(new_content)
+    print("Injected BGM into script.rpy: %s" % play_stmt)
+
+
 def import_voice_of_evening():
     """从已解压的 Japanese Music Pack 文件夹中复制 Voice Of Evening 曲目到 game/audio/。"""
     if not os.path.isdir(JAPANESE_MUSIC_PACK_DIR):
-        print("Japanese Music Pack folder not found, skip game music import")
+        # 音频包不存在时，若文件已经就位则仍注入 BGM 指令
+        dst_path = os.path.join(AUDIO_DIR, GAME_MUSIC_DST_NAME)
+        if os.path.isfile(dst_path):
+            _inject_bgm_into_script("audio/%s" % GAME_MUSIC_DST_NAME)
+        else:
+            print("Japanese Music Pack folder not found, skip game music import")
         return
     os.makedirs(AUDIO_DIR, exist_ok=True)
     dst_path = os.path.join(AUDIO_DIR, GAME_MUSIC_DST_NAME)
@@ -199,6 +380,7 @@ def import_voice_of_evening():
     try:
         shutil.copy2(src_path, dst_path)
         print("Copied game music: %s -> game/audio/%s" % (os.path.basename(src_path), GAME_MUSIC_DST_NAME))
+        _inject_bgm_into_script("audio/%s" % GAME_MUSIC_DST_NAME)
     except Exception as e:
         print("Failed to import Voice Of Evening: %s" % e)
 
@@ -290,6 +472,7 @@ def main(
         entities_file: 可选 ``entities.json``；省略时行为与 ``generate_renpy_scripts.generate_content_and_scripts`` 一致。
     """
     _set_game_paths(game_dir)
+    print("Import target game dir: %s" % WANGFO_GAME)
     os.makedirs(IMAGES, exist_ok=True)
     os.makedirs(os.path.join(IMAGES, "backgrounds"), exist_ok=True)
 
@@ -319,6 +502,8 @@ def main(
             for v in sprite_vars:
                 f.write(v + "\n")
         print("Wrote sprite_vars.txt for character_generator (image= attribute)")
+        if _ensure_sideimage_behind_textbox():
+            print("Patched screens.rpy: SideImage is now under textbox layer")
     else:
         # 无立绘时也写入空文件，避免保留旧的 sprite_vars 导致错误关联
         sprite_vars_path = os.path.join(WANGFO_GAME, "sprite_vars.txt")
@@ -332,8 +517,7 @@ def main(
 
     # 1b. 事件→场景映射：写入 JSON，供 path_script_generator 使用
     event_scene_path = os.path.join(WANGFO_GAME, "event_scene_map.json")
-    with open(event_scene_path, "w", encoding="utf-8") as f:
-        json.dump({"event": EVENT_SCENE_MAP, "ending": ENDING_SCENE_MAP}, f, ensure_ascii=False, indent=2)
+    _write_event_scene_map(event_scene_path)
     print("Wrote event_scene_map.json (event/ending -> bg_scene)")
 
     # 1c. 游戏音乐：从 Japanese Music Pack.zip 提取 Voice Of Evening 到 game/audio/
@@ -415,9 +599,13 @@ def main(
             wangfo_game_dir=Path(WANGFO_GAME),
             entities_file=entities_file,
         )
+        if _ensure_canonical_entry_scene():
+            print("Patched canonical_path entry scene fallback")
     except Exception as e:
         print("")
         print("⚠️  跳过脚本生成（需 out/enhanced_paths 等）: %s" % e)
+        if _ensure_canonical_entry_scene():
+            print("Patched canonical_path entry scene fallback (without regeneration)")
 
 if __name__ == "__main__":
     main()

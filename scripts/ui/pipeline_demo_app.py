@@ -22,6 +22,7 @@ import os
 import sys
 from pathlib import Path
 from typing import Any
+import streamlit as _st
 
 # 确保项目根在 sys.path（streamlit 直接跑本文件时无包上下文，不能用相对导入）
 _project_root = Path(__file__).resolve().parent.parent.parent
@@ -44,7 +45,9 @@ from scripts.ui import enhanced_content_preview
 import src.pipeline.builtin_steps as _builtin_mod
 from src.core.neo4j_bootstrap import ensure_neo4j_ready
 
-importlib.reload(_builtin_mod)
+# 默认关闭每次 rerun 的 reload；需要热重载时可手动设置环境变量开启。
+if os.environ.get("STREAMLIT_RELOAD_BUILTIN_STEPS", "").strip() == "1":
+    importlib.reload(_builtin_mod)
 BUILTIN_STEP_SPECS = _builtin_mod.BUILTIN_STEP_SPECS
 artifacts_all_present_for_reuse = getattr(
     _builtin_mod, "artifacts_all_present_for_reuse", None
@@ -79,6 +82,24 @@ _UI_RABBIT_ASSETS: tuple[str, ...] = (
 )
 _UI_ASSETS_DIR_NAME = "ui_assets"
 
+
+@_st.cache_data(show_spinner=False)
+def _read_file_base64(path_str: str) -> str | None:
+    """读取文件并返回 base64 字符串（跨 rerun 缓存）。"""
+    p = Path(path_str)
+    if not p.is_file():
+        return None
+    return base64.b64encode(p.read_bytes()).decode("ascii")
+
+
+@_st.cache_data(show_spinner=False)
+def _data_uri_for_file(path_str: str, mime: str) -> str | None:
+    """返回 data URI（跨 rerun 缓存）。"""
+    b64 = _read_file_base64(path_str)
+    if not b64:
+        return None
+    return f"data:{mime};base64,{b64}"
+
 _STEP_ICONS: dict[str, str] = {
     "extract-events": "📖",
     "extract-events-and-relations": "🔗",
@@ -106,11 +127,11 @@ _PIPELINE_STEPS: list[tuple[str, str]] = [
     ("import-neo4j-all", "⑤ 导入图数据库"),
     ("analyze-decision-points", "⑥ 决策点分析"),
     ("generate-canonical-branch", "⑦ 主线生成"),
-    ("generate-branch", "⑧ 分支生成"),
+    ("generate-branch", "⑧ 分支选项生成"),
     ("determine-ending-candidates", "⑨ 结局候选"),
-    ("generate-all-paths", "⑩ 路径枚举"),
+    ("generate-all-paths", "⑩ 分支路径生成"),
     ("complete-all-path-events", "⑪ 路径事件补全"),
-    ("generate-content", "⑫ 内容生成"),
+    ("generate-content", "⑫ 叙事扩写"),
 ]
 
 _STEP_CHINESE: dict[str, str] = {k: v for k, v in _PIPELINE_STEPS}
@@ -189,7 +210,7 @@ def _ui_asset_data_uri(ui_dir: Path, filename: str) -> str | None:
         return None
     suf = p.suffix.lower()
     mime = "image/png" if suf == ".png" else "image/jpeg"
-    return f"data:{mime};base64,{base64.b64encode(p.read_bytes()).decode('ascii')}"
+    return _data_uri_for_file(str(p), mime)
 
 
 def _rabbit_sticker_tags(ui_dir: Path, *, variant: str) -> str:
@@ -227,7 +248,9 @@ def _midable_xiaolai_font_face_css(ui_dir: Path) -> str:
     parts: list[str] = []
     mid = _project_root / "assets" / _UI_ASSETS_DIR_NAME / "midable" / "OpenType-TT" / "Midable.ttf"
     if mid.is_file():
-        b64 = base64.b64encode(mid.read_bytes()).decode("ascii")
+        b64 = _read_file_base64(str(mid))
+        if not b64:
+            b64 = ""
         parts.append(
             f"""
         @font-face {{
@@ -242,7 +265,9 @@ def _midable_xiaolai_font_face_css(ui_dir: Path) -> str:
         )
     xia = _project_root / "assets" / _UI_ASSETS_DIR_NAME / "xiaolai" / "XiaolaiSC-Regular.ttf"
     if xia.is_file():
-        xia_b64 = base64.b64encode(xia.read_bytes()).decode("ascii")
+        xia_b64 = _read_file_base64(str(xia))
+        if not xia_b64:
+            xia_b64 = ""
         src_css = f"""
             src: url("data:font/ttf;base64,{xia_b64}") format("truetype");
             font-weight: 400;
@@ -308,7 +333,9 @@ def _apply_sidebar_background(st, ui_dir: Path) -> None:
     if not bg_path.is_file():
         return
     mime = "image/jpeg"
-    b64 = base64.b64encode(bg_path.read_bytes()).decode("ascii")
+    b64 = _read_file_base64(str(bg_path))
+    if not b64:
+        return
     st.markdown(
         f"""
         <style>
@@ -336,7 +363,9 @@ def _apply_header_background_top(st, ui_dir: Path) -> None:
     if not bg_path.is_file():
         return
     mime = "image/jpeg"
-    b64 = base64.b64encode(bg_path.read_bytes()).decode("ascii")
+    b64 = _read_file_base64(str(bg_path))
+    if not b64:
+        return
     st.markdown(
         f"""
         <style>
@@ -451,8 +480,8 @@ def _render_pipeline_overview(st) -> None:
         ("事件抽取", "从原文提取关键叙事事件"),
         ("决策点分析", "识别可产生分支的故事节点"),
         ("主线生成", "构建故事主干路径"),
-        ("分支生成", "基于决策点扩展多条支线"),
-        ("内容生成", "为每条路径生成对话与描写"),
+        ("分支选项生成", "基于决策点生成可选支线"),
+        ("叙事扩写", "为每条路径生成对话与描写"),
         ("脚本输出", "Ren'Py 可执行脚本导入游戏工程"),
     ]
     parts: list[str] = []
@@ -566,11 +595,11 @@ def _page_home(st, ui_dir: Path) -> None:
         )
         st.subheader("快速上手")
         st.markdown(
-            "1. **选择小说** — 书库选 txt 或上传 txt/epub\n"
-            "2. **参数配置** — 先配置好参数，再前往「🚀 一键运行」一键跑完整流程\n"
-            "3. **一键运行** 或 **单步执行** — 12 步流水线至 **内容生成**\n"
-            "4. **运行结果** — 查看/编辑各路径 JSON\n"
-            "5. **游戏运行** — 启动 Ren'Py、导入脚本与资源"
+            "1. **选择小说** — 在书库中选择 txt，或上传 txt/epub 文件\n"
+            "2. **参数配置** — 按需要调整参数，准备后续执行流程\n"
+            "3. **一键运行** 或 **单步执行** — 完成 12 步流水线，直达 **叙事扩写**\n"
+            "4. **运行结果** — 查看并按需编辑各路径结果文件\n"
+            "5. **游戏运行** — 启动 Ren'Py，并导入脚本与资源"
         )
         st.markdown(
             f'<span aria-hidden="true" style="position:relative;display:block;overflow:visible;height:0;">{r6}</span>',
@@ -775,7 +804,7 @@ def _page_configure(st, project_root: Path, default_base: Path) -> None:
             # `input_dir` 会由运行时根据当前 run 自动推导（或从模板继承），不应该在前端展示
             visible = {k: v for k, v in visible.items() if k != "input_dir"}
         if step_name == "generate-content":
-            # 内容生成的输出/input/personas/player_choice_catalog 均由运行时自动推导，
+            # 叙事扩写的输出/input/personas/player_choice_catalog 均由运行时自动推导，
             # 前端仅保留非路径类开关，避免用户改这些“路径型参数”。
             visible = {
                 k: v
@@ -1047,7 +1076,7 @@ def _page_tools(st, project_root: Path, default_base: Path) -> None:
     st.subheader("🎮 Ren'Py 脚本导入")
     with st.expander("导入到 Ren'Py 工程（game 目录）", expanded=True):
         st.caption(
-            "运行前请确保你已经完成「内容生成」，并在 Ren'Py Launcher 创建好了工程。"
+            "运行前请确保你已经完成「叙事扩写」，并在 Ren'Py Launcher 创建好了工程。"
             " 下方路径与 **资源导入** 共用。"
         )
 
@@ -1808,10 +1837,10 @@ def _render_success_preview_for_single_step(
         )
         if out_path is not None and out_path.is_dir():
             st.divider()
-            st.subheader("路径枚举结果预览")
+            st.subheader("分支路径生成结果预览")
             all_paths_preview.render_in_streamlit(st, out_path, project_root=project_root)
         elif out_path is not None:
-            st.warning(f"路径枚举的 ``output`` 应为目录，当前无法预览：{out_path}")
+            st.warning(f"分支路径生成的 ``output`` 应为目录，当前无法预览：{out_path}")
         return
 
     if step_name == "generate-content":
@@ -2070,7 +2099,7 @@ def _page_single_step(st, project_root: Path, default_base: Path) -> None:
         st.divider()
         st.markdown("**生成模式（用勾选组合控制）**")
         opt_reuse = st.checkbox(
-            "复用已有润色内容（不重新跑内容生成）",
+            "复用已有润色内容（不重新跑叙事扩写）",
             value=True,
             key="gc_mode_reuse_content",
             help="勾选：若 enhanced_paths 已有完整结果，会直接复用，不覆盖你的润色内容。",
@@ -2609,7 +2638,7 @@ def _page_single_step(st, project_root: Path, default_base: Path) -> None:
 def _page_enhanced_text(st, project_root: Path, default_base: Path) -> None:
     st.header("📊 运行结果")
     st.caption(
-        "这里展示的是「内容生成」步骤产出的结果（默认每条剧情路径对应一个结果文件）。"
+        "这里展示的是「叙事扩写」步骤产出的结果（默认每条剧情路径对应一个结果文件）。"
         "主线和支线可分别选择；点击保存会直接更新该文件，后续生成游戏脚本时会自动读取你保存后的内容。"
     )
 

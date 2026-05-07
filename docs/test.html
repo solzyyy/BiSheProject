@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>毕业答辩PPT - 文字冒险游戏内容生成系统</title>
+  <style>
+    :root {
+      --bg: #fdfaf5;
+      --bg-darker: #f2ede4;
+      --paper: #ffffff;
+      --ink: #2c3e50;
+      --muted: #7f8c8d;
+      --accent: #c0392b; /* 故宫红 */
+      --accent-light: #e74c3c;
+      --gold: #d4af37;
+      --shadow: 0 12px 40px rgba(0,0,0,0.08);
+      --radius: 12px;
+      --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-darker);
+      color: var(--ink);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Serif CN", serif;
+      overflow: hidden; /* 防止滚动，由JS控制显示 */
+    }
+
+    /* 幻灯片容器 */
+    .slides-container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .slide {
+      position: absolute;
+      width: 90%;
+      max-width: 1200px;
+      height: 85%;
+      background: var(--paper);
+      padding: 60px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(20px) scale(0.98);
+      pointer-events: none;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+      z-index: 10;
+    }
+
+    /* 标题样式 */
+    .slide-header {
+      border-left: 6px solid var(--accent);
+      padding-left: 25px;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .slide-header h1 {
+      font-size: 2.8rem;
+      letter-spacing: -0.5px;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .slide-header h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .slide-index {
+      font-family: "Georgia", serif;
+      font-style: italic;
+      color: var(--gold);
+      font-size: 1.5rem;
+    }
+
+    /* 正文布局 */
+    .slide-frame {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding-right: 15px;
+    }
+
+    /* 内容卡片化 */
+    .qa-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .qa-card {
+      background: var(--bg);
+      padding: 25px;
+      border-radius: 10px;
+      border-bottom: 3px solid var(--accent-light);
+      transition: var(--transition);
+    }
+
+    .qa-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    .qa-card h3 {
+      color: var(--accent);
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+    }
+
+    .qa-card h3::before {
+      content: "Q.";
+      margin-right: 8px;
+      font-weight: 800;
+      opacity: 0.5;
+    }
+
+    /* 附录标签 */
+    .appendix-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    /* 导航控件 */
+    .controls {
+      position: fixed;
+      bottom: 20px;
+      right: 40px;
+      z-index: 100;
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn {
+      background: var(--paper);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    .progress-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 4px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+      z-index: 1000;
+    }
+
+    /* 针对不同内容类型的微调 */
+    p { line-height: 1.8; color: #444; }
+    
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<div class="slides-container">
+  <section class="slide active" id="slide-1">
+    <div class="slide-header">
+      <div>
+        <span class="appendix-badge">附录</span>
+        <h1>答辩问答清单（二）</h1>
+        <h2>核心策略：模型选型、通用性、成本与幻觉控制</h2>
+      </div>
+      <div class="slide-index">Appendix 04</div>
+    </div>
+    <div class="slide-frame">
+      <div class="qa-grid">
+        <div class="qa-card">
+          <h3>为什么要用 DeepSeek 和 Gemini 两个模型？</h3>
+          <p>两者分工不同。DeepSeek 更适合结构化任务和流程决策，Gemini 更适合叙事扩写和文学表达。双客户端隔离还能减少上下文互相干扰。</p>
+        </div>
+        <div class="qa-card">
+          <h3>系统是否通用于其他文学文本？</h3>
+          <p>架构上具备通用性，输入文本和提示词均可替换，但目前完整验证仍主要集中在《王佛脱险记》这一短篇文本上，通用性还需更多实验支撑。</p>
+        </div>
+        <div class="qa-card">
+          <h3>运行时间与成本如何？</h3>
+          <p>系统包含大量 API 调用，整体耗时受文本长度、网络和限速影响明显。当前通过异步并发优化效率，但成本控制仍是未来优化重点。</p>
+        </div>
+        <div class="qa-card">
+          <h3>如何防止模型幻觉？</h3>
+          <p>要求事件抽取提供原文锚点字段，并以后续图谱中已有事件为事实底座进行校验，通过多步验证减少凭空捏造。</p>
+        </div>
+        <div class="qa-card">
+          <h3>专业应用价值在哪？</h3>
+          <p>为创作者提供自动化的世界观搭建工具，降低互动叙事内容的开发门槛，尤其在IP改编和辅助创作领域有落地潜力。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+<div class="controls">
+  <button class="btn" onclick="prevSlide()">← PREV</button>
+  <button class="btn" onclick="nextSlide()">NEXT →</button>
+</div>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const progress = document.getElementById('progress');
+
+  function showSlide(index) {
+    slides.forEach(s => s.classList.remove('active'));
+    slides[index].classList.add('active');
+    const percent = ((index + 1) / slides.length) * 100;
+    progress.style.width = percent + '%';
+  }
+
+  function nextSlide() {
+    if (currentSlide < slides.length - 1) {
+      currentSlide++;
+      showSlide(currentSlide);
+    }
+  }
+
+  function prevSlide() {
+    if (currentSlide > 0) {
+      currentSlide--;
+      showSlide(currentSlide);
+    }
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') nextSlide();
+    if (e.key === 'ArrowLeft') prevSlide();
+  });
+</script>
+
+</body>
+</html>

@@ -191,7 +191,12 @@ def generate_content_and_scripts(
     print("")
 
     print("[Step 2] 生成路径脚本...")
-    path_script_generator = PathScriptGenerator(char_generator, path_map, entities_path=entities_path)
+    path_script_generator = PathScriptGenerator(
+        char_generator,
+        path_map,
+        entities_path=entities_path,
+        event_scene_map_file=str(wg / "event_scene_map.json"),
+    )
     for path_data in content_result:
         renpy_label = path_data.get("renpy_label") or path_data.get("path_id", "unknown").replace("/", "_").replace("\\", "_")
         path_script_generator.save_path_script(path_data, paths_dir / f"{renpy_label}.rpy")

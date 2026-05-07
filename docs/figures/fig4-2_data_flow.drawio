@@ -1,90 +1,49 @@
-<mxfile host="app.diagrams.net" version="24.0.0">
-  <diagram name="图4-2 五阶段数据流图" id="fig4-2">
-    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="720" pageHeight="960" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-
-        <!-- 原始文本（输入椭圆） -->
-        <mxCell id="in" value="&lt;b&gt;原始文学文本（.txt）&lt;/b&gt;"
-          style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;align=center;verticalAlign=middle;"
-          vertex="1" parent="1">
-          <mxGeometry x="210" y="30" width="300" height="55" as="geometry" />
-        </mxCell>
-
-        <!-- 箭头：原始文本 → 阶段1 -->
-        <mxCell id="e01" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;" edge="1" source="in" target="s1" parent="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-        <!-- 阶段1：事件图谱构建 -->
-        <mxCell id="s1" value="&lt;b&gt;阶段一　事件图谱构建&lt;/b&gt;&lt;br&gt;事件提取（并发异步）　·　关系提取　·　Neo4j 导入"
-          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;"
-          vertex="1" parent="1">
-          <mxGeometry x="160" y="145" width="400" height="70" as="geometry" />
-        </mxCell>
-
-        <!-- 箭头：阶段1 → 阶段2，标注数据文件 -->
-        <mxCell id="e12" value="events.json　·　Neo4j 事件图" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;align=center;" edge="1" source="s1" target="s2" parent="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-        <!-- 阶段2：角色建模 -->
-        <mxCell id="s2" value="&lt;b&gt;阶段二　角色建模&lt;/b&gt;&lt;br&gt;实体消歧　·　三类状态提取　·　TF-IDF/PMI 画像聚合　·　静态人设"
-          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;"
-          vertex="1" parent="1">
-          <mxGeometry x="160" y="285" width="400" height="70" as="geometry" />
-        </mxCell>
-
-        <!-- 箭头：阶段2 → 阶段3 -->
-        <mxCell id="e23" value="entities.json　·　state_baseline.json　·　personas.json" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;align=center;" edge="1" source="s2" target="s3" parent="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-        <!-- 阶段3：分支路径生成 -->
-        <mxCell id="s3" value="&lt;b&gt;阶段三　分支路径生成&lt;/b&gt;&lt;br&gt;主线生成　·　决策点分析　·　LangGraph 路径编排"
-          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;"
-          vertex="1" parent="1">
-          <mxGeometry x="160" y="425" width="400" height="70" as="geometry" />
-        </mxCell>
-
-        <!-- 箭头：阶段3 → 阶段4 -->
-        <mxCell id="e34" value="all_paths_completed.json　·　branches.json" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;align=center;" edge="1" source="s3" target="s4" parent="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-        <!-- 阶段4：叙事扩写 -->
-        <mxCell id="s4" value="&lt;b&gt;阶段四　叙事扩写&lt;/b&gt;&lt;br&gt;场景描述生成　·　对话生成　·　风格约束　·　分段缓存"
-          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;"
-          vertex="1" parent="1">
-          <mxGeometry x="160" y="565" width="400" height="70" as="geometry" />
-        </mxCell>
-
-        <!-- 箭头：阶段4 → 阶段5 -->
-        <mxCell id="e45" value="enhanced_paths/*.json" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;align=center;" edge="1" source="s4" target="s5" parent="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-        <!-- 阶段5：脚本化呈现 -->
-        <mxCell id="s5" value="&lt;b&gt;阶段五　脚本化呈现&lt;/b&gt;&lt;br&gt;角色定义生成　·　路径/结局脚本　·　资源导入"
-          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=center;verticalAlign=middle;"
-          vertex="1" parent="1">
-          <mxGeometry x="160" y="705" width="400" height="70" as="geometry" />
-        </mxCell>
-
-        <!-- 箭头：阶段5 → 输出 -->
-        <mxCell id="e5out" value="*.rpy　·　images/　·　audio/" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;align=center;" edge="1" source="s5" target="out" parent="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-        <!-- 输出（椭圆） -->
-        <mxCell id="out" value="&lt;b&gt;可运行的 Ren'Py 视觉小说游戏工程&lt;/b&gt;"
-          style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=center;verticalAlign=middle;"
-          vertex="1" parent="1">
-          <mxGeometry x="185" y="843" width="350" height="55" as="geometry" />
-        </mxCell>
-
-      </root>
-    </mxGraphModel>
-  </diagram>
+<mxfile host="65bd71144e" pages="6">
+    <diagram name="图4-2 五阶段数据流图" id="fig4-2">
+        <mxGraphModel dx="103" dy="355" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="720" pageHeight="960" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="in" value="&lt;b&gt;原始文学文本（.txt）&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="30" width="300" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="e01" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;" parent="1" source="in" target="s1" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="s1" value="&lt;b&gt;阶段一　事件图谱构建&lt;/b&gt;&lt;br&gt;事件提取（并发异步）　·　关系提取　·　Neo4j 导入" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="145" width="400" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="e12" value="events.json　·　Neo4j 事件图" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;align=center;" parent="1" source="s1" target="s2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="s2" value="&lt;b&gt;阶段二　角色建模&lt;/b&gt;&lt;br&gt;实体消歧　·　三类状态提取　·　TF-IDF/PMI 画像聚合　·　静态人设" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="285" width="400" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="e23" value="entities.json　·　state_baseline.json　·　personas.json" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;align=center;" parent="1" source="s2" target="s3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="s3" value="&lt;b&gt;阶段三　分支路径生成&lt;/b&gt;&lt;br&gt;主线生成　·　决策点分析　·　LangGraph 路径编排" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="425" width="400" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="e34" value="all_paths_completed.json　·　branches.json" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;align=center;" parent="1" source="s3" target="s4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="s4" value="&lt;b&gt;阶段四　叙事扩写&lt;/b&gt;&lt;br&gt;场景描述生成　·　对话生成　·　风格约束　·　分段缓存" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="565" width="400" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="e45" value="enhanced_paths/*.json" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;align=center;" parent="1" source="s4" target="s5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="s5" value="&lt;b&gt;阶段五　脚本化呈现&lt;/b&gt;&lt;br&gt;角色定义生成　·　路径/结局脚本　·　资源导入" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="705" width="400" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="e5out" value="*.rpy　·　images/　·　audio/" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;align=center;" parent="1" source="s5" target="out" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="out" value="&lt;b&gt;可运行的 Ren'Py 视觉小说游戏工程&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;align=center;verticalAlign=middle;" parent="1" vertex="1">
+                    <mxGeometry x="185" y="843" width="350" height="55" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
 </mxfile>
